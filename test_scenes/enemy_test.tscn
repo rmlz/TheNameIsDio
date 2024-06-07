@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8rfiacu2qvwb"]
+
+[ext_resource type="Texture2D" uid="uid://cym3p52ebid77" path="res://assets/TinySword/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="1_4dwpb"]
+[ext_resource type="Texture2D" uid="uid://cm20ej3sg6iyu" path="res://assets/TinySword/Factions/Knights/Troops/Dead/Dead.png" id="2_ldwyx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxahv"]
+line_spacing = 150.0
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_26bbd"]
+line_spacing = 80.0
+font_size = 80
+
+[node name="EnemyTest" type="Node2D"]
+position = Vector2(1257, -6)
+
+[node name="PawnBlue" type="Sprite2D" parent="."]
+position = Vector2(578, 580)
+texture = ExtResource("1_4dwpb")
+
+[node name="Label9" type="Label" parent="PawnBlue"]
+offset_left = -494.0
+offset_top = -662.0
+offset_right = 532.0
+offset_bottom = -566.0
+text = "0         1        2        3       4         5"
+label_settings = SubResource("LabelSettings_fxahv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label10" type="Label" parent="PawnBlue"]
+offset_left = -640.0
+offset_top = -533.0
+offset_right = -569.0
+offset_bottom = 907.0
+text = "0         1        2        3       4         5   6 7"
+label_settings = SubResource("LabelSettings_26bbd")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Dead" type="Sprite2D" parent="."]
+position = Vector2(481, 1309)
+texture = ExtResource("2_ldwyx")

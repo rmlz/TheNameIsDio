@@ -1,0 +1,238 @@
+[gd_scene load_steps=20 format=3 uid="uid://c1har44amtgrx"]
+
+[ext_resource type="Script" path="res://scripts/system/game_start.gd" id="1_enkex"]
+[ext_resource type="Texture2D" uid="uid://ciokqml7afcac" path="res://assets/Title.png" id="1_fdcnf"]
+[ext_resource type="Texture2D" uid="uid://c77ain2y40md5" path="res://assets/TinySword/UI/Banners/Banner_Horizontal.png" id="2_b12b0"]
+[ext_resource type="Texture2D" uid="uid://bly4ixndbw6wb" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides.png" id="3_32f03"]
+[ext_resource type="Texture2D" uid="uid://bsre88jixychl" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides_Pressed.png" id="4_xcu22"]
+[ext_resource type="Texture2D" uid="uid://cyus34w8jg4mu" path="res://assets/TinySword/UI/Buttons/Button_Hover_3Slides.png" id="5_kvmku"]
+[ext_resource type="Texture2D" uid="uid://c31aqkko8g2lb" path="res://assets/TinySword/Deco/14.png" id="6_3fx1u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_485s0"]
+texture = ExtResource("1_fdcnf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qaedy"]
+texture = ExtResource("2_b12b0")
+texture_margin_left = 32.0
+texture_margin_top = 30.0
+texture_margin_right = 32.0
+texture_margin_bottom = 45.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(32, 45, 128, 135)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lxoh2"]
+texture = ExtResource("3_32f03")
+texture_margin_left = 48.0
+texture_margin_top = 15.0
+texture_margin_right = 48.0
+texture_margin_bottom = 30.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 192, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gw7h0"]
+texture = ExtResource("5_kvmku")
+texture_margin_left = 48.0
+texture_margin_top = 15.0
+texture_margin_right = 48.0
+texture_margin_bottom = 34.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8owj"]
+texture = ExtResource("4_xcu22")
+texture_margin_left = 64.0
+texture_margin_top = 15.0
+texture_margin_right = 64.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fj5v"]
+texture = ExtResource("5_kvmku")
+texture_margin_left = 48.0
+texture_margin_top = 15.0
+texture_margin_right = 48.0
+texture_margin_bottom = 34.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="Animation" id="Animation_71f4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPanel:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 244)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(95, 366)]
+}
+
+[sub_resource type="Animation" id="Animation_xeyxp"]
+resource_name = "menuAnimation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonPanel:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 244)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonPanel:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(95, 366), Vector2(95, 300), Vector2(95, 366)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wlqb"]
+_data = {
+"RESET": SubResource("Animation_71f4o"),
+"menuAnimation": SubResource("Animation_xeyxp")
+}
+
+[sub_resource type="Animation" id="Animation_turwr"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.605, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_urlks"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 3.605),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1id2"]
+_data = {
+"fade_in": SubResource("Animation_turwr"),
+"fade_out": SubResource("Animation_urlks")
+}
+
+[node name="GameStart" type="CanvasLayer"]
+script = ExtResource("1_enkex")
+
+[node name="Background" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_485s0")
+
+[node name="ButtonPanel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 95.0
+offset_top = 366.0
+offset_right = 425.0
+offset_bottom = 610.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qaedy")
+
+[node name="StartButton" type="Button" parent="ButtonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -69.0
+offset_right = 114.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.410329, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.507971, 0.366061, 0, 1)
+theme_override_colors/font_focus_color = Color(0.509804, 0.364706, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.509804, 0.364706, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_lxoh2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gw7h0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p8owj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1fj5v")
+button_mask = 7
+text = "Start"
+icon = ExtResource("6_3fx1u")
+
+[node name="MenuAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0wlqb")
+}
+autoplay = "menuAnimation"
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r1id2")
+}
+autoplay = "fade_in"
+
+[connection signal="pressed" from="ButtonPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="animation_finished" from="FadeAnimation" to="." method="_on_fade_out_animation_finished"]

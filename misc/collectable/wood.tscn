@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8jmyervrqfck"]
+
+[ext_resource type="Texture2D" uid="uid://c8u8cnsbyqyhh" path="res://assets/TinySword/Resources/Resources/W_Spawn.png" id="1_5eovf"]
+[ext_resource type="Script" path="res://scripts/collectable.gd" id="2_4sls1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltjl1"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ts3g"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ym8s"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x1aq"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uot27"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfa07"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkkea"]
+atlas = ExtResource("1_5eovf")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnq8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltjl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ts3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ym8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uot27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfa07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkkea")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3kgj"]
+radius = 34.0
+
+[node name="Wood" type="AnimatedSprite2D" groups=["collectable"]]
+position = Vector2(0, -35)
+sprite_frames = SubResource("SpriteFrames_bnq8s")
+autoplay = "default"
+frame_progress = 1.0
+script = ExtResource("2_4sls1")
+health_regen = 2
+points = 500
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 12)
+shape = SubResource("CircleShape2D_g3kgj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
