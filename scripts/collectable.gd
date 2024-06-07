@@ -9,7 +9,7 @@ func _on_area_2d_body_entered(body):
 		on_collect(body)
 
 func on_collect(player: PlayerObject) -> void:
-	player.health += health_regen
+	player.health = min(player.health + health_regen, player.max_health)
 	GameManager.points += points
 	queue_free()
 

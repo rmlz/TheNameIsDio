@@ -9,6 +9,7 @@ extends CharacterBody2D
 var ritual_1_timer: Timer
 
 @export var health: int = 100
+@export var max_health: int = 200
 @export var death_prefab: PackedScene
 @export var ritual1: PackedScene
 @export var ritual1_cooldown: int = 15
@@ -29,6 +30,7 @@ func _ready():
 	ritual_1_timer = $Ritual1Timer
 	ritual_1_timer.wait_time = ritual1_cooldown
 	ritual_1_timer.start()
+	health_bar.max_value = max_health
 	
 
 func _physics_process(delta) -> void:
