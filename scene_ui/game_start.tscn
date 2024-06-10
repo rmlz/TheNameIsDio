@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1har44amtgrx"]
+[gd_scene load_steps=22 format=3 uid="uid://doplp01avuhqa"]
 
 [ext_resource type="Script" path="res://scripts/system/game_start.gd" id="1_mx7pn"]
 [ext_resource type="Texture2D" uid="uid://ciokqml7afcac" path="res://assets/Title.png" id="2_emxg2"]
@@ -63,22 +63,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonPanel:size")
+tracks/0/path = NodePath("ButtonPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(330, 244)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonPanel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -87,31 +75,19 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xeyxp"]
 resource_name = "menuAnimation"
-length = 2.0
+length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonPanel:size")
-tracks/0/interp = 1
+tracks/0/path = NodePath("ButtonPanel:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(330, 244)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonPanel:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.9),
+"times": PackedFloat32Array(0, 2, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(95, 366), Vector2(95, 300), Vector2(95, 366)]
+"values": [Vector2(95, 325), Vector2(95, 260), Vector2(95, 325)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0wlqb"]
@@ -184,7 +160,6 @@ _data = {
 script = ExtResource("1_mx7pn")
 
 [node name="Background" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -193,26 +168,27 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_485s0")
 
 [node name="ButtonPanel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
 offset_left = 95.0
 offset_top = 366.0
-offset_right = 425.0
-offset_bottom = 610.0
+offset_right = 445.0
+offset_bottom = 686.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_qaedy")
 
-[node name="StartButton" type="Button" parent="ButtonPanel"]
+[node name="Control" type="Control" parent="ButtonPanel"]
+anchors_preset = 0
+offset_right = 342.0
+offset_bottom = 139.0
+
+[node name="StartButton" type="Button" parent="ButtonPanel/Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -69.0
-offset_right = 114.0
-offset_bottom = 40.0
+offset_left = -109.0
+offset_top = 27.1865
+offset_right = 110.0
+offset_bottom = 136.186
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_colors/font_color = Color(0.410329, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.507971, 0.366061, 0, 1)
@@ -223,11 +199,35 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_lxoh2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gw7h0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p8owj")
 theme_override_styles/focus = SubResource("StyleBoxTexture_1fj5v")
-button_mask = 7
+toggle_mode = true
 button_group = SubResource("ButtonGroup_5g12y")
 shortcut = SubResource("Shortcut_skcps")
 text = "Start"
 icon = ExtResource("7_21g74")
+
+[node name="CheckButton" type="CheckButton" parent="ButtonPanel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = 135.686
+offset_right = 137.0
+offset_bottom = 189.686
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.411765, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.411765, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.882353, 0.564706, 0.172549, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+action_mode = 0
+text = "Joypad UI
+(Turn on for mobile devices)"
+icon_alignment = 2
+expand_icon = true
 
 [node name="MenuAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -241,5 +241,6 @@ libraries = {
 }
 autoplay = "fade_in"
 
-[connection signal="pressed" from="ButtonPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="toggled" from="ButtonPanel/Control/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="animation_finished" from="FadeAnimation" to="." method="_on_fade_out_animation_finished"]

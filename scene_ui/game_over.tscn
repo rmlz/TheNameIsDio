@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dso8vqow7g32i"]
 
 [ext_resource type="Texture2D" uid="uid://ch0fqex2bkeeg" path="res://assets/TinySword/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_51whj"]
-[ext_resource type="Script" path="res://scripts/system/game_over_ui.gd" id="1_gorn3"]
+[ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="1_euvpb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3t6v"]
 texture = ExtResource("1_51whj")
@@ -156,7 +156,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="GameOverUI" type="CanvasLayer"]
-script = ExtResource("1_gorn3")
+script = ExtResource("1_euvpb")
 restart_delay = 7
 
 [node name="Background" type="ColorRect" parent="."]

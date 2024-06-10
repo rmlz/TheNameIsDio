@@ -4,6 +4,7 @@ var player_position: Vector2
 var points: float = 0
 var is_game_over: bool = false
 var is_playing: bool = false
+var is_touch_joypad_enabled = false
 
 func reset():
 	player_position = Vector2.ZERO

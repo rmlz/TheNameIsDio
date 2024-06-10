@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var start_button: Button = $ButtonPanel/StartButton
+@onready var start_button: Button = $ButtonPanel/Control/StartButton
 @onready var animation: AnimationPlayer = $FadeAnimation
 
 
@@ -20,3 +20,7 @@ func _on_fade_out_animation_finished(anim_name):
 		GameManager.is_playing = true
 		print("FOI")
 		get_tree().change_scene_to_file("res://scenes/MainScene.tscn")
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	GameManager.is_touch_joypad_enabled = toggled_on

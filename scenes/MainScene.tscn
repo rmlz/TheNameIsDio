@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://xg1ipo2gat5j"]
+[gd_scene load_steps=45 format=3 uid="uid://xg1ipo2gat5j"]
 
 [ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://scene_ui/game_ui.tscn" id="1_1u21x"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="1_a81x0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dso8vqow7g32i" path="res://scene_ui/game_over.tscn" id="2_aokgk"]
 [ext_resource type="Texture2D" uid="uid://blfo1j5yyh3lx" path="res://assets/TinySword/Terrain/Bridge/Bridge_All.png" id="2_lmcoj"]
 [ext_resource type="Texture2D" uid="uid://bwifnxn6430mh" path="res://assets/TinySword/Deco/11.png" id="3_60aw7"]
+[ext_resource type="PackedScene" uid="uid://886ndd2bi0fq" path="res://scene_ui/mobile_joypad.tscn" id="3_sk0xl"]
 [ext_resource type="Texture2D" uid="uid://grdke5nic0wt" path="res://assets/TinySword/Deco/10.png" id="4_o8pb5"]
 [ext_resource type="Texture2D" uid="uid://c31aqkko8g2lb" path="res://assets/TinySword/Deco/14.png" id="5_8s2ai"]
 [ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="5_qpy45"]
@@ -227,6 +228,8 @@ modulate = Color(1, 1, 1, 0)
 y_sort_enabled = true
 script = ExtResource("1_ipgj4")
 game_over_ui = ExtResource("2_aokgk")
+
+[node name="MobileJoypad" parent="." instance=ExtResource("3_sk0xl")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -1311,3 +1314,6 @@ libraries = {
 "": SubResource("AnimationLibrary_uae0y")
 }
 autoplay = "start_play"
+
+[connection signal="use_hit_button" from="MobileJoypad" to="Player" method="_on_mobile_joypad_use_hit_button"]
+[connection signal="use_move_vector" from="MobileJoypad" to="Player" method="_on_mobile_joypad_use_move_vector"]
