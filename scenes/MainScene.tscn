@@ -1,9 +1,9 @@
 [gd_scene load_steps=44 format=3 uid="uid://xg1ipo2gat5j"]
 
-[ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://misc/system/game_ui.tscn" id="1_1u21x"]
+[ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://scene_ui/game_ui.tscn" id="1_1u21x"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="1_a81x0"]
 [ext_resource type="Script" path="res://game/main.gd" id="1_ipgj4"]
-[ext_resource type="PackedScene" uid="uid://dso8vqow7g32i" path="res://misc/system/game_over.tscn" id="2_aokgk"]
+[ext_resource type="PackedScene" uid="uid://dso8vqow7g32i" path="res://scene_ui/game_over.tscn" id="2_aokgk"]
 [ext_resource type="Texture2D" uid="uid://blfo1j5yyh3lx" path="res://assets/TinySword/Terrain/Bridge/Bridge_All.png" id="2_lmcoj"]
 [ext_resource type="Texture2D" uid="uid://bwifnxn6430mh" path="res://assets/TinySword/Deco/11.png" id="3_60aw7"]
 [ext_resource type="Texture2D" uid="uid://grdke5nic0wt" path="res://assets/TinySword/Deco/10.png" id="4_o8pb5"]

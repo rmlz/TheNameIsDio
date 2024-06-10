@@ -3,6 +3,13 @@ extends CanvasLayer
 @onready var start_button: Button = $ButtonPanel/StartButton
 @onready var animation: AnimationPlayer = $FadeAnimation
 
+
+func _process(delta):
+	if not start_button.has_focus():
+		if Input.is_anything_pressed():
+			start_button.grab_focus()
+	
+
 func _on_start_button_pressed():
 	animation.current_animation = "fade_out"
 	animation.play()

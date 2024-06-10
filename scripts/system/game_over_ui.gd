@@ -10,7 +10,7 @@ var initial_screen: PackedScene
 func _ready():
 	restart = restart_delay
 	last_int = restart_delay
-	initial_screen = preload("res://misc/system/game_start.tscn")
+	initial_screen = preload("res://scene_ui/game_start.tscn")
 	var points_label: Label = $PointsLabel
 	points_label.text = "Dio has done %09d points" % [GameManager.points]
 	

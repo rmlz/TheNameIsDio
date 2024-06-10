@@ -1,18 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1har44amtgrx"]
+[gd_scene load_steps=22 format=3 uid="uid://c1har44amtgrx"]
 
-[ext_resource type="Script" path="res://scripts/system/game_start.gd" id="1_enkex"]
-[ext_resource type="Texture2D" uid="uid://ciokqml7afcac" path="res://assets/Title.png" id="1_fdcnf"]
-[ext_resource type="Texture2D" uid="uid://c77ain2y40md5" path="res://assets/TinySword/UI/Banners/Banner_Horizontal.png" id="2_b12b0"]
-[ext_resource type="Texture2D" uid="uid://bly4ixndbw6wb" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides.png" id="3_32f03"]
-[ext_resource type="Texture2D" uid="uid://bsre88jixychl" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides_Pressed.png" id="4_xcu22"]
-[ext_resource type="Texture2D" uid="uid://cyus34w8jg4mu" path="res://assets/TinySword/UI/Buttons/Button_Hover_3Slides.png" id="5_kvmku"]
-[ext_resource type="Texture2D" uid="uid://c31aqkko8g2lb" path="res://assets/TinySword/Deco/14.png" id="6_3fx1u"]
+[ext_resource type="Script" path="res://scripts/system/game_start.gd" id="1_mx7pn"]
+[ext_resource type="Texture2D" uid="uid://ciokqml7afcac" path="res://assets/Title.png" id="2_emxg2"]
+[ext_resource type="Texture2D" uid="uid://c77ain2y40md5" path="res://assets/TinySword/UI/Banners/Banner_Horizontal.png" id="3_68ulv"]
+[ext_resource type="Texture2D" uid="uid://bly4ixndbw6wb" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides.png" id="4_qchae"]
+[ext_resource type="Texture2D" uid="uid://cyus34w8jg4mu" path="res://assets/TinySword/UI/Buttons/Button_Hover_3Slides.png" id="5_wyqgw"]
+[ext_resource type="Texture2D" uid="uid://bsre88jixychl" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides_Pressed.png" id="6_cijoh"]
+[ext_resource type="Texture2D" uid="uid://c31aqkko8g2lb" path="res://assets/TinySword/Deco/14.png" id="7_21g74"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_485s0"]
-texture = ExtResource("1_fdcnf")
+texture = ExtResource("2_emxg2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qaedy"]
-texture = ExtResource("2_b12b0")
+texture = ExtResource("3_68ulv")
 texture_margin_left = 32.0
 texture_margin_top = 30.0
 texture_margin_right = 32.0
@@ -22,7 +22,7 @@ axis_stretch_vertical = 1
 region_rect = Rect2(32, 45, 128, 135)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lxoh2"]
-texture = ExtResource("3_32f03")
+texture = ExtResource("4_qchae")
 texture_margin_left = 48.0
 texture_margin_top = 15.0
 texture_margin_right = 48.0
@@ -31,14 +31,14 @@ axis_stretch_horizontal = 1
 region_rect = Rect2(0, 0, 192, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gw7h0"]
-texture = ExtResource("5_kvmku")
+texture = ExtResource("5_wyqgw")
 texture_margin_left = 48.0
 texture_margin_top = 15.0
 texture_margin_right = 48.0
 texture_margin_bottom = 34.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8owj"]
-texture = ExtResource("4_xcu22")
+texture = ExtResource("6_cijoh")
 texture_margin_left = 64.0
 texture_margin_top = 15.0
 texture_margin_right = 64.0
@@ -46,12 +46,17 @@ texture_margin_bottom = 19.0
 axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fj5v"]
-texture = ExtResource("5_kvmku")
+texture = ExtResource("5_wyqgw")
 texture_margin_left = 48.0
 texture_margin_top = 15.0
 texture_margin_right = 48.0
 texture_margin_bottom = 34.0
 axis_stretch_horizontal = 1
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5g12y"]
+
+[sub_resource type="Shortcut" id="Shortcut_skcps"]
+events = [null]
 
 [sub_resource type="Animation" id="Animation_71f4o"]
 length = 0.001
@@ -176,7 +181,7 @@ _data = {
 }
 
 [node name="GameStart" type="CanvasLayer"]
-script = ExtResource("1_enkex")
+script = ExtResource("1_mx7pn")
 
 [node name="Background" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -219,8 +224,10 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gw7h0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p8owj")
 theme_override_styles/focus = SubResource("StyleBoxTexture_1fj5v")
 button_mask = 7
+button_group = SubResource("ButtonGroup_5g12y")
+shortcut = SubResource("Shortcut_skcps")
 text = "Start"
-icon = ExtResource("6_3fx1u")
+icon = ExtResource("7_21g74")
 
 [node name="MenuAnimation" type="AnimationPlayer" parent="."]
 libraries = {
