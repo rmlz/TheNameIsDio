@@ -1,7 +1,8 @@
-class_name Enemy
+class_name EnemyBase
 extends CharacterBody2D
 
 @onready var attack_area = $AttackArea
+@onready var animated_sprite = $AnimatedSprite2D
 
 @export_category("Parameters")
 @export var hit_damage: int = 1
@@ -44,6 +45,7 @@ var _speed: float
 var _deal_damage_cooldown: float = 0.0
 var _dmg_cooldown: float = 0.0
 var _is_damage_animation: bool = false
+var run_from_player: bool = false
 
 func _ready():
 	modify_scale()
@@ -118,7 +120,7 @@ func deal_damage(delta: float) -> void:
 		if body.is_in_group("player"):
 			var player: PlayerObject = body
 			var direction_to_player = (player.position - position).normalized()
-			player.getHit(hit_damage, direction_to_player)
+			player.get_hit(hit_damage, direction_to_player)
 			_deal_damage_cooldown = _deal_damage_time_cooldown
 	
 func modify_scale() -> void:

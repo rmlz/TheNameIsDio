@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buq3s6bv0jkhb"]
+
+[ext_resource type="Script" path="res://scripts/behaviors/types/keep_distance.gd" id="1_ihgdx"]
+
+[node name="KeepDistance" type="Node"]
+script = ExtResource("1_ihgdx")
