@@ -1,13 +1,13 @@
 [gd_scene load_steps=18 format=3 uid="uid://dsvlxia4uyy3t"]
 
-[ext_resource type="Script" path="res://scripts/behaviors/enemy.gd" id="1_nochb"]
+[ext_resource type="Script" path="res://scripts/behaviors/enemies/enemy_base.gd" id="1_iqy1e"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_0jjii"]
 [ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="3_xdfga"]
 [ext_resource type="Texture2D" uid="uid://dp6w40ktkrmda" path="res://assets/TinySword/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="3_xnach"]
-[ext_resource type="Script" path="res://scripts/behaviors/follow_player.gd" id="4_8raym"]
 [ext_resource type="PackedScene" uid="uid://bltbe8h75ogpp" path="res://misc/collectable/meat.tscn" id="4_yf028"]
 [ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="5_dyrh2"]
 [ext_resource type="PackedScene" uid="uid://d02vy4lbjhyc3" path="res://misc/system/damage_digit.tscn" id="6_y0vct"]
+[ext_resource type="Script" path="res://scripts/behaviors/types/follow_player.gd" id="8_1cput"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vush"]
 atlas = ExtResource("3_xnach")
@@ -69,7 +69,7 @@ height = 76.0
 
 [node name="Goblin_Torch" type="CharacterBody2D" groups=["enemies"]]
 motion_mode = 1
-script = ExtResource("1_nochb")
+script = ExtResource("1_iqy1e")
 hit_damage = 10
 speed = 4
 damage_time_cooldown = 2
@@ -98,9 +98,6 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_tmps0")
 debug_color = Color(0.989457, 0, 0.290225, 0.42)
 
-[node name="FollowPlayer" type="Node" parent="."]
-script = ExtResource("4_8raym")
-
 [node name="AttackArea" type="Area2D" parent="."]
 visible = false
 
@@ -111,3 +108,6 @@ debug_color = Color(0.670588, 0.509804, 0, 0.223529)
 
 [node name="DamageDigitMarker" type="Marker2D" parent="."]
 position = Vector2(0, -41)
+
+[node name="BehaviorFollowPlayer" type="Node" parent="."]
+script = ExtResource("8_1cput")

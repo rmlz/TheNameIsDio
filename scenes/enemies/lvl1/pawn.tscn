@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://dlqyqbm8df483"]
 
-[ext_resource type="Script" path="res://scripts/behaviors/enemy.gd" id="1_6fckd"]
+[ext_resource type="Script" path="res://scripts/behaviors/enemies/enemy_base.gd" id="1_b3tbc"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_u1dko"]
 [ext_resource type="Texture2D" uid="uid://cym3p52ebid77" path="res://assets/TinySword/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="3_dktlx"]
 [ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="3_hl5ij"]
-[ext_resource type="Script" path="res://scripts/behaviors/follow_player.gd" id="4_ewlt6"]
 [ext_resource type="PackedScene" uid="uid://d02vy4lbjhyc3" path="res://misc/system/damage_digit.tscn" id="4_hqo3d"]
+[ext_resource type="PackedScene" uid="uid://d3qjptfritetw" path="res://behaviors/follow_player.tscn" id="6_niwhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p56vk"]
 atlas = ExtResource("3_dktlx")
@@ -67,7 +67,7 @@ height = 64.0
 
 [node name="Pawn" type="CharacterBody2D" groups=["enemies"]]
 motion_mode = 1
-script = ExtResource("1_6fckd")
+script = ExtResource("1_b3tbc")
 hit_damage = 10
 health = 5
 speed = 1
@@ -95,9 +95,6 @@ position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_tmps0")
 debug_color = Color(0.989457, 0, 0.290225, 0.42)
 
-[node name="FollowPlayer" type="Node" parent="."]
-script = ExtResource("4_ewlt6")
-
 [node name="AttackArea" type="Area2D" parent="."]
 visible = false
 
@@ -108,3 +105,5 @@ debug_color = Color(0.721569, 0.478431, 0, 0.203922)
 
 [node name="DamageDigitMarker" type="Marker2D" parent="."]
 position = Vector2(0, -39)
+
+[node name="FollowPlayer" parent="." instance=ExtResource("6_niwhy")]

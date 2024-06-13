@@ -101,7 +101,7 @@ func deal_damage() -> void:
 	var bodies = sword_area.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("enemies"):
-			var enemy: Enemy = body
+			var enemy: EnemyBase = body
 			var direction_to_enemy = (enemy.position - position).normalized()
 			var attack_direction: Vector2
 			if sprite.flip_h:
@@ -121,7 +121,7 @@ func damage_animation() -> void:
 		%Sprite2D, "modulate", Color.WHITE, 0.3
 	)
 
-func getHit(dmg: int, collision_vector: Vector2) -> void:
+func get_hit(dmg: int, collision_vector: Vector2) -> void:
 	if not is_hitten:
 		damage_animation()
 		velocity = collision_vector * dmg * 15
