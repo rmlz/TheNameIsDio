@@ -21,6 +21,7 @@ var _hit_cooldown: float = get_hit_cooldown_secs
 var attack_cooldown: float = 0.65
 const attack_cooldown_fix = 0.65
 var input_vector: Vector2 = Vector2.ZERO
+var is_attack_mobile_pressed: bool = false
 
 var is_running: bool = false
 var is_attacking: bool = false
@@ -31,7 +32,6 @@ func _ready():
 	ritual_1_timer.wait_time = ritual1_cooldown
 	ritual_1_timer.start()
 	health_bar.max_value = max_health
-	
 
 func _physics_process(delta) -> void:
 	move_character()
@@ -44,8 +44,10 @@ func _process(delta: float) -> void:
 	update_attack_cooldown(delta)
 	update_animation() 
 	# Ataque
-	if Input.is_action_just_pressed("attack"):
+	if (Input.is_action_just_pressed("attack") and 
+	not GameManager.is_touch_joypad_enabled) or is_attack_mobile_pressed:
 		attack()
+		
 	
 	if is_hitten:
 		if _hit_cooldown <= 0:
@@ -62,7 +64,8 @@ func update_attack_cooldown(delta: float) -> void:
 		
 func move_character() -> void:
 	# Obter o input vector
-	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.15)
+	if not GameManager.is_touch_joypad_enabled:
+		input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.15)
 	
 	# Modificar a velocidade
 	var target_velocity = input_vector * speed * 100
@@ -87,6 +90,7 @@ func update_animation() -> void:
 		sprite.flip_h = true
 
 func attack() -> void:
+	is_attack_mobile_pressed = false
 	if is_attacking:
 		return
 		
@@ -142,3 +146,11 @@ func _on_ritual_1_timer_timeout():
 func startRitualOne() -> void:
 	var ritual = ritual1.instantiate()
 	add_child(ritual)
+
+
+func _on_mobile_joypad_use_move_vector(vector: Vector2):
+	input_vector = vector
+
+
+func _on_mobile_joypad_use_hit_button():
+	is_attack_mobile_pressed = true # Replace with function body.

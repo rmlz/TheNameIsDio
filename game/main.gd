@@ -3,6 +3,11 @@ extends Node
 @onready var game_ui: CanvasLayer = $GameUI
 @export var game_over_ui: PackedScene
 
+
+func _ready():
+	if not GameManager.is_touch_joypad_enabled:
+		$MobileJoypad.queue_free()
+		
 func trigger_game_over():
 	if game_ui:
 		var game_over_ui = game_over_ui.instantiate()
