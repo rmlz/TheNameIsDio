@@ -97,5 +97,3 @@ position = Vector2(133, 407)
 
 [node name="GoblinTNT" parent="." instance=ExtResource("4_vyeed")]
 position = Vector2(1071, 238)
-speed = 1
-deal_damage_time_cooldown = 10.0

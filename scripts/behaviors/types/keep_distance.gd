@@ -32,6 +32,5 @@ func _physics_process(delta: float) -> void:
 		
 		rotate_sprite(input_vector)
 		enemy.velocity = input_vector * enemy._speed * 100
-	if not enemy.run_from_player:
-		enemy.deal_damage(delta)
+			
 	enemy.move_and_slide()

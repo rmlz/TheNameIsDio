@@ -110,7 +110,7 @@ func deal_damage() -> void:
 				attack_direction = Vector2.RIGHT
 			var dot_product = direction_to_enemy.dot(attack_direction)
 			if dot_product >= 0.1:
-				enemy.damage(sword_damage, direction_to_enemy)
+				enemy.receive_damage(sword_damage, direction_to_enemy)
 
 func damage_animation() -> void:
 	var tween = create_tween()
