@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4br1nw66cn7i"]
+[gd_scene load_steps=14 format=3 uid="uid://b4br1nw66cn7i"]
 
 [ext_resource type="Script" path="res://scripts/behaviors/enemies/enemy_base.gd" id="1_a86hx"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_x22ak"]
-[ext_resource type="PackedScene" uid="uid://bltbe8h75ogpp" path="res://misc/collectable/meat.tscn" id="3_im3f6"]
 [ext_resource type="Texture2D" uid="uid://wavry4e63xul" path="res://assets/TinySword/Resources/Sheep/HappySheep_Bouncing.png" id="3_q7pnf"]
-[ext_resource type="PackedScene" uid="uid://d02vy4lbjhyc3" path="res://misc/system/damage_digit.tscn" id="4_kntxg"]
 [ext_resource type="PackedScene" uid="uid://d3qjptfritetw" path="res://behaviors/follow_player.tscn" id="6_1c2kb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jeil"]
@@ -68,20 +66,10 @@ height = 64.0
 [node name="Sheep" type="CharacterBody2D" groups=["enemies"]]
 motion_mode = 1
 script = ExtResource("1_a86hx")
-hit_damage = 5
-health = 1
 speed = 2
 deal_damage_time_cooldown = 3.0
-max_drops = 2
+hit_damage = 5
 death_prefab = ExtResource("2_x22ak")
-drops = Array[PackedScene]([ExtResource("3_im3f6")])
-damage_digit = ExtResource("4_kntxg")
-small_hit_damage_multiplier = 2.0
-small_drops_modifier = 0
-big_hit_damage_multiplier = 0.5
-big_dmg_time_cd_multiplier = 1.0
-big_deal_dmg_time_cd_multipler = 1.0
-big_speed_multiplier = 0.25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)

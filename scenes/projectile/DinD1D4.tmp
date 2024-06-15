@@ -254,10 +254,6 @@ radius = 65.0692
 [node name="Dinamyte" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_ojyqe")
-speed = null
-bump_ground_reduce_speed = null
-damage = null
-friend_fire = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -18)

@@ -1,9 +1,6 @@
 class_name ProjectilDynamite
 extends ProjectileBase
 
-@onready var damage_area = $DamageArea
-var max_distance = 0.0
-
 func _ready():
 	$Explosion.visible = false
 	damage = 25
@@ -30,13 +27,11 @@ func _do_damage():
 		if body.is_in_group("enemies"):
 			var enemy: EnemyBase = body
 			var push_vector = (enemy.position - position).normalized() * 5
-			enemy.damage(damage, push_vector, true)
+			enemy.receive_damage(damage, push_vector, true)
 	queue_free()
 	
 func calculate_movement():
 	var razao = end_point.distance_to(start_point) / max_distance
-	print("RAZAO")
-	print(razao)
 	var direction: Vector2 = (end_point - start_point).normalized() * razao
 	velocity = direction * speed * (1 - bump_ground_reduce_speed) ** number_of_bumps
 	actual_velocity = velocity
