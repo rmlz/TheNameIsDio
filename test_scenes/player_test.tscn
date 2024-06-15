@@ -96,6 +96,39 @@ text = "Attack-up2"
 position = Vector2(133, 407)
 
 [node name="GoblinTNT" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(1071, 238)
+position = Vector2(849, 288)
 speed = 1
 deal_damage_time_cooldown = 10.0
+
+[node name="GoblinTNT2" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(1908, 927)
+
+[node name="GoblinTNT3" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(1999, 368)
+
+[node name="GoblinTNT4" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(1772, 123)
+
+[node name="GoblinTNT5" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(1379, -2)
+
+[node name="GoblinTNT6" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(-305, 972)
+
+[node name="GoblinTNT7" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(-516, 538)
+
+[node name="GoblinTNT8" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(-512, 81)
+
+[node name="GoblinTNT10" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(-191, -369)
+
+[node name="GoblinTNT11" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(379, -569)
+
+[node name="GoblinTNT12" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(998, -814)
+
+[node name="GoblinTNT9" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(387, 1044)

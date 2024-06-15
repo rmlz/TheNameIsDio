@@ -70,13 +70,6 @@ speed = 4
 damage_time_cooldown = 2
 hit_damage = 10
 death_prefab = ExtResource("2_0jjii")
-has_small = true
-has_big = true
-small_health_multiplier = 1.0
-small_dmg_time_cd_multiplier = 1.0
-small_animation_multiplier = 1.0
-big_dmg_time_cd_multiplier = 1.0
-big_speed_multiplier = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)

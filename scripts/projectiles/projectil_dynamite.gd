@@ -27,7 +27,7 @@ func _do_damage():
 		if body.is_in_group("enemies"):
 			var enemy: EnemyBase = body
 			var push_vector = (enemy.position - position).normalized() * 5
-			enemy.damage(damage, push_vector, true)
+			enemy.receive_damage(damage, push_vector, true)
 	queue_free()
 	
 func calculate_movement():

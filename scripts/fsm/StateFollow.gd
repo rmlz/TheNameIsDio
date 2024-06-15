@@ -14,10 +14,12 @@ func update(delta: float) -> void:
 	enemy.velocity = input_vector * enemy._speed * 100
 	enemy.move_and_slide()
 	
-	var bodies = enemy.attack_area.get_overlapping_bodies()
-	for body in bodies:
-		if body.is_in_group("player"):
-			state_machine.transition_to("StateAttack")
-			return
+	var type_attack = enemy.is_range_to_attack_player()
+	
+	if type_attack == 1 or type_attack == 2:
+		state_machine.transition_to("StateAttack", {"type": type_attack})
+		
+		
+	
 	
 
