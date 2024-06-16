@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cksdf5wh3pnsc"
-path="res://.godot/imported/The_Name_is_Dio_Background.jpg-8459b14c66ff48463517ae875e69c162.ctex"
+uid="uid://v0fyqnkn730t"
+path="res://.godot/imported/JoystickPack Preview.png-2a2256cec8850c4dc136f4babee79f38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc/system/The_Name_is_Dio_Background.jpg"
-dest_files=["res://.godot/imported/The_Name_is_Dio_Background.jpg-8459b14c66ff48463517ae875e69c162.ctex"]
+source_file="res://assets/Joystick Handle/JoystickPack Preview.png"
+dest_files=["res://.godot/imported/JoystickPack Preview.png-2a2256cec8850c4dc136f4babee79f38.ctex"]
 
 [params]
 

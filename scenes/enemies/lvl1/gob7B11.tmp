@@ -1,0 +1,183 @@
+[gd_scene load_steps=22 format=3 uid="uid://blkiwodt8jlje"]
+
+[ext_resource type="Script" path="res://scripts/behaviors/enemies/enemy_base.gd" id="1_niofy"]
+[ext_resource type="PackedScene" uid="uid://bx5lmlv8yfc5i" path="res://scenes/projectile/Dinamyte.tscn" id="2_pnt2y"]
+[ext_resource type="Texture2D" uid="uid://deiv0k4whcbeu" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Purple/TNT_Purple.png" id="3_4bjn7"]
+[ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="3_4c0av"]
+[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="3_xx33q"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/components/Health/health_component.tscn" id="4_qhbyc"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="8_0ujbh"]
+[ext_resource type="Script" path="res://scripts/fsm/StateIdle.gd" id="9_d6mmx"]
+[ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/components/Attacks/RangedAttackComponent.tscn" id="10_4krqx"]
+[ext_resource type="Script" path="res://scripts/fsm/StateFollow.gd" id="10_k31ya"]
+[ext_resource type="Script" path="res://scripts/fsm/StateAttack.gd" id="11_5h66f"]
+[ext_resource type="Script" path="res://scripts/fsm/StateCoolDown.gd" id="11_dgg0x"]
+[ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="12_5a4hs"]
+[ext_resource type="Script" path="res://scripts/fsm/StateKeepDistance.gd" id="12_x6h75"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
+radius = 11.0
+height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85dmk"]
+radius = 400.0
+
+[sub_resource type="Animation" id="Animation_4bkds"]
+resource_name = "Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mijel"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ymy7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ad0mr"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0u0i"]
+_data = {
+"Attack": SubResource("Animation_4bkds"),
+"Idle": SubResource("Animation_mijel"),
+"RESET": SubResource("Animation_ymy7b"),
+"Walk": SubResource("Animation_ad0mr")
+}
+
+[node name="GoblinTNT" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(0, -10)
+motion_mode = 1
+script = ExtResource("1_niofy")
+death_prefab = ExtResource("3_xx33q")
+
+[node name="DamageDigitMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -37)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="."]
+position = Vector2(0, -42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_qhbyc")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+texture = ExtResource("3_4bjn7")
+hframes = 7
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmps0")
+debug_color = Color(0.989457, 0, 0.290225, 0.42)
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-1, -38)
+shape = SubResource("CircleShape2D_85dmk")
+debug_color = Color(0.690196, 0.498039, 0, 0.227451)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k0u0i")
+}
+autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("8_0ujbh")
+initial_state = NodePath("StateIdle")
+
+[node name="StateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("9_d6mmx")
+aggro_distance = 1000
+keep_distance = 400
+
+[node name="StateFollow" type="Node" parent="StateMachine"]
+script = ExtResource("10_k31ya")
+
+[node name="StateAttack" type="Node" parent="StateMachine"]
+script = ExtResource("11_5h66f")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("11_dgg0x")
+
+[node name="StateKeepDistance" type="Node" parent="StateMachine"]
+script = ExtResource("12_x6h75")
+
+[node name="RangedAttackComponent" parent="." instance=ExtResource("10_4krqx")]
+projectile_scene = ExtResource("2_pnt2y")
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("12_5a4hs")
+min_drops = 2
+max_drops = 10
+drops = Array[PackedScene]([ExtResource("3_4c0av")])
+
+[connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

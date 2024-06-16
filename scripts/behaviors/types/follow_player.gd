@@ -1,13 +1,5 @@
 class_name BehaviorFollowPlayer
-extends Node
-
-var enemy: Enemy
-var sprite: AnimatedSprite2D
-
-func _ready():
-	enemy = get_parent()
-	sprite = enemy.get_node("AnimatedSprite2D")
-	pass
+extends BehaviorBase
 
 
 func _physics_process(delta: float) -> void:
@@ -26,10 +18,3 @@ func _physics_process(delta: float) -> void:
 	
 	enemy.deal_damage(delta)
 	enemy.move_and_slide()
-
-
-func rotate_sprite(input_vector: Vector2) -> void:
-	if input_vector.x > 0:
-		sprite.flip_h = false
-	elif input_vector.x < 0:
-		sprite.flip_h = true

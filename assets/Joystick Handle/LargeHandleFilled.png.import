@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mvinulmouovm"
-path="res://.godot/imported/The_Name_is_Dio.jpg-84b94af1ac2713f29e80ebaf25d93909.ctex"
+uid="uid://dbb7d412uj5fk"
+path="res://.godot/imported/LargeHandleFilled.png-cbef390b31765f9631006dcac62fafe5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc/system/The_Name_is_Dio.jpg"
-dest_files=["res://.godot/imported/The_Name_is_Dio.jpg-84b94af1ac2713f29e80ebaf25d93909.ctex"]
+source_file="res://assets/Joystick Handle/LargeHandleFilled.png"
+dest_files=["res://.godot/imported/LargeHandleFilled.png-cbef390b31765f9631006dcac62fafe5.ctex"]
 
 [params]
 

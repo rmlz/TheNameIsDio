@@ -64,6 +64,7 @@ animations = [{
 radius = 34.0
 
 [node name="Meat" type="AnimatedSprite2D" groups=["collectable"]]
+y_sort_enabled = true
 position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_bnq8s")
 autoplay = "default"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxkktynitxh83"]
 
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="1_24ibf"]
-[ext_resource type="Script" path="res://scripts/system/game_ui.gd" id="1_r7qc6"]
+[ext_resource type="Script" path="res://scripts/ui/game_ui.gd" id="1_r7qc6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hafy"]
 texture = ExtResource("1_24ibf")
@@ -16,12 +16,12 @@ region_rect = Rect2(32, 0, 128, 166)
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_r7qc6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="PanelPoints" type="Panel" parent="."]
 offset_right = 263.0
 offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7hafy")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Points" type="Label" parent="PanelPoints"]
 layout_mode = 1
 offset_left = 23.0
 offset_top = 46.0
@@ -30,4 +30,26 @@ offset_bottom = 80.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Points: 123456789"
+vertical_alignment = 1
+
+[node name="PanelTime" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.5
+offset_right = 131.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7hafy")
+
+[node name="Time" type="Label" parent="PanelTime"]
+layout_mode = 1
+offset_left = 23.0
+offset_top = 46.0
+offset_right = 235.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Time: 20:00"
+horizontal_alignment = 1
 vertical_alignment = 1

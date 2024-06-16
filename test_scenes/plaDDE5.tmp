@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4whdiwpjb7p3"]
+
+[ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
+[ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_tnt.tscn" id="4_vyeed"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
+line_spacing = 150.0
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcj74"]
+line_spacing = 80.0
+font_size = 80
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Spritesheet" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1882, 789)
+texture = ExtResource("1_8qt1i")
+
+[node name="Label" type="Label" parent="Spritesheet"]
+offset_left = -555.0
+offset_top = -718.0
+offset_right = -515.0
+offset_bottom = -695.0
+text = "Idle"
+
+[node name="Label9" type="Label" parent="Spritesheet"]
+offset_left = -523.0
+offset_top = -820.0
+offset_right = 503.0
+offset_bottom = -728.0
+text = "0         1        2        3       4         5"
+label_settings = SubResource("LabelSettings_n73wv")
+
+[node name="Label10" type="Label" parent="Spritesheet"]
+offset_left = -669.0
+offset_top = -729.0
+offset_right = -598.0
+offset_bottom = 711.0
+text = "0         1        2        3       4         5   6 7"
+label_settings = SubResource("LabelSettings_gcj74")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Spritesheet"]
+offset_left = -555.0
+offset_top = -526.0
+offset_right = -515.0
+offset_bottom = -503.0
+text = "Run"
+
+[node name="Label3" type="Label" parent="Spritesheet"]
+offset_left = -574.0
+offset_top = -381.0
+offset_right = -478.0
+offset_bottom = -358.0
+text = "Attack-side1"
+
+[node name="Label4" type="Label" parent="Spritesheet"]
+offset_left = -569.0
+offset_top = -161.0
+offset_right = -529.0
+offset_bottom = -138.0
+text = "Attack-side 2"
+
+[node name="Label5" type="Label" parent="Spritesheet"]
+offset_left = -567.0
+offset_top = 10.0
+offset_right = -527.0
+offset_bottom = 33.0
+text = "Attack-bot-1"
+
+[node name="Label6" type="Label" parent="Spritesheet"]
+offset_left = -572.0
+offset_top = 219.0
+offset_right = -532.0
+offset_bottom = 242.0
+text = "Attack-bot2"
+
+[node name="Label7" type="Label" parent="Spritesheet"]
+offset_left = -566.0
+offset_top = 390.0
+offset_right = -482.0
+offset_bottom = 413.0
+text = "Attack-up1"
+
+[node name="Label8" type="Label" parent="Spritesheet"]
+offset_left = -544.0
+offset_top = 590.0
+offset_right = -504.0
+offset_bottom = 613.0
+text = "Attack-up2"
+
+[node name="Player" parent="." instance=ExtResource("2_jjqh3")]
+position = Vector2(595, 291)
+
+[node name="GoblinTNT" parent="." instance=ExtResource("4_vyeed")]
+position = Vector2(1001, 478)
+number_of_projects = null
+throw_radius = null
+speed = null
+damage_time_cooldown = null
+min_drops = null
+has_small = null
+small_hit_damage_multiplier = null
+small_health_multiplier = null
+small_animation_multiplier = null
+small_drops_modifier = null
+big_animation_multiplier = null
+big_drops_modifier = null

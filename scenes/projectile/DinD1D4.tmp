@@ -1,0 +1,285 @@
+[gd_scene load_steps=21 format=3 uid="uid://bx5lmlv8yfc5i"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/projectil_dynamite.gd" id="1_ojyqe"]
+[ext_resource type="Texture2D" uid="uid://b6h27arnvmhif" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Dynamite/Dynamite.png" id="2_frpab"]
+[ext_resource type="Texture2D" uid="uid://cn4kmkvagrd3i" path="res://assets/TinySword/Effects/Explosion/Explosions.png" id="3_k620q"]
+
+[sub_resource type="Animation" id="Animation_ekujh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eq2cx"]
+resource_name = "fire"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f23hf"]
+_data = {
+"RESET": SubResource("Animation_ekujh"),
+"fire": SubResource("Animation_eq2cx")
+}
+
+[sub_resource type="Animation" id="Animation_42ev0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jqm6a"]
+resource_name = "thrown"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.5, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(0.366022, 1.93187, 0.170755, 1.51572, 0.63728, 1.7411, 1),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, -318), Vector2(0, -18), Vector2(0, -58), Vector2(0, -18), Vector2(0, -38), Vector2(0, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.2, 3.6, 3.9, 4.1, 4.3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 2.8, 3, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"bump_projectile_to_ground"
+}, {
+"args": [],
+"method": &"bump_projectile_to_ground"
+}, {
+"args": [],
+"method": &"bump_projectile_to_ground"
+}, {
+"args": [],
+"method": &"start_explosion"
+}, {
+"args": [],
+"method": &"_do_damage"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.7, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(0.420448, 5.46416),
+"update": 0,
+"values": [0.0, 18.8496]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3ycv"]
+_data = {
+"RESET": SubResource("Animation_42ev0"),
+"thrown": SubResource("Animation_jqm6a")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_megnd"]
+atlas = ExtResource("3_k620q")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3swiq"]
+atlas = ExtResource("3_k620q")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg5d7"]
+atlas = ExtResource("3_k620q")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uug6"]
+atlas = ExtResource("3_k620q")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4v7c"]
+atlas = ExtResource("3_k620q")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awn4j"]
+atlas = ExtResource("3_k620q")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nktn"]
+atlas = ExtResource("3_k620q")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhvgi"]
+atlas = ExtResource("3_k620q")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe6kl"]
+atlas = ExtResource("3_k620q")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55ttq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_megnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3swiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg5d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uug6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4v7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awn4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nktn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhvgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe6kl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwkex"]
+radius = 65.0692
+
+[node name="Dinamyte" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_ojyqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+scale = Vector2(2, 2)
+texture = ExtResource("2_frpab")
+hframes = 6
+
+[node name="FireAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f23hf")
+}
+autoplay = "fire"
+
+[node name="MovementAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m3ycv")
+}
+autoplay = "thrown"
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_55ttq")
+frame = 8
+frame_progress = 1.0
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_vwkex")
+debug_color = Color(0.998034, 0, 0.152153, 0.42)
