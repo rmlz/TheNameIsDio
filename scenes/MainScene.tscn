@@ -1330,3 +1330,4 @@ autoplay = "start_play"
 
 [connection signal="use_hit_button" from="MobileJoypad" to="Player" method="_on_mobile_joypad_use_hit_button"]
 [connection signal="use_move_vector" from="MobileJoypad" to="Player" method="_on_mobile_joypad_use_move_vector"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_fade_in_finished"]
