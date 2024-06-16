@@ -9,7 +9,7 @@ extends Node2D
 @export var initial_spawn_rate: int = 5
 @export var spawn_rate_per_minute: float = 0.0
 @export var wave_duration: int = 60
-@export var break_intensity: float = 0.5
+@export var break_intensity: float = 0.1
 
 var mobs_per_minute: int = 0
 var time: float = 0.0
