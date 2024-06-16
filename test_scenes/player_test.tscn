@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_tnt.tscn" id="4_vyeed"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="3_ughq0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -13,6 +13,7 @@ line_spacing = 80.0
 font_size = 80
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Spritesheet" type="Sprite2D" parent="."]
 visible = false
@@ -93,42 +94,28 @@ offset_bottom = 613.0
 text = "Attack-up2"
 
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
-position = Vector2(133, 407)
+position = Vector2(628, 394)
 
-[node name="GoblinTNT" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(849, 288)
-speed = 1
-deal_damage_time_cooldown = 10.0
+[node name="GoblinTorch" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(33, 572)
 
-[node name="GoblinTNT2" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(1908, 927)
+[node name="GoblinTorch2" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(46, 11)
 
-[node name="GoblinTNT3" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(1999, 368)
+[node name="GoblinTorch3" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(1146, -16)
 
-[node name="GoblinTNT4" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(1772, 123)
+[node name="GoblinTorch4" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(1160, 620)
 
-[node name="GoblinTNT5" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(1379, -2)
+[node name="GoblinTorch5" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(49, 267)
 
-[node name="GoblinTNT6" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(-305, 972)
+[node name="GoblinTorch6" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(1104, 265)
 
-[node name="GoblinTNT7" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(-516, 538)
+[node name="GoblinTorch7" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(479, 718)
 
-[node name="GoblinTNT8" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(-512, 81)
-
-[node name="GoblinTNT10" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(-191, -369)
-
-[node name="GoblinTNT11" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(379, -569)
-
-[node name="GoblinTNT12" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(998, -814)
-
-[node name="GoblinTNT9" parent="." instance=ExtResource("4_vyeed")]
-position = Vector2(387, 1044)
+[node name="GoblinTorch8" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(722, -72)

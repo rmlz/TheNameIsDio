@@ -19,5 +19,6 @@ func is_range_attack_player() -> bool:
 	
 func attack(target_position: Vector2) -> void:
 	var direction_to_player = (target_position - position).normalized()
-	target.get_hit(enemy.hit_damage, direction_to_player)
+	if is_range_attack_player():
+		target.get_hit(enemy.hit_damage, direction_to_player)
 	target = null

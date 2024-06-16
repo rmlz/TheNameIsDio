@@ -1,98 +1,187 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsvlxia4uyy3t"]
+[gd_scene load_steps=21 format=3 uid="uid://blkiwodt8jlje"]
 
-[ext_resource type="Script" path="res://scripts/behaviors/enemies/enemy_base.gd" id="1_iqy1e"]
-[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_0jjii"]
-[ext_resource type="Texture2D" uid="uid://dp6w40ktkrmda" path="res://assets/TinySword/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="3_xnach"]
-[ext_resource type="Script" path="res://scripts/behaviors/types/follow_player.gd" id="8_1cput"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vush"]
-atlas = ExtResource("3_xnach")
-region = Rect2(0, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_juvcr"]
-atlas = ExtResource("3_xnach")
-region = Rect2(192, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j1sl3"]
-atlas = ExtResource("3_xnach")
-region = Rect2(384, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4qum"]
-atlas = ExtResource("3_xnach")
-region = Rect2(576, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8b0eh"]
-atlas = ExtResource("3_xnach")
-region = Rect2(768, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_86oiq"]
-atlas = ExtResource("3_xnach")
-region = Rect2(960, 192, 192, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_75gcs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2vush")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_juvcr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j1sl3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x4qum")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8b0eh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_86oiq")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 10.0
-}]
+[ext_resource type="Script" path="res://scripts/behaviors/enemies/enemy_base.gd" id="1_niofy"]
+[ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="3_4c0av"]
+[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="3_xx33q"]
+[ext_resource type="Texture2D" uid="uid://dp6w40ktkrmda" path="res://assets/TinySword/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="4_2ie0d"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/components/Health/health_component.tscn" id="4_qhbyc"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="8_0ujbh"]
+[ext_resource type="Script" path="res://scripts/fsm/StateIdle.gd" id="9_d6mmx"]
+[ext_resource type="Script" path="res://scripts/fsm/StateFollow.gd" id="10_k31ya"]
+[ext_resource type="Script" path="res://scripts/fsm/StateAttack.gd" id="11_5h66f"]
+[ext_resource type="Script" path="res://scripts/fsm/StateCoolDown.gd" id="11_dgg0x"]
+[ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/components/Attacks/MeleeAttackComponent.tscn" id="11_tsg5u"]
+[ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="12_5a4hs"]
+[ext_resource type="Script" path="res://scripts/fsm/StateKeepDistance.gd" id="12_x6h75"]
+[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/components/Sizeable/Sizeable.tscn" id="15_qc4di"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
-radius = 22.0
-height = 44.0
+radius = 11.0
+height = 40.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4m64f"]
-radius = 38.0
-height = 76.0
+[sub_resource type="Animation" id="Animation_mijel"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
 
-[node name="Goblin_Torch" type="CharacterBody2D" groups=["enemies"]]
+[sub_resource type="Animation" id="Animation_ymy7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ad0mr"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4bkds"]
+resource_name = "Melee_Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0u0i"]
+_data = {
+"Idle": SubResource("Animation_mijel"),
+"Melee_Attack": SubResource("Animation_4bkds"),
+"RESET": SubResource("Animation_ymy7b"),
+"Walk": SubResource("Animation_ad0mr")
+}
+
+[node name="GoblinTorch" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(0, -20)
 motion_mode = 1
-script = ExtResource("1_iqy1e")
-speed = 4
-damage_time_cooldown = 2
-hit_damage = 10
-death_prefab = ExtResource("2_0jjii")
+script = ExtResource("1_niofy")
+deal_damage_time_cooldown = 1.0
+hit_damage = 20
+death_prefab = ExtResource("3_xx33q")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="DamageDigitMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -37)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="."]
+position = Vector2(0, -42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_qhbyc")]
+max_health = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -17)
-sprite_frames = SubResource("SpriteFrames_75gcs")
-animation = &"walk"
-autoplay = "walk"
-frame_progress = 0.0448468
+texture = ExtResource("4_2ie0d")
+hframes = 7
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -1)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tmps0")
 debug_color = Color(0.989457, 0, 0.290225, 0.42)
 
-[node name="AttackArea" type="Area2D" parent="."]
-visible = false
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k0u0i")
+}
+autoplay = "Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -16)
-shape = SubResource("CapsuleShape2D_4m64f")
-debug_color = Color(0.670588, 0.509804, 0, 0.223529)
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("8_0ujbh")
+initial_state = NodePath("StateIdle")
 
-[node name="DamageDigitMarker" type="Marker2D" parent="."]
-position = Vector2(0, -41)
+[node name="StateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("9_d6mmx")
+aggro_distance = 2000
 
-[node name="BehaviorFollowPlayer" type="Node" parent="."]
-script = ExtResource("8_1cput")
+[node name="StateFollow" type="Node" parent="StateMachine"]
+script = ExtResource("10_k31ya")
+
+[node name="StateAttack" type="Node" parent="StateMachine"]
+script = ExtResource("11_5h66f")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("11_dgg0x")
+
+[node name="StateKeepDistance" type="Node" parent="StateMachine"]
+script = ExtResource("12_x6h75")
+
+[node name="MeleeAttackComponent" parent="." instance=ExtResource("11_tsg5u")]
+scale = Vector2(1.5, 1.5)
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("12_5a4hs")
+min_drops = 1
+drops = Array[PackedScene]([ExtResource("3_4c0av")])
+
+[node name="DEBUG_STATE" type="Label" parent="."]
+offset_left = 36.0
+offset_top = -38.0
+offset_right = 78.0
+offset_bottom = -15.0
+
+[node name="Sizeable" parent="." instance=ExtResource("15_qc4di")]
+has_small = true
+small_dmg_time_cd_multiplier = 1.0
+small_melee_atk_range_multiplier = 2.0
+big_drops_modifier = 3
+
+[connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
+[connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]

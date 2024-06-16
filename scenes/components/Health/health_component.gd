@@ -4,7 +4,7 @@ extends Node2D
 var health_bar: ProgressBar
 
 @export var max_health: int = 3
-@export var show_bar = true
+@export var show_bar = false
 @export var damage_digit: PackedScene
 var enemy_object: EnemyBase
 var _health: int = 0
