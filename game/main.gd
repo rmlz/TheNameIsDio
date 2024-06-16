@@ -3,6 +3,7 @@ extends Node
 @onready var game_ui: CanvasLayer = $GameUI
 @export var game_over_ui: PackedScene
 
+var time_lapsed: float = 0.0
 
 func _ready():
 	if not GameManager.is_touch_joypad_enabled:

@@ -32,6 +32,10 @@ var _is_damage_animation: bool = false
 var run_from_player: bool = false
 
 func _ready():
+	if GameManager.is_debug_enabled:
+		$DEBUG_STATE.visible = true
+	else:
+		$DEBUG_STATE.visible = false
 	ranged_attack_component = get_node_or_null("RangedAttackComponent")
 	melee_attack_component = get_node_or_null("MeleeAttackComponent")
 	_hit_damage = hit_damage
