@@ -95,9 +95,15 @@ You also may create your own game respecting the Mozilla licence.
 - Version 0.0.1
   - [x] Create first playable version
 - Version 0.0.2
+  - Dio-1 Implements mobile-pad for touch screen devices
+  - Dio-2 rebuild EnemyBase implementation to handle ranged attacks
+  - Dio-3 rebuild EnemyBase into different composition nodes
+  - Dio-4 Reworks enemies, animations, mobspawner and time-lapse
+- Version 0.0.3
   - [ ] Add new magical skill
   - [ ] Add sound fx and music
-  - [ ] Add 2 new creatures
+  - [ ] Add 1 new creatures
+  - [ ] Add new behavior to creatures
 
 <!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).-->
 
