@@ -32,7 +32,8 @@ func _initialize_health():
 func damage(value: int) -> void:
 	var absolute = absi(value)
 	_health = max(_health - absolute, 0)
-	show_damage_digit(absolute)
+	if enemy_object:
+		show_damage_digit(absolute)
 	change_health.emit()
 
 # Heal this health with the absolute value param	

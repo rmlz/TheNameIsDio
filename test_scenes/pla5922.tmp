@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/enemies/lvl1/goblin_tnt.tscn" id="3_ehprh"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="3_ughq0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -96,17 +96,26 @@ text = "Attack-up2"
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
 position = Vector2(628, 394)
 
-[node name="GoblinTNT" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(722, 407)
+[node name="GoblinTorch" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(33, 572)
 
-[node name="GoblinTNT2" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(164, -8)
+[node name="GoblinTorch2" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(46, 11)
 
-[node name="GoblinTNT3" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(1107, 16)
+[node name="GoblinTorch3" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(1146, -16)
 
-[node name="GoblinTNT4" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(32, 684)
+[node name="GoblinTorch4" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(1160, 620)
 
-[node name="GoblinTNT5" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(1136, 667)
+[node name="GoblinTorch5" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(49, 267)
+
+[node name="GoblinTorch6" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(1104, 265)
+
+[node name="GoblinTorch7" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(479, 718)
+
+[node name="GoblinTorch8" parent="." instance=ExtResource("3_ughq0")]
+position = Vector2(722, -72)
