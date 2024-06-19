@@ -8,6 +8,9 @@ var time_lapsed: float = 0.0
 func _ready():
 	if not GameManager.is_touch_joypad_enabled:
 		$MobileJoypad.queue_free()
+	for node in get_children():
+		if node is PlayerObject:
+			node.mobile_joypad = $MobileJoypad
 		
 func trigger_game_over():
 	if game_ui:

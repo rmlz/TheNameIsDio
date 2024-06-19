@@ -11,10 +11,6 @@ var joystick_active: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var move_vector: Vector2 = Vector2.ZERO
 
-signal use_move_vector
-signal use_hit_button
-
-
 func _ready():
 	touch_hit_button = $TouchHitButton
 	touch_joy =$TouchJoy
@@ -49,18 +45,39 @@ func _input(event):
 		else:
 			$InputHandle.position = touch_joy_center
 		if touch_hit_button.is_pressed():
-			use_hit_button.emit()
+			Input.action_press("attack")
 			print("HIT!")
 	
 	if event is InputEventScreenTouch:
+		if not touch_hit_button.is_pressed():
+			Input.action_release("attack")
 		if not touch_joy.is_pressed():
 			input_vector = Vector2.ZERO
 			move_vector = Vector2.ZERO
+			Input.action_release("move_left")
+			Input.action_release("move_right")
+			Input.action_release("move_up")
+			Input.action_release("move_down")
 		$InputHandle.visible = joystick_active
 
 func _physics_process(delta):
 	if joystick_active:
-		emit_signal("use_move_vector", move_vector)
+		
+		if move_vector.x > 0:
+			Input.action_release("move_left")
+			Input.action_press("move_right", absf((move_vector.x)))
+		elif move_vector.x < 0:
+			Input.action_release("move_right")
+			Input.action_press("move_left", absf((move_vector.x)))
+			
+		if move_vector.y > 0:
+			Input.action_release("move_up")
+			Input.action_press("move_down", absf((move_vector.y)))
+		elif move_vector.y < 0:
+			Input.action_release("move_down")
+			Input.action_press("move_up", absf((move_vector.y)))
+	
+		#emit_signal("use_move_vector", move_vector)
 
 func calculate_move_vector(event_position) -> Vector2:
 	return (event_position - touch_joy_center).normalized()

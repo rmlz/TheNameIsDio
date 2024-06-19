@@ -233,6 +233,8 @@ y_sort_enabled = true
 script = ExtResource("1_ipgj4")
 game_over_ui = ExtResource("2_aokgk")
 
+[node name="MobileJoypad" parent="." instance=ExtResource("3_sk0xl")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1295,8 +1297,6 @@ position = Vector2(3220, 1583)
 [node name="Trees280" parent="Trees" instance=ExtResource("21_2h31b")]
 position = Vector2(4029, 1564)
 
-[node name="MobileJoypad" parent="." instance=ExtResource("3_sk0xl")]
-
 [node name="GameUI" parent="." instance=ExtResource("1_1u21x")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
@@ -1328,4 +1328,6 @@ libraries = {
 }
 autoplay = "start_play"
 
+[connection signal="use_hit_button" from="MobileJoypad" to="Player" method="_on_mobile_joypad_use_hit_button"]
+[connection signal="use_move_vector" from="MobileJoypad" to="Player" method="_on_mobile_joypad_use_move_vector"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_fade_in_finished"]
