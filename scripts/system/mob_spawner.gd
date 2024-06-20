@@ -37,7 +37,7 @@ func spawn_monster() -> bool:
 		return true
 	var creature_index: int
 	var creature_scene: PackedScene
-	if GameManager.points <= 100000:	
+	if GameManager.time_elapsed <= 300:	
 		creature_index = randi_range(0, lvl1_creatures.size() - 1)
 		creature_scene = lvl1_creatures[creature_index]
 	else:
