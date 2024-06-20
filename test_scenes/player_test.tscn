@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/enemies/lvl1/goblin_tnt.tscn" id="3_ehprh"]
+[ext_resource type="PackedScene" uid="uid://dfgwjddv50356" path="res://scenes/enemies/lvl1/bow_arrow.tscn" id="3_miarg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -94,19 +94,16 @@ offset_bottom = 613.0
 text = "Attack-up2"
 
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
-position = Vector2(628, 394)
+position = Vector2(638, 321)
 
-[node name="GoblinTNT" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(722, 407)
+[node name="BowAndArrow" parent="." instance=ExtResource("3_miarg")]
+position = Vector2(1781, 305)
 
-[node name="GoblinTNT2" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(164, -8)
+[node name="BowAndArrow2" parent="." instance=ExtResource("3_miarg")]
+position = Vector2(-386, 340)
 
-[node name="GoblinTNT3" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(1107, 16)
+[node name="BowAndArrow3" parent="." instance=ExtResource("3_miarg")]
+position = Vector2(647, -787)
 
-[node name="GoblinTNT4" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(32, 684)
-
-[node name="GoblinTNT5" parent="." instance=ExtResource("3_ehprh")]
-position = Vector2(1136, 667)
+[node name="BowAndArrow4" parent="." instance=ExtResource("3_miarg")]
+position = Vector2(607, 1393)

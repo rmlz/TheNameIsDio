@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://xg1ipo2gat5j"]
+[gd_scene load_steps=50 format=3 uid="uid://xg1ipo2gat5j"]
 
 [ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://scene_ui/game_ui.tscn" id="1_1u21x"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="1_a81x0"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cla7n8te3icba" path="res://scenes/enemies/lvl1/pawn.tscn" id="23_68jmb"]
 [ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/enemies/lvl1/goblin_tnt.tscn" id="24_i23cn"]
 [ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="26_8yur5"]
+[ext_resource type="PackedScene" uid="uid://dfgwjddv50356" path="res://scenes/enemies/lvl1/bow_arrow.tscn" id="26_s70wh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_117nl"]
 texture = ExtResource("7_qn0jj")
@@ -275,7 +276,7 @@ position = Vector2(-307, 49)
 
 [node name="MobSpawner" parent="." instance=ExtResource("5_y4uf8")]
 lvl1_creatures = Array[PackedScene]([ExtResource("23_68jmb"), ExtResource("22_n8mvd"), ExtResource("23_68jmb"), ExtResource("22_n8mvd"), ExtResource("24_i23cn"), ExtResource("23_68jmb")])
-lvl2_creatures = Array[PackedScene]([ExtResource("24_i23cn"), ExtResource("26_8yur5"), ExtResource("23_68jmb"), ExtResource("22_n8mvd"), ExtResource("22_n8mvd")])
+lvl2_creatures = Array[PackedScene]([ExtResource("24_i23cn"), ExtResource("26_8yur5"), ExtResource("23_68jmb"), ExtResource("22_n8mvd"), ExtResource("22_n8mvd"), ExtResource("26_s70wh")])
 initial_spawn_rate = 20
 spawn_rate_per_minute = 3.0
 wave_duration = 30
