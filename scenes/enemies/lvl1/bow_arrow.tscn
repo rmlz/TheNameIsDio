@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dfgwjddv50356"]
+[gd_scene load_steps=22 format=3 uid="uid://cse3yrvxsdkh7"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/enemy_base.gd" id="1_l6ccv"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_2afxm"]
 [ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/components/Attacks/RangedAttackComponent.tscn" id="3_3i51h"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/components/Health/health_component.tscn" id="4_c4hh1"]
-[ext_resource type="PackedScene" uid="uid://bf3laanlj7wii" path="res://scenes/projectile/Arrow.tscn" id="4_vomrc"]
+[ext_resource type="PackedScene" uid="uid://b0i44wx1y72bx" path="res://scenes/projectile/Arrow.tscn" id="4_vomrc"]
 [ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="5_wyfea"]
 [ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="6_dd2gr"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/components/Sizeable/Sizeable.tscn" id="7_u1dem"]

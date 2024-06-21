@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf3laanlj7wii"]
+[gd_scene load_steps=10 format=3 uid="uid://b0i44wx1y72bx"]
 
 [ext_resource type="Script" path="res://scenes/projectile/projectile_arrow.gd" id="1_8ljsd"]
 [ext_resource type="Texture2D" uid="uid://dtq1avw8gfkfx" path="res://assets/TinySword/Factions/Knights/Troops/Archer/Arrow/Arrow.png" id="2_rx3k0"]
