@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://dfgwjddv50356" path="res://scenes/enemies/lvl1/bow_arrow.tscn" id="3_miarg"]
+[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/enemies/lvl1/bow_arrow.tscn" id="3_miarg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0

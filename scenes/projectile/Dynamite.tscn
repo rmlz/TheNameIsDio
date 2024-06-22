@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bx5lmlv8yfc5i"]
+[gd_scene load_steps=21 format=3 uid="uid://djdpt7vb13n4o"]
 
 [ext_resource type="Script" path="res://scripts/projectiles/projectil_dynamite.gd" id="1_okaqg"]
 [ext_resource type="Texture2D" uid="uid://b6h27arnvmhif" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Dynamite/Dynamite.png" id="2_c062v"]
