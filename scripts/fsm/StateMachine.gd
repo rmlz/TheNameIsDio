@@ -16,11 +16,10 @@ var current_state: String = ""
 
 
 func _ready() -> void:
-	await(owner._ready())
+	await owner.ready
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
 		child.state_machine = self
-	var teste = owner
 	state.enter()
 	current_state = state.name
 

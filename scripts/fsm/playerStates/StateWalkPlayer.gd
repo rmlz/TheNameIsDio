@@ -4,7 +4,7 @@ extends State
 func enter(_msg:= {}) -> void:
 	character.animation_player.play("Walk")
 	
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	var input_vector: Vector2
 	# Obter o input vector
 	

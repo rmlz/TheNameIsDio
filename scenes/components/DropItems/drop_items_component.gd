@@ -8,7 +8,7 @@ extends Node
 var enemy: EnemyBase
 
 func _ready():
-	await(owner._ready())
+	await owner.ready
 	enemy = owner
 
 func drop_items() -> void:
