@@ -35,8 +35,8 @@
   </a>
 
   <p align="justify">
-    <b>The Name is Dio</b> is an open-sourced Action Game prototype made using Godot Engine which the player 
-must survive the most they can!
+    <b>The Name is Dio</b> is an open-sourced survival/action game prototype made using Godot Engine. 
+The main goal is to survive for 20 minutes. Second goal is to collect as many loot as you can and get higher points. 
     <br />
   </p>
   <p align="center">
@@ -76,10 +76,10 @@ must survive the most they can!
 
 This project was made to learn more about Godot Engine and to create a simple game. 
 The game is a prototype and it's open for anyone who wants to learn more about Godot Engine. 
-The game is a simple action game where the player must survive the most they can. 
-The game is inspired by the game "Vampire Survivors".
+It is a simple action game where the player must survive the most they can, and get
+some inspiration from the game "Vampire Survivors".
 
-The game's code is open for anyone who wants to learn more of Godot. 
+The code is open for anyone who wants to learn more of Godot. 
 You also may create your own game respecting the Mozilla licence.
 
 
@@ -92,18 +92,34 @@ You also may create your own game respecting the Mozilla licence.
 
 <!-- ROADMAP -->
 ## Roadmap
+### What is new?
+
+- Version 0.0.3
+  - [x] DIO-5 Reworked player node and mobile ui touch screen
+  - [x] DIO-6 Reworks enemies and adds new enemy: Bow and Arrow
+  - [x] DIO-7 Adds status ailments (Freeze and Poison) to enemies and a new Magic 
+skill avilabla after 5 minutes of gameplay.
+  - [x] DIO-8 Reworks the map ta make it easy to update for new versions
+
+### What is next?
+  - [ ] Add sound fx and music
+  - [ ] Add new behavior to creatures
+  - [ ] Implements players saving their results to a ranking board
+  - [ ] Improve how new skills are unlocked for player
+  - [ ] Add new skills to player
+  - [ ] Add new map features
+
+### Previous versions
+
+- Version 0.0.2
+  - [x] Dio-1 Implements mobile-pad for touch screen devices
+  - [x] Dio-2 rebuild EnemyBase implementation to handle ranged attacks
+  - [x] Dio-3 rebuild EnemyBase into different composition nodes
+  - [x] Dio-4 Reworks enemies, animations, mobspawner and time-lapse
 - Version 0.0.1
   - [x] Create first playable version
-- Version 0.0.2
-  - Dio-1 Implements mobile-pad for touch screen devices
-  - Dio-2 rebuild EnemyBase implementation to handle ranged attacks
-  - Dio-3 rebuild EnemyBase into different composition nodes
-  - Dio-4 Reworks enemies, animations, mobspawner and time-lapse
-- Version 0.0.3
-  - [ ] Add new magical skill
-  - [ ] Add sound fx and music
-  - [ ] Add 1 new creatures
-  - [ ] Add new behavior to creatures
+
+
 
 <!--See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).-->
 
@@ -112,10 +128,9 @@ You also may create your own game respecting the Mozilla licence.
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+# Do you want to contribute?
 
-# Here I want to explain how to contribute to this project.
-
+## Contributing to the code
 Contributions are what make the open source community such an amazing place to learn, inspire, and create.
 Any contributions you make are **greatly appreciated**. 
 
@@ -127,8 +142,11 @@ Follow the steps below.
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Contributing with assets and Ideas
 
+If you want to contribute with assets and ideas, please contact me at [Linkedin](https://www.linkedin.com/in/ramon-pinto-de-barros-a4527a72/), or
+at [The Name is Dio Itch.io page](https://rmlz.itch.io/the-name-is-dio).
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
@@ -136,8 +154,6 @@ Follow the steps below.
 Distributed under the Mozilla Public License Version 2.0 License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- CONTACT -->
 ## Contact
 
