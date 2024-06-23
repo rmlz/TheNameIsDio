@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4whdiwpjb7p3"]
+[gd_scene load_steps=7 format=3 uid="uid://b4whdiwpjb7p3"]
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="3_ughq0"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="2_unw4g"]
+[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/enemies/lvl1/sheep.tscn" id="3_ghnj4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -93,29 +94,10 @@ offset_right = -504.0
 offset_bottom = 613.0
 text = "Attack-up2"
 
+[node name="GoblinTorch" parent="." instance=ExtResource("2_unw4g")]
+
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
-position = Vector2(628, 394)
+position = Vector2(638, 321)
 
-[node name="GoblinTorch" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(33, 572)
-
-[node name="GoblinTorch2" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(46, 11)
-
-[node name="GoblinTorch3" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(1146, -16)
-
-[node name="GoblinTorch4" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(1160, 620)
-
-[node name="GoblinTorch5" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(49, 267)
-
-[node name="GoblinTorch6" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(1104, 265)
-
-[node name="GoblinTorch7" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(479, 718)
-
-[node name="GoblinTorch8" parent="." instance=ExtResource("3_ughq0")]
-position = Vector2(722, -72)
+[node name="Sheep5" parent="." instance=ExtResource("3_ghnj4")]
+position = Vector2(1019, 627)

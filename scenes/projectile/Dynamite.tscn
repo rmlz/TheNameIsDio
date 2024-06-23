@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bx5lmlv8yfc5i"]
+[gd_scene load_steps=21 format=3 uid="uid://djdpt7vb13n4o"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/projectil_dynamite.gd" id="1_ojyqe"]
-[ext_resource type="Texture2D" uid="uid://b6h27arnvmhif" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Dynamite/Dynamite.png" id="2_frpab"]
-[ext_resource type="Texture2D" uid="uid://cn4kmkvagrd3i" path="res://assets/TinySword/Effects/Explosion/Explosions.png" id="3_k620q"]
+[ext_resource type="Script" path="res://scripts/projectiles/projectil_dynamite.gd" id="1_okaqg"]
+[ext_resource type="Texture2D" uid="uid://b6h27arnvmhif" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Dynamite/Dynamite.png" id="2_c062v"]
+[ext_resource type="Texture2D" uid="uid://cn4kmkvagrd3i" path="res://assets/TinySword/Effects/Explosion/Explosions.png" id="3_3g70n"]
 
 [sub_resource type="Animation" id="Animation_ekujh"]
 length = 0.001
@@ -178,39 +178,39 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_megnd"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3swiq"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pg5d7"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uug6"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4v7c"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_awn4j"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2nktn"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(1152, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhvgi"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(1344, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xe6kl"]
-atlas = ExtResource("3_k620q")
+atlas = ExtResource("3_3g70n")
 region = Rect2(1536, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_55ttq"]
@@ -253,16 +253,13 @@ radius = 65.0692
 
 [node name="Dinamyte" type="CharacterBody2D"]
 y_sort_enabled = true
-script = ExtResource("1_ojyqe")
-speed = null
-bump_ground_reduce_speed = null
-damage = null
-friend_fire = null
+script = ExtResource("1_okaqg")
+damage = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
 scale = Vector2(2, 2)
-texture = ExtResource("2_frpab")
+texture = ExtResource("2_c062v")
 hframes = 6
 
 [node name="FireAnimation" type="AnimationPlayer" parent="."]

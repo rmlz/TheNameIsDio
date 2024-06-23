@@ -28,7 +28,7 @@ extends Node
 var enemy: EnemyBase
 
 func _ready():
-	await(owner._ready())
+	await owner.ready
 	enemy = owner as EnemyBase
 	modify_scale()
 
@@ -59,8 +59,8 @@ func get_scale_vector() -> Vector2:
 
 func scale_small():
 	enemy.health.healthScaling(small_health_multiplier)
-	enemy._hit_damage = enemy.hit_damage * small_hit_damage_multiplier
-	enemy._damage_time_cooldown = enemy.damage_time_cooldown * small_dmg_time_cd_multiplier
+	enemy._hit_damage = enemy.hit_damage * int(small_hit_damage_multiplier)
+	enemy._damage_time_cooldown = enemy.get_hit_cooldown_secs * small_dmg_time_cd_multiplier
 	enemy._deal_damage_time_cooldown = enemy.deal_damage_time_cooldown * small_deal_dmg_time_cd_multipler
 	enemy._speed = enemy.speed * small_speed_multiplier
 	enemy.drop_items_component.min_drops += small_drops_modifier
@@ -79,8 +79,8 @@ func scale_small():
 	
 func scale_big():
 	enemy.health.healthScaling(big_health_multiplier)
-	enemy._hit_damage = enemy.hit_damage * big_hit_damage_multiplier
-	enemy._damage_time_cooldown = enemy.damage_time_cooldown * big_dmg_time_cd_multiplier
+	enemy._hit_damage = enemy.hit_damage * int(big_hit_damage_multiplier)
+	enemy._damage_time_cooldown = enemy.get_hit_cooldown_secs * big_dmg_time_cd_multiplier
 	enemy._deal_damage_time_cooldown = enemy.deal_damage_time_cooldown * big_deal_dmg_time_cd_multipler
 	enemy._speed = enemy.speed * big_speed_multiplier
 	enemy.drop_items_component.min_drops += big_drops_modifier

@@ -1,0 +1,198 @@
+[gd_scene load_steps=23 format=3 uid="uid://cse3yrvxsdkh7"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/enemy_base.gd" id="1_l6ccv"]
+[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_2afxm"]
+[ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/components/Attacks/RangedAttackComponent.tscn" id="3_3i51h"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/components/Health/health_component.tscn" id="4_c4hh1"]
+[ext_resource type="PackedScene" uid="uid://b0i44wx1y72bx" path="res://scenes/projectile/Arrow.tscn" id="4_vomrc"]
+[ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="5_wyfea"]
+[ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="6_dd2gr"]
+[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/components/Sizeable/Sizeable.tscn" id="7_u1dem"]
+[ext_resource type="Texture2D" uid="uid://bkolctafg5h32" path="res://assets/TinySword/Factions/Knights/Troops/Archer/Purple/Archer_Purlple.png" id="8_adetu"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="9_exq2w"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="10_bokk6"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="11_eyjhq"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="12_j1egf"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="13_glrot"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="14_fp0ul"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/components/Status/status_component/StatusComponent.tscn" id="16_gq7a8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
+radius = 11.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_mijel"]
+resource_name = "Idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ymy7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4bkds"]
+resource_name = "Ranged_Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(7, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ad0mr"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0u0i"]
+_data = {
+"Idle": SubResource("Animation_mijel"),
+"RESET": SubResource("Animation_ymy7b"),
+"Ranged_Attack": SubResource("Animation_4bkds"),
+"Walk": SubResource("Animation_ad0mr")
+}
+
+[node name="BowAndArrow" type="CharacterBody2D" groups=["enemies"]]
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_l6ccv")
+deal_damage_time_cooldown = 1.5
+speed = 2.0
+get_hit_cooldown_secs = 1.0
+death_prefab = ExtResource("2_2afxm")
+
+[node name="RangedAttackComponent" parent="." instance=ExtResource("3_3i51h")]
+scale = Vector2(2, 2)
+projectile_scene = ExtResource("4_vomrc")
+
+[node name="DamageDigitMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -37)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="."]
+position = Vector2(36, -7)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_c4hh1")]
+max_health = 2
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("5_wyfea")
+max_drops = 2
+drops = Array[PackedScene]([ExtResource("6_dd2gr")])
+
+[node name="Sizeable" parent="." instance=ExtResource("7_u1dem")]
+small_health_multiplier = 0.8
+small_dmg_time_cd_multiplier = 1.0
+small_deal_dmg_time_cd_multipler = 0.8
+small_speed_multiplier = 1.5
+small_drops_modifier = 0
+small_melee_atk_range_multiplier = 2.0
+big_health_multiplier = 1.2
+big_speed_multiplier = 0.8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+texture = ExtResource("8_adetu")
+hframes = 8
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmps0")
+debug_color = Color(0.989457, 0, 0.290225, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k0u0i")
+}
+autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("9_exq2w")
+initial_state = NodePath("StateIdle")
+
+[node name="StateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("10_bokk6")
+aggro_distance = 9999
+keep_distance = 500
+
+[node name="StateFollow" type="Node" parent="StateMachine"]
+script = ExtResource("11_eyjhq")
+
+[node name="StateAttack" type="Node" parent="StateMachine"]
+script = ExtResource("12_j1egf")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("13_glrot")
+
+[node name="StateKeepDistance" type="Node" parent="StateMachine"]
+script = ExtResource("14_fp0ul")
+
+[node name="DEBUG_STATE" type="Label" parent="."]
+offset_left = 36.0
+offset_top = -38.0
+offset_right = 78.0
+offset_bottom = -15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StatusComponent" parent="." instance=ExtResource("16_gq7a8")]
+
+[connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
+[connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]

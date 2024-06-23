@@ -3,11 +3,8 @@ extends ProjectileBase
 
 func _ready():
 	$Explosion.visible = false
-	damage = 25
 
 func _move_project() -> void:
-	var total_distance = end_point.distance_to(start_point)
-	var actual_distance = position.distance_to(end_point)
 	calculate_movement()
 	move_and_slide()
 
@@ -23,25 +20,16 @@ func _do_damage():
 		if body.is_in_group("player"):
 			var player: PlayerObject = body
 			var push_vector = (player.position - position).normalized() * 5
-			player.get_hit(damage, push_vector)
-		if body.is_in_group("enemies"):
+			player.receive_damage(damage, push_vector)
+		if body.is_in_group("enemies") and friend_fire:
 			var enemy: EnemyBase = body
 			var push_vector = (enemy.position - position).normalized() * 5
 			enemy.receive_damage(damage, push_vector, true)
 	queue_free()
 	
 func calculate_movement():
-	var razao = end_point.distance_to(start_point) / max_distance
-	var direction: Vector2 = (end_point - start_point).normalized() * razao
-	velocity = direction * speed * (1 - bump_ground_reduce_speed) ** number_of_bumps
+	velocity = movement_direction * speed * (1 - bump_ground_reduce_speed) ** number_of_bumps
 	actual_velocity = velocity
 	
 func bump_projectile_to_ground():
 	number_of_bumps += 1
-
-func setup(start: Vector2, end: Vector2, probable_max_distance):
-	position = start
-	start_point = start
-	end_point = end
-	max_distance = probable_max_distance
-	calculate_movement()

@@ -16,11 +16,10 @@ var current_state: String = ""
 
 
 func _ready() -> void:
-	await(owner._ready())
+	await owner.ready
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
 		child.state_machine = self
-	var teste = owner
 	state.enter()
 	current_state = state.name
 
@@ -39,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 
 # This function calls the current state's exit() function, then changes the active state,
-# and calls its enter function.
+# and calls its enter function.4
 # It optionally takes a `msg` dictionary to pass to the next state's enter() function.
 func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	# Safety check, you could use an assert() here to report an error if the state name is incorrect.

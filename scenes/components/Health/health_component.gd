@@ -3,11 +3,11 @@ extends Node2D
 
 var health_bar: ProgressBar
 
-@export var max_health: int = 3
+@export var max_health: float = 3
 @export var show_bar = false
 @export var damage_digit: PackedScene
 var enemy_object: EnemyBase
-var _health: int = 0
+var _health: float = 0
 
 signal health_equal_zero
 signal change_health
@@ -17,7 +17,7 @@ func _ready():
 	if (get_parent() is EnemyBase):
 		enemy_object = get_parent()
 
-func _process(delta):
+func _process(_delta):
 	health_bar.visible = show_bar
 
 # Starts health with Max health
@@ -32,7 +32,8 @@ func _initialize_health():
 func damage(value: int) -> void:
 	var absolute = absi(value)
 	_health = max(_health - absolute, 0)
-	show_damage_digit(absolute)
+	if enemy_object:
+		show_damage_digit(absolute)
 	change_health.emit()
 
 # Heal this health with the absolute value param	

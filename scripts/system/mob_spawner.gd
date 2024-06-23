@@ -33,11 +33,11 @@ func _process(delta: float) -> void:
 		monsterSpawned = spawn_monster()
 	
 func spawn_monster() -> bool:
-	if not GameManager.is_game_on_play():
+	if not GameManager.is_game_on_play() or not GameManager.can_spawn_monster():
 		return true
 	var creature_index: int
 	var creature_scene: PackedScene
-	if GameManager.points <= 100000:	
+	if GameManager.time_elapsed <= 300:	
 		creature_index = randi_range(0, lvl1_creatures.size() - 1)
 		creature_scene = lvl1_creatures[creature_index]
 	else:
@@ -54,6 +54,7 @@ func spawn_monster() -> bool:
 	creature.global_position = point
 	
 	get_parent().add_child(creature)
+	GameManager.current_spawned_monster += 1
 	return true
 
 func get_spawn_point() -> Vector2:

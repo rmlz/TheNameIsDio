@@ -8,15 +8,15 @@ extends Node
 # The state machine node will set it.
 var state_machine: StateMachine
 
-var enemy: EnemyBase
+var character: CharacterBase
 var sprite: Sprite2D
 
 func _ready():
-	await(owner._ready())
-	enemy = owner as EnemyBase
-	sprite = enemy.animated_sprite
+	await owner.ready
+	character = owner
+	sprite = character.animated_sprite
 	
-	assert(enemy != null)
+	assert(character != null)
 
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
