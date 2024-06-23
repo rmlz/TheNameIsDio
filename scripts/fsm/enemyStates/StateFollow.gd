@@ -5,7 +5,7 @@ extends State
 func enter(_msg:= {}) -> void:
 	character.animation_player.play("Walk")
 	
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	var player_position = GameManager.player_position
 	var difference = player_position - character.position
 	var input_vector = difference.normalized()

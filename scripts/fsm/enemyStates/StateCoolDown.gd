@@ -10,7 +10,7 @@ func enter(_msg:= {}) -> void:
 	max_cd_time = _msg["cd_time"]
 	is_hit = _msg["hit"]
 	if not _msg["ignore_cd"]:
-		add_time(max_cd_time)
+		add_time(int(max_cd_time))
 	
 func update(delta: float) -> void:
 	current_cd_time -= delta

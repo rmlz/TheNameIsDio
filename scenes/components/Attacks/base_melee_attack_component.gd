@@ -7,7 +7,7 @@ var target: CharacterBase
 
 func _ready():
 	attack_area = $AttackArea
-	await(owner._ready())
+	await owner.ready
 	character = owner
 	
 func is_range_attack() -> bool:

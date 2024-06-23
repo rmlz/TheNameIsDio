@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://blkiwodt8jlje"]
+[gd_scene load_steps=22 format=3 uid="uid://blkiwodt8jlje"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/enemy_base.gd" id="1_sfes6"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_85o5b"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/components/Attacks/MeleeAttackComponent.tscn" id="9_penyq"]
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="10_3lune"]
 [ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="12_5a4hs"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/components/Status/status_component/StatusComponent.tscn" id="15_4mokv"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/components/Sizeable/Sizeable.tscn" id="15_qc4di"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
@@ -188,6 +189,8 @@ offset_left = 36.0
 offset_top = -38.0
 offset_right = 78.0
 offset_bottom = -15.0
+
+[node name="StatusComponent" parent="." instance=ExtResource("15_4mokv")]
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

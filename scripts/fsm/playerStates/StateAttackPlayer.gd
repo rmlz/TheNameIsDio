@@ -9,7 +9,7 @@ func enter(_msg:= {}) -> void:
 	attack_type = 1
 	character.animation_player.play("attack-side")
 	
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 
 func do_attack() -> void:

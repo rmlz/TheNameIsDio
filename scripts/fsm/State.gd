@@ -12,7 +12,7 @@ var character: CharacterBase
 var sprite: Sprite2D
 
 func _ready():
-	await(owner._ready())
+	await owner.ready
 	character = owner
 	sprite = character.animated_sprite
 	

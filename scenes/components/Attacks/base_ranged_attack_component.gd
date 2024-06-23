@@ -8,7 +8,7 @@ extends Node2D
 var character: CharacterBase
 
 func _ready():
-	await(owner._ready())
+	await owner.ready
 	character = owner
 
 func is_range_attack() -> bool:

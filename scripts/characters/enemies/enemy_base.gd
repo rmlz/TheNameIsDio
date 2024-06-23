@@ -6,9 +6,9 @@ extends CharacterBase
 @export_category("Statistics")
 @export var deal_damage_time_cooldown: float = 0.5
 
-var _deal_damage_cooldown: float = 0.0
-var _dmg_cooldown: float = 0.0
-var _is_damage_animation: bool = false
+# var _deal_damage_cooldown: float = 0.0
+# var _dmg_cooldown: float = 0.0
+# var _is_damage_animation: bool = false
 
 func _ready():
 	basic_setup()

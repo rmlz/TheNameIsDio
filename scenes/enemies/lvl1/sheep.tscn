@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brx2k5c7kdntu"]
+[gd_scene load_steps=22 format=3 uid="uid://brx2k5c7kdntu"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/enemy_base.gd" id="1_qvya4"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_4mtg5"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="10_okqc4"]
 [ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="12_ohbyw"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/components/Sizeable/Sizeable.tscn" id="14_o3j6s"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/components/Status/status_component/StatusComponent.tscn" id="15_lhcne"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
 radius = 11.0
@@ -149,7 +150,7 @@ position = Vector2(0, -37)
 position = Vector2(0, -42)
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_a3sdd")]
-max_health = 2
+max_health = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -17)
@@ -211,6 +212,12 @@ script = ExtResource("9_inkgn")
 
 [node name="StateKeepDistance" type="Node" parent="StateMachine"]
 script = ExtResource("10_okqc4")
+
+[node name="StatusComponent" parent="." instance=ExtResource("15_lhcne")]
+offset_left = -23.0
+offset_top = 6.0
+offset_right = 5.0
+offset_bottom = 6.0
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddygnwfwnj7u0"]
+[gd_scene load_steps=24 format=3 uid="uid://ddygnwfwnj7u0"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/enemy_base.gd" id="1_sjcjc"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_n2sxr"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="3_xdfga"]
 [ext_resource type="Texture2D" uid="uid://deiv0k4whcbeu" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Purple/TNT_Purple.png" id="4_uva7l"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="5_5b54e"]
-[ext_resource type="PackedScene" uid="uid://bx5lmlv8yfc5i" path="res://scenes/projectile/Dynamite.tscn" id="5_rhwp0"]
+[ext_resource type="PackedScene" uid="uid://djdpt7vb13n4o" path="res://scenes/projectile/Dynamite.tscn" id="5_rhwp0"]
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="6_4sci2"]
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="7_at5x4"]
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="8_u571h"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/components/DropItems/drop_items_component.gd" id="13_qfifv"]
 [ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="15_blihd"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/components/Sizeable/Sizeable.tscn" id="15_wexpp"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/components/Status/status_component/StatusComponent.tscn" id="17_wm67j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
 radius = 11.0
@@ -191,6 +192,8 @@ offset_left = 36.0
 offset_top = -38.0
 offset_right = 78.0
 offset_bottom = -15.0
+
+[node name="StatusComponent" parent="." instance=ExtResource("17_wm67j")]
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

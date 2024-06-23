@@ -19,7 +19,7 @@ var movement_direction: Vector2
 func _move_project() -> void:
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_move_project()
 	
 func _do_damage():
@@ -34,7 +34,6 @@ func bump_projectile_to_ground():
 	pass
 	
 func calculate_movement():
-	var player_position = GameManager.player_position
 	velocity = movement_direction * speed * (1 - bump_ground_reduce_speed) ** number_of_bumps
 	actual_velocity = velocity
 

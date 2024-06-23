@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var debug_state: Label = $DEBUG_STATE
 var ranged_attack_component: BaseRangedAttackComponent
 var melee_attack_component: BaseMeleeAttackComponent
+var status_component: StatusComponent
 
 @export_category("Statistics")
 @export var speed: float = 3
@@ -17,7 +18,13 @@ var melee_attack_component: BaseMeleeAttackComponent
 @export_category("Death Params")
 @export var death_prefab: PackedScene
 
-# Calculated params:
+# Calculated constant params
+var _calc_hit_damage: int
+var _calc_damage_time_cooldown: float
+var _calc_deal_damage_time_cooldown: float
+var _calc_speed: float
+
+# Variant params:
 var _hit_damage: int
 var _damage_time_cooldown: float
 var _deal_damage_time_cooldown: float
@@ -26,6 +33,9 @@ var _speed: float
 func _ready():
 	basic_setup()
 	
+func _physics_process(_delta):
+	calculate_params()
+	
 func basic_setup() -> void:
 	if GameManager.is_debug_enabled:
 		$DEBUG_STATE.visible = true
@@ -33,11 +43,21 @@ func basic_setup() -> void:
 		$DEBUG_STATE.visible = false
 	ranged_attack_component = get_node_or_null("RangedAttackComponent")
 	melee_attack_component = get_node_or_null("MeleeAttackComponent")
-	_hit_damage = hit_damage
-	_damage_time_cooldown = get_hit_cooldown_secs
-	_speed = speed
+	status_component = get_node_or_null("StatusComponent")
+	calculate_params()
+	
+func calculate_params():
+	_calc_hit_damage = hit_damage
+	_calc_damage_time_cooldown = get_hit_cooldown_secs
+	_calc_speed = speed
+	
+	_hit_damage = _calc_hit_damage
+	_damage_time_cooldown = _calc_damage_time_cooldown
+	_speed = _calc_speed	
 
 func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
+	if amount == 0:
+		return
 	if health:
 		health.damage(amount)
 	run_damage_color_feedback()
@@ -72,3 +92,4 @@ func proccess_attack(target_position: Vector2, type: int) -> void:
 		
 func _on_state_machine_transitioned(state_name):
 	debug_state.text = state_name
+	

@@ -12,7 +12,7 @@ func enter(_msg:= {}) -> void:
 	elif attack_type == 2:
 		character.animation_player.play("Ranged_Attack")
 	
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 
 func do_attack() -> void:

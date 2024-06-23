@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxge6rvc7mdfy"]
+[gd_scene load_steps=27 format=3 uid="uid://cxge6rvc7mdfy"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_j415d"]
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_xy6bu"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_n8uwo"]
+[ext_resource type="PackedScene" uid="uid://bijitbu44runy" path="res://misc/system/ritual_acid.tscn" id="3_60sen"]
 [ext_resource type="PackedScene" uid="uid://b4r8mmefx7got" path="res://misc/system/ritual.tscn" id="3_udkri"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="5_31ggd"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateIdlePlayer.gd" id="6_kw1rk"]
@@ -221,10 +222,18 @@ bg_color = Color(0.223529, 0.415686, 0.933333, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbadi"]
 bg_color = Color(0.113725, 0.270588, 0.407843, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecvkv"]
+bg_color = Color(0, 0.698039, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2nnt"]
+bg_color = Color(0, 0.270588, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_j415d")
 ritual1 = ExtResource("3_udkri")
+ritual2 = ExtResource("3_60sen")
+ritual2_cooldown = 35
 death_prefab = ExtResource("2_n8uwo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -248,6 +257,9 @@ autoplay = "Idle"
 [node name="Ritual1Timer" type="Timer" parent="."]
 wait_time = 30.0
 
+[node name="Ritual2Timer" type="Timer" parent="."]
+wait_time = 30.0
+
 [node name="Ritual1Bar" type="ProgressBar" parent="."]
 offset_left = -42.0
 offset_top = 25.0
@@ -259,9 +271,21 @@ step = 1.0
 fill_mode = 1
 show_percentage = false
 
+[node name="Ritual2Bar" type="ProgressBar" parent="."]
+offset_left = -42.0
+offset_top = 32.0
+offset_right = 42.0
+offset_bottom = 38.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ecvkv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o2nnt")
+step = 1.0
+value = 50.0
+fill_mode = 1
+show_percentage = false
+
 [node name="HealthComponent" parent="." instance=ExtResource("6_oxflf")]
 scale = Vector2(0.7, 0.7)
-max_health = 200
+max_health = 200.0
 show_bar = true
 
 [node name="MeleeAttackComponent" parent="." instance=ExtResource("10_mxbui")]
@@ -287,7 +311,10 @@ script = ExtResource("7_tw0vt")
 [node name="StateAttack" type="Node" parent="StateMachine"]
 script = ExtResource("8_hasv2")
 
+[node name="LaunchStartPoint" type="Marker2D" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
 [connection signal="timeout" from="Ritual1Timer" to="." method="_on_ritual_1_timer_timeout"]
+[connection signal="timeout" from="Ritual2Timer" to="." method="_on_ritual_2_timer_timeout"]
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
