@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8gh26r7m3ajb"]
 
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="1_ygrfb"]
-[ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_4kr2r"]
+[ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="2_4kr2r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hafy"]
 texture = ExtResource("1_ygrfb")

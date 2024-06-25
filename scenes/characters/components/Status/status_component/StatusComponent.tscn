@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fykkxugvhgq6"]
+
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_component/status_component.gd" id="1_abe18"]
+
+[node name="StatusComponent" type="GridContainer"]
+offset_right = 28.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+script = ExtResource("1_abe18")
