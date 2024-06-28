@@ -13,7 +13,7 @@ var ritual_2_timer: Timer
 @export var ritual2: PackedScene
 @export var ritual2_cooldown: int = 20
 
-var _hit_cooldown: float = get_hit_cooldown_secs
+var _hit_cooldown: float = 0.0
 var attack_cooldown: float = 0.65
 const attack_cooldown_fix = 0.65
 var input_vector: Vector2 = Vector2.ZERO
@@ -22,6 +22,7 @@ var mobile_joypad: CanvasLayer
 
 func _ready(): 
 	basic_setup()
+	_hit_cooldown = statistics.get_hit_cooldown_secs
 	ritual_1_timer = $Ritual1Timer
 	ritual_1_timer.wait_time = ritual1_cooldown
 	ritual_1_timer.start()

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqoqokisw8ngt"]
 
 [ext_resource type="Script" path="res://scenes/mob_spawner/mob_spawner.gd" id="1_gl0ov"]
-[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl1/goblin_torch.tscn" id="2_g1ky7"]
-[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/characters/enemies/lvl1/goblin_tnt.tscn" id="3_4e1wc"]
-[ext_resource type="PackedScene" uid="uid://cla7n8te3icba" path="res://scenes/characters/enemies/lvl1/pawn.tscn" id="4_qgvbt"]
-[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl1/sheep.tscn" id="5_15gr4"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl1/goblin_torch_regular_lvl1.tscn" id="2_g1ky7"]
+[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/characters/enemies/lvl1/goblin_tnt_regular_lvl1.tscn" id="3_4e1wc"]
+[ext_resource type="PackedScene" uid="uid://cla7n8te3icba" path="res://scenes/characters/enemies/lvl1/pawn_regular_lvl1.tscn" id="4_qgvbt"]
+[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl1/sheep_regular_lvl1.tscn" id="5_15gr4"]
 
 [sub_resource type="Curve2D" id="Curve2D_kjmaf"]
 _data = {

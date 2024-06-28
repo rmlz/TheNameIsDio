@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://clh2thlhet16k"]
 
-[ext_resource type="Script" path="res://scenes/characters/components/Status/status_freeze/status_freeze.gd" id="1_3xybr"]
-[ext_resource type="Texture2D" uid="uid://blhpekdthadvk" path="res://assets/icons/freeze.png" id="2_gdl5u"]
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_freeze/status_freeze.gd" id="1_i75fr"]
+[ext_resource type="Texture2D" uid="uid://blhpekdthadvk" path="res://assets/icons/freeze.png" id="2_cnvcx"]
 
 [node name="StatusFreeze" type="Node"]
-script = ExtResource("1_3xybr")
+script = ExtResource("1_i75fr")
 id = "Freeze"
 stack_type = 1
 can_expire = true
 stacks = 2
 damage_per_application = 0
 speed_mod_percent = -0.3
-icon = ExtResource("2_gdl5u")
+icon = ExtResource("2_cnvcx")
 
 [node name="ApplyTimer" type="Timer" parent="."]

@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://kpc0g8elcxvv"]
 
-[ext_resource type="Script" path="res://scenes/characters/components/Status/status_scene.gd" id="1_g0bx8"]
-[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="3_ec18g"]
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_scene.gd" id="1_2tamq"]
+[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="2_xnusq"]
 
 [node name="StatusScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_g0bx8")
+script = ExtResource("1_2tamq")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("3_ec18g")
+texture = ExtResource("2_xnusq")
 
 [node name="Duration" type="Label" parent="."]
 layout_mode = 0

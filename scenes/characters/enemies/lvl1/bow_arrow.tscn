@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cse3yrvxsdkh7"]
+[gd_scene load_steps=24 format=3 uid="uid://cse3yrvxsdkh7"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_v6506"]
-[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_vd55e"]
+[ext_resource type="Resource" uid="uid://bmoc567w111nu" path="res://scenes/characters/resources/bow_and_arrow_regular_stats.tres" id="2_ededx"]
 [ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/characters/components/Attacks/RangedAttackComponent.tscn" id="3_02xdi"]
 [ext_resource type="PackedScene" uid="uid://b0i44wx1y72bx" path="res://scenes/projectile/Arrow/Arrow.tscn" id="4_hei8g"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="5_c54jf"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="15_c34y6"]
 [ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="16_py6r3"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp4pv"]
+radius = 300.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
 radius = 11.0
 height = 40.0
@@ -28,7 +31,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +46,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,7 +61,7 @@ resource_name = "Ranged_Attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -89,7 +92,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -112,44 +115,36 @@ y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_v6506")
 deal_damage_time_cooldown = 1.5
-speed = 2.0
-get_hit_cooldown_secs = 1.0
-death_prefab = ExtResource("2_vd55e")
+statistics = ExtResource("2_ededx")
+
+[node name="Sizeable" type="Node2D" parent="."]
+
+[node name="DamageDigitMarker" type="Marker2D" parent="Sizeable"]
+unique_name_in_owner = true
+position = Vector2(0, -37)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
+position = Vector2(36, -7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
+position = Vector2(0, -17)
+texture = ExtResource("9_w8ie8")
+hframes = 8
+vframes = 7
 
 [node name="RangedAttackComponent" parent="." instance=ExtResource("3_02xdi")]
 scale = Vector2(2, 2)
 projectile_scene = ExtResource("4_hei8g")
-
-[node name="DamageDigitMarker" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -37)
-
-[node name="LaunchStartPoint" type="Marker2D" parent="."]
-position = Vector2(36, -7)
+attack_shape = SubResource("CircleShape2D_xp4pv")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_c54jf")]
-max_health = 2
 
 [node name="DropItemsComponent" type="Node" parent="."]
 script = ExtResource("6_aqpdd")
 max_drops = 2
 drops = Array[PackedScene]([ExtResource("7_wrxqs")])
 
-[node name="Sizeable" parent="." instance=ExtResource("8_h1jrs")]
-small_health_multiplier = 0.8
-small_dmg_time_cd_multiplier = 1.0
-small_deal_dmg_time_cd_multipler = 0.8
-small_speed_multiplier = 1.5
-small_drops_modifier = 0
-small_melee_atk_range_multiplier = 2.0
-big_health_multiplier = 1.2
-big_speed_multiplier = 0.8
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
-texture = ExtResource("9_w8ie8")
-hframes = 8
-vframes = 7
+[node name="SizeChanger" parent="." instance=ExtResource("8_h1jrs")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

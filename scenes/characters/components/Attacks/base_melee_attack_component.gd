@@ -1,3 +1,4 @@
+@tool
 class_name BaseMeleeAttackComponent
 extends Node2D
 
@@ -5,8 +6,15 @@ var attack_area: Area2D
 var character: CharacterBase
 var target: CharacterBase
 
+@export var attack_shape: Shape2D
+
 func _ready():
+	assert(attack_shape)
 	attack_area = $AttackArea
+	var collision_shape = attack_area.get_node(
+		"CollisionShape") as CollisionShape2D
+	
+	collision_shape.shape = attack_shape
 	await owner.ready
 	character = owner
 	
@@ -23,7 +31,7 @@ func attack(target_position: Vector2) -> void:
 		assert(target_position != null)
 		var direction_to_target = (target_position - character.position).normalized()
 		if is_range_attack():
-			target.receive_damage(character.hit_damage, direction_to_target)
+			target.receive_damage(character._hit_damage, direction_to_target)
 		target = null
 	elif character is PlayerObject:
 		for body in attack_area.get_overlapping_bodies():
@@ -37,4 +45,8 @@ func attack(target_position: Vector2) -> void:
 					attack_direction = Vector2.RIGHT
 				var dot_product = direction_to_enemy.dot(attack_direction)
 				if dot_product >= 0.1:
-					enemy.receive_damage(character.hit_damage, direction_to_enemy)
+					enemy.receive_damage(character._hit_damage, direction_to_enemy)
+
+func _get_configuration_warnings():
+	if not attack_area:
+		return ["The attack shape cannot be null"]

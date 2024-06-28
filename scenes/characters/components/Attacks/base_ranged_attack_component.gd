@@ -1,13 +1,20 @@
+@tool
 class_name BaseRangedAttackComponent
 extends Node2D
 
 @onready var attack_area = $AttackArea
 @export var number_of_projectiles := 1
+
 @export var projectile_scene: PackedScene
+@export var attack_shape: Shape2D
 
 var character: CharacterBase
 
 func _ready():
+	assert(attack_shape)
+	var collision_shape = attack_area.get_node(
+		"CollisionShape") as CollisionShape2D
+	collision_shape.shape = attack_shape
 	await owner.ready
 	character = owner
 
@@ -27,3 +34,11 @@ func attack(target_position: Vector2) -> void:
 		projectile_instance = projectile_scene.instantiate() as ProjectileBase
 		projectile_instance.setup(character.launch_point.global_position, target_position, 750)
 		owner.get_parent().add_child(projectile_instance)
+
+func _get_configuration_warnings():
+	var result: PackedStringArray = []
+	if not attack_area:
+		result.append("The attack shape cannot be null")
+	if not projectile_scene:
+		result.append("Projectile scene cannot be null")
+	return result

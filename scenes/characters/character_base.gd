@@ -1,22 +1,18 @@
 class_name CharacterBase
 extends CharacterBody2D
 
-@onready var animated_sprite = $Sprite2D
-@onready var animation_player = $AnimationPlayer
+@onready var animated_sprite = $Sizeable/Sprite2D
+@onready var launch_point: Marker2D = $Sizeable/LaunchStartPoint
 @onready var health: HealthComponent = $HealthComponent
-@onready var launch_point: Marker2D = $LaunchStartPoint
+@onready var animation_player = $AnimationPlayer
 @onready var debug_state: Label = $DEBUG_STATE
 var ranged_attack_component: BaseRangedAttackComponent
 var melee_attack_component: BaseMeleeAttackComponent
 var status_component: StatusComponent
+var size_changer: SizeChanger
+@export var statistics: CharacterStatistics
 
-@export_category("Statistics")
-@export var speed: float = 3
-@export var get_hit_cooldown_secs: float = 0.5
-@export var hit_damage: int = 1
-
-@export_category("Death Params")
-@export var death_prefab: PackedScene
+var death_prefab: PackedScene
 
 # Calculated constant params
 var _calc_hit_damage: int
@@ -33,27 +29,37 @@ var _speed: float
 func _ready():
 	basic_setup()
 	
-func _physics_process(_delta):
-	calculate_params()
-	
 func basic_setup() -> void:
 	if GameManager.is_debug_enabled:
 		$DEBUG_STATE.visible = true
 	else:
 		$DEBUG_STATE.visible = false
 	ranged_attack_component = get_node_or_null("RangedAttackComponent")
-	melee_attack_component = get_node_or_null("MeleeAttackComponent")
+	melee_attack_component = get_node_or_null("Sizeable/MeleeAttackComponent")
 	status_component = get_node_or_null("StatusComponent")
+	size_changer = get_node_or_null("SizeChanger")
+	death_prefab = statistics.death_prefab
 	calculate_params()
 	
+	
 func calculate_params():
-	_calc_hit_damage = hit_damage
-	_calc_damage_time_cooldown = get_hit_cooldown_secs
-	_calc_speed = speed
+	_calc_hit_damage = statistics.hit_damage
+	_calc_damage_time_cooldown = statistics.get_hit_cooldown_secs
+	_calc_speed = statistics.speed
 	
 	_hit_damage = _calc_hit_damage
 	_damage_time_cooldown = _calc_damage_time_cooldown
-	_speed = _calc_speed	
+	_speed = _calc_speed
+	
+	health.initialize_health(statistics.max_health)
+	if size_changer:
+		change_size(size_changer.get_scale_vector(statistics.size))
+	
+func change_size(vector: Vector2):
+	for node: Node2D in $Sizeable.get_children():
+		node.apply_scale(vector)
+	$CollisionShape2D.apply_scale(vector)
+
 
 func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
 	if amount == 0:
@@ -64,7 +70,7 @@ func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = fa
 	velocity = collision_vector * amount * 200
 	
 	$StateMachine.transition_to("StateCoolDown", {
-		"cd_time": get_hit_cooldown_secs, 
+		"cd_time": statistics.get_hit_cooldown_secs, 
 		"hit": true, 
 		"ignore_cd": ignore_cooldown
 		})

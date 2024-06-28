@@ -1,22 +1,25 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddygnwfwnj7u0"]
+[gd_scene load_steps=25 format=3 uid="uid://ddygnwfwnj7u0"]
 
-[ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_t047h"]
-[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_0i2rl"]
-[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="3_t1gnk"]
-[ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/characters/components/Attacks/RangedAttackComponent.tscn" id="4_r466q"]
-[ext_resource type="PackedScene" uid="uid://djdpt7vb13n4o" path="res://scenes/projectile/Dynamite/Dynamite.tscn" id="5_qud7u"]
-[ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="6_emg56"]
-[ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="7_iaine"]
-[ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="8_fyv5p"]
-[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="9_8thk1"]
-[ext_resource type="Texture2D" uid="uid://deiv0k4whcbeu" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Purple/TNT_Purple.png" id="10_360mf"]
-[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="11_o46ke"]
-[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="12_jbdia"]
-[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="13_fit26"]
-[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="14_dnm3r"]
-[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="15_ud6gy"]
-[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="16_73fh6"]
-[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="17_xjxao"]
+[ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_v07j8"]
+[ext_resource type="Texture2D" uid="uid://deiv0k4whcbeu" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Purple/TNT_Purple.png" id="2_1m2vn"]
+[ext_resource type="Resource" uid="uid://bibkn031wm7c5" path="res://scenes/characters/resources/goblin_tnt_regular_stats.tres" id="2_h8s0x"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="3_ne2le"]
+[ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/characters/components/Attacks/RangedAttackComponent.tscn" id="4_8o3ao"]
+[ext_resource type="PackedScene" uid="uid://djdpt7vb13n4o" path="res://scenes/projectile/Dynamite/Dynamite.tscn" id="5_udqv8"]
+[ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="6_5g81b"]
+[ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="7_5mgx6"]
+[ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="8_xag7a"]
+[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="9_yiden"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="10_uxt6k"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="11_b7sex"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="12_70bgu"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="13_wulhk"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="14_kwheo"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="15_o1g3p"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="16_bjjcs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1gqj"]
+radius = 250.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
 radius = 11.0
@@ -29,7 +32,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +47,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +63,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -91,7 +94,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -109,50 +112,40 @@ _data = {
 "Walk": SubResource("Animation_ad0mr")
 }
 
-[node name="GoblinTNT" type="CharacterBody2D" groups=["enemies"]]
+[node name="GoblinTNTRegularLvl1" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -20)
 motion_mode = 1
-script = ExtResource("1_t047h")
+script = ExtResource("1_v07j8")
 deal_damage_time_cooldown = 4.0
-speed = 2.99
-death_prefab = ExtResource("2_0i2rl")
+statistics = ExtResource("2_h8s0x")
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_t1gnk")]
-max_health = 4
+[node name="Sizeable" type="Node2D" parent="."]
 
-[node name="RangedAttackComponent" parent="." instance=ExtResource("4_r466q")]
-projectile_scene = ExtResource("5_qud7u")
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
+position = Vector2(0, -17)
+texture = ExtResource("2_1m2vn")
+hframes = 7
+vframes = 3
 
-[node name="DropItemsComponent" type="Node" parent="."]
-script = ExtResource("6_emg56")
-max_drops = 2
-drops = Array[PackedScene]([ExtResource("7_iaine"), ExtResource("8_fyv5p")])
-
-[node name="Sizeable" parent="." instance=ExtResource("9_8thk1")]
-has_big = true
-small_dmg_time_cd_multiplier = 1.0
-small_deal_dmg_time_cd_multipler = 0.8
-small_speed_multiplier = 1.2
-big_hit_damage_multiplier = 1.0
-big_dmg_time_cd_multiplier = 1.2
-big_deal_dmg_time_cd_multipler = 1.5
-big_speed_multiplier = 0.8
-big_drops_modifier = 2
-big_melee_atk_range_multiplier = 0.5
-big_ranged_atk_range_multiplier = 0.5
-
-[node name="DamageDigitMarker" type="Marker2D" parent="."]
+[node name="DamageDigitMarker" type="Marker2D" parent="Sizeable"]
 unique_name_in_owner = true
 position = Vector2(0, -37)
 
-[node name="LaunchStartPoint" type="Marker2D" parent="."]
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
 position = Vector2(0, -42)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
-texture = ExtResource("10_360mf")
-hframes = 7
-vframes = 3
+[node name="HealthComponent" parent="." instance=ExtResource("3_ne2le")]
+
+[node name="RangedAttackComponent" parent="." instance=ExtResource("4_8o3ao")]
+projectile_scene = ExtResource("5_udqv8")
+attack_shape = SubResource("CircleShape2D_r1gqj")
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("6_5g81b")
+max_drops = 2
+drops = Array[PackedScene]([ExtResource("7_5mgx6"), ExtResource("8_xag7a")])
+
+[node name="SizeChanger" parent="." instance=ExtResource("9_yiden")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -167,25 +160,25 @@ libraries = {
 autoplay = "Idle"
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("11_o46ke")
+script = ExtResource("10_uxt6k")
 initial_state = NodePath("StateIdle")
 
 [node name="StateIdle" type="Node" parent="StateMachine"]
-script = ExtResource("12_jbdia")
+script = ExtResource("11_b7sex")
 aggro_distance = 1000
 keep_distance = 400
 
 [node name="StateFollow" type="Node" parent="StateMachine"]
-script = ExtResource("13_fit26")
+script = ExtResource("12_70bgu")
 
 [node name="StateAttack" type="Node" parent="StateMachine"]
-script = ExtResource("14_dnm3r")
+script = ExtResource("13_wulhk")
 
 [node name="StateCoolDown" type="Node" parent="StateMachine"]
-script = ExtResource("15_ud6gy")
+script = ExtResource("14_kwheo")
 
 [node name="StateKeepDistance" type="Node" parent="StateMachine"]
-script = ExtResource("16_73fh6")
+script = ExtResource("15_o1g3p")
 
 [node name="DEBUG_STATE" type="Label" parent="."]
 offset_left = 36.0
@@ -193,7 +186,7 @@ offset_top = -38.0
 offset_right = 78.0
 offset_bottom = -15.0
 
-[node name="StatusComponent" parent="." instance=ExtResource("17_xjxao")]
+[node name="StatusComponent" parent="." instance=ExtResource("16_bjjcs")]
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

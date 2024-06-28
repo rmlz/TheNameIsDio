@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterStatistics" load_steps=2 format=3 uid="uid://bmoc567w111nu"]
+
+[ext_resource type="Script" path="res://scenes/characters/resources/character_statistics.gd" id="1_77uyq"]
+
+[resource]
+script = ExtResource("1_77uyq")
+max_health = 3.0
+speed = 1.0
+get_hit_cooldown_secs = 0.5
+hit_damage = 1
+size = 0

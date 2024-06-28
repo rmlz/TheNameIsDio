@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://bijitbu44runy"]
 
-[ext_resource type="Script" path="res://skills/ritual_acid.gd" id="1_w6oqm"]
-[ext_resource type="PackedScene" uid="uid://epao2p7585f8" path="res://scenes/characters/components/Status/status_poison/StatusPoison.tscn" id="2_nyx2p"]
-[ext_resource type="Texture2D" uid="uid://dwmoe27wtd1uv" path="res://assets/Particle Pack/smoke_08.png" id="3_bk1ec"]
-[ext_resource type="Texture2D" uid="uid://c6537xulrs37j" path="res://assets/Particle Pack/smoke_09.png" id="4_q2wm0"]
-[ext_resource type="Texture2D" uid="uid://bcpcdvll7ug82" path="res://assets/Particle Pack/smoke_10.png" id="5_23fce"]
-[ext_resource type="Texture2D" uid="uid://1px2kgsp24r1" path="res://assets/Particle Pack/magic_02.png" id="6_kyyyr"]
-[ext_resource type="Texture2D" uid="uid://dxhiixx5rkcu" path="res://assets/Particle Pack/circle_02.png" id="7_nukfk"]
+[ext_resource type="Script" path="res://skills/ritual_acid.gd" id="1_50e7o"]
+[ext_resource type="PackedScene" uid="uid://epao2p7585f8" path="res://scenes/characters/components/Status/status_poison/StatusPoison.tscn" id="2_gxi46"]
+[ext_resource type="Texture2D" uid="uid://dwmoe27wtd1uv" path="res://assets/Particle Pack/smoke_08.png" id="3_f3phd"]
+[ext_resource type="Texture2D" uid="uid://c6537xulrs37j" path="res://assets/Particle Pack/smoke_09.png" id="4_pijxx"]
+[ext_resource type="Texture2D" uid="uid://bcpcdvll7ug82" path="res://assets/Particle Pack/smoke_10.png" id="5_0a22b"]
+[ext_resource type="Texture2D" uid="uid://1px2kgsp24r1" path="res://assets/Particle Pack/magic_02.png" id="6_2xdjr"]
+[ext_resource type="Texture2D" uid="uid://dxhiixx5rkcu" path="res://assets/Particle Pack/circle_02.png" id="7_lg76e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_veyl5"]
 blend_mode = 1
@@ -352,9 +352,9 @@ radius = 345.001
 
 [node name="RitualAcid" type="Node2D"]
 material = SubResource("CanvasItemMaterial_veyl5")
-script = ExtResource("1_w6oqm")
+script = ExtResource("1_50e7o")
 damage = 0
-status = ExtResource("2_nyx2p")
+status = ExtResource("2_gxi46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -367,28 +367,28 @@ autoplay = "idle"
 [node name="Smoke1" type="Sprite2D" parent="Images"]
 material = SubResource("CanvasItemMaterial_6l3ka")
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("3_bk1ec")
+texture = ExtResource("3_f3phd")
 
 [node name="Smoke2" type="Sprite2D" parent="Images"]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_dag42")
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("4_q2wm0")
+texture = ExtResource("4_pijxx")
 
 [node name="Smoke3" type="Sprite2D" parent="Images"]
 material = SubResource("CanvasItemMaterial_klf6q")
-texture = ExtResource("5_23fce")
+texture = ExtResource("5_0a22b")
 
 [node name="Magic" type="Sprite2D" parent="Images"]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_qds2n")
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("6_kyyyr")
+texture = ExtResource("6_2xdjr")
 
 [node name="Circle" type="Sprite2D" parent="Images"]
 material = SubResource("CanvasItemMaterial_og0qn")
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("7_nukfk")
+texture = ExtResource("7_lg76e")
 
 [node name="Area2D" type="Area2D" parent="."]
 

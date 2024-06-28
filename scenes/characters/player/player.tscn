@@ -1,16 +1,19 @@
-[gd_scene load_steps=27 format=3 uid="uid://cxge6rvc7mdfy"]
+[gd_scene load_steps=28 format=3 uid="uid://cxge6rvc7mdfy"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_j415d"]
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_xy6bu"]
-[ext_resource type="PackedScene" uid="uid://b4r8mmefx7got" path="res://skills/ritual.tscn" id="2_k14hn"]
-[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_n8uwo"]
-[ext_resource type="PackedScene" uid="uid://bijitbu44runy" path="res://skills/ritual_acid.tscn" id="3_xyuv7"]
+[ext_resource type="PackedScene" uid="uid://b4r8mmefx7got" path="res://skills/ritual.tscn" id="2_p7fth"]
+[ext_resource type="PackedScene" uid="uid://bijitbu44runy" path="res://skills/ritual_acid.tscn" id="3_gy4j6"]
+[ext_resource type="Resource" uid="uid://bwgruodf2df2v" path="res://scenes/characters/player_statistics.tres" id="4_0270n"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="5_31ggd"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateIdlePlayer.gd" id="6_kw1rk"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="6_oxflf"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateWalkPlayer.gd" id="7_tw0vt"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateAttackPlayer.gd" id="8_hasv2"]
 [ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/characters/components/Attacks/MeleeAttackComponent.tscn" id="10_mxbui"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_b74nj"]
+points = PackedVector2Array(100, -80, 100, 40, -100, 40, -100, -80)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uryk"]
 radius = 15.0
@@ -23,7 +26,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +41,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +58,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +74,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +104,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -117,7 +120,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -147,7 +150,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -163,7 +166,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -193,7 +196,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -231,18 +234,25 @@ bg_color = Color(0, 0.270588, 0, 1)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_j415d")
-ritual1 = ExtResource("2_k14hn")
-ritual2 = ExtResource("3_xyuv7")
+ritual1 = ExtResource("2_p7fth")
+ritual2 = ExtResource("3_gy4j6")
 ritual2_cooldown = 35
-death_prefab = ExtResource("2_n8uwo")
+statistics = ExtResource("4_0270n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sizeable" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
 unique_name_in_owner = true
 position = Vector2(0, -24)
 texture = ExtResource("1_xy6bu")
 hframes = 6
 vframes = 8
 frame = 1
+
+[node name="MeleeAttackComponent" parent="Sizeable" instance=ExtResource("10_mxbui")]
+attack_shape = SubResource("ConvexPolygonShape2D_b74nj")
+
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
@@ -285,11 +295,7 @@ show_percentage = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_oxflf")]
 scale = Vector2(0.7, 0.7)
-max_health = 200.0
 show_bar = true
-
-[node name="MeleeAttackComponent" parent="." instance=ExtResource("10_mxbui")]
-scale = Vector2(2.5, 2.5)
 
 [node name="DEBUG_STATE" type="Label" parent="."]
 offset_left = 10.0
@@ -310,8 +316,6 @@ script = ExtResource("7_tw0vt")
 
 [node name="StateAttack" type="Node" parent="StateMachine"]
 script = ExtResource("8_hasv2")
-
-[node name="LaunchStartPoint" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
 [connection signal="timeout" from="Ritual1Timer" to="." method="_on_ritual_1_timer_timeout"]

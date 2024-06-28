@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://blkiwodt8jlje"]
+[gd_scene load_steps=23 format=3 uid="uid://blkiwodt8jlje"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_sfes6"]
-[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_85o5b"]
+[ext_resource type="Resource" uid="uid://kw8kewi2iomj" path="res://scenes/characters/resources/goblin_torch_regular_stats.tres" id="2_kcdw3"]
 [ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="3_4c0av"]
 [ext_resource type="Texture2D" uid="uid://dp6w40ktkrmda" path="res://assets/TinySword/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="4_2ie0d"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="4_qhbyc"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="15_4mokv"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="15_qc4di"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wys8g"]
+size = Vector2(100, 40)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
 radius = 11.0
 height = 40.0
@@ -27,7 +30,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +46,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +75,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -89,7 +92,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -107,46 +110,27 @@ _data = {
 "Walk": SubResource("Animation_ad0mr")
 }
 
-[node name="GoblinTorch" type="CharacterBody2D" groups=["enemies"]]
+[node name="GoblinTorchRegularLvl1" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -20)
 motion_mode = 1
 script = ExtResource("1_sfes6")
 deal_damage_time_cooldown = 1.5
-speed = 2.8
-get_hit_cooldown_secs = 2.0
-hit_damage = 25
-death_prefab = ExtResource("2_85o5b")
+statistics = ExtResource("2_kcdw3")
 
-[node name="MeleeAttackComponent" parent="." instance=ExtResource("9_penyq")]
+[node name="Sizeable" type="Node2D" parent="."]
+
+[node name="MeleeAttackComponent" parent="Sizeable" instance=ExtResource("9_penyq")]
 scale = Vector2(1.5, 1.5)
+attack_shape = SubResource("RectangleShape2D_wys8g")
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_qhbyc")]
-max_health = 5
-
-[node name="DropItemsComponent" type="Node" parent="."]
-script = ExtResource("12_5a4hs")
-min_drops = 1
-max_drops = 2
-drops = Array[PackedScene]([ExtResource("3_4c0av")])
-
-[node name="Sizeable" parent="." instance=ExtResource("15_qc4di")]
-has_small = true
-has_big = true
-small_dmg_time_cd_multiplier = 1.0
-small_animation_multiplier = 1.5
-small_melee_atk_range_multiplier = 2.0
-big_hit_damage_multiplier = 1.0
-big_health_multiplier = 1.2
-big_deal_dmg_time_cd_multipler = 1.0
-
-[node name="DamageDigitMarker" type="Marker2D" parent="."]
+[node name="DamageDigitMarker" type="Marker2D" parent="Sizeable"]
 unique_name_in_owner = true
 position = Vector2(0, -37)
 
-[node name="LaunchStartPoint" type="Marker2D" parent="."]
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
 position = Vector2(0, -42)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
 position = Vector2(0, -17)
 texture = ExtResource("4_2ie0d")
 hframes = 7
@@ -157,6 +141,16 @@ position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tmps0")
 debug_color = Color(0.989457, 0, 0.290225, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_qhbyc")]
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("12_5a4hs")
+min_drops = 1
+max_drops = 2
+drops = Array[PackedScene]([ExtResource("3_4c0av")])
+
+[node name="SizeChanger" parent="." instance=ExtResource("15_qc4di")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

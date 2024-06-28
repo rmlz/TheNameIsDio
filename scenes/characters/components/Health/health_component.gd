@@ -3,7 +3,7 @@ extends Node2D
 
 var health_bar: ProgressBar
 
-@export var max_health: float = 3
+var max_health: float
 @export var show_bar = false
 @export var damage_digit: PackedScene
 var enemy_object: EnemyBase
@@ -13,7 +13,6 @@ signal health_equal_zero
 signal change_health
 
 func _ready():
-	_initialize_health()
 	if (get_parent() is EnemyBase):
 		enemy_object = get_parent()
 
@@ -21,9 +20,10 @@ func _process(_delta):
 	health_bar.visible = show_bar
 
 # Starts health with Max health
-func _initialize_health():
+func initialize_health(new_max_health: float):
 	if not health_bar:
 		health_bar = $HealthBar
+	max_health = new_max_health
 	_health = max_health
 	change_health.emit()
 
@@ -59,5 +59,5 @@ func show_damage_digit(amount: int) -> void:
 	if damage_digit:
 		var digit: DamageDigit = damage_digit.instantiate( )
 		digit.value = amount
-		digit.position = enemy_object.get_node("DamageDigitMarker").global_position
+		digit.position = enemy_object.get_node("Sizeable/DamageDigitMarker").global_position
 		enemy_object.get_parent().add_child(digit)

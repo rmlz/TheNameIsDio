@@ -1,0 +1,216 @@
+[gd_scene load_steps=22 format=3 uid="uid://brx2k5c7kdntu"]
+
+[ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_qvya4"]
+[ext_resource type="Resource" uid="uid://bjjqqiv0gl8vy" path="res://scenes/characters/resources/sheep_regular_stats.tres" id="2_aidsk"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="3_a3sdd"]
+[ext_resource type="PackedScene" uid="uid://bltbe8h75ogpp" path="res://misc/collectable/meat.tscn" id="3_im3f6"]
+[ext_resource type="Texture2D" uid="uid://b63vhw5wilkox" path="res://assets/TinySword/Resources/HappySheep_All.png" id="4_adhcs"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="5_8jk1q"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="6_blep5"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="7_ji3b8"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="8_b0u1t"]
+[ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/characters/components/Attacks/MeleeAttackComponent.tscn" id="9_gjlvl"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="9_inkgn"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="10_okqc4"]
+[ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="12_ohbyw"]
+[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="14_o3j6s"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="15_lhcne"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
+radius = 11.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_mijel"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4bkds"]
+resource_name = "Melee_Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sizeable/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_ymy7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sizeable/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_ad0mr"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0u0i"]
+_data = {
+"Idle": SubResource("Animation_mijel"),
+"Melee_Attack": SubResource("Animation_4bkds"),
+"RESET": SubResource("Animation_ymy7b"),
+"Walk": SubResource("Animation_ad0mr")
+}
+
+[node name="SheepRegularLvl1" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(0, -20)
+motion_mode = 1
+script = ExtResource("1_qvya4")
+deal_damage_time_cooldown = 0.7
+statistics = ExtResource("2_aidsk")
+
+[node name="Sizeable" type="Node" parent="."]
+
+[node name="MeleeAttackComponent" parent="Sizeable" instance=ExtResource("9_gjlvl")]
+position = Vector2(0, -20)
+
+[node name="DamageDigitMarker" type="Marker2D" parent="Sizeable"]
+unique_name_in_owner = true
+position = Vector2(0, -57)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
+position = Vector2(0, -62)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
+position = Vector2(0, -37)
+texture = ExtResource("4_adhcs")
+hframes = 8
+vframes = 2
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmps0")
+debug_color = Color(0.989457, 0, 0.290225, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_a3sdd")]
+max_health = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k0u0i")
+}
+autoplay = "Idle"
+
+[node name="SizeChanger" parent="." instance=ExtResource("14_o3j6s")]
+
+[node name="DEBUG_STATE" type="Label" parent="."]
+offset_left = 36.0
+offset_top = -38.0
+offset_right = 78.0
+offset_bottom = -15.0
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("12_ohbyw")
+max_drops = 4
+drops = Array[PackedScene]([ExtResource("3_im3f6")])
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_8jk1q")
+initial_state = NodePath("StateIdle")
+
+[node name="StateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("6_blep5")
+aggro_distance = 9999
+
+[node name="StateFollow" type="Node" parent="StateMachine"]
+script = ExtResource("7_ji3b8")
+
+[node name="StateAttack" type="Node" parent="StateMachine"]
+script = ExtResource("8_b0u1t")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("9_inkgn")
+
+[node name="StateKeepDistance" type="Node" parent="StateMachine"]
+script = ExtResource("10_okqc4")
+
+[node name="StatusComponent" parent="." instance=ExtResource("15_lhcne")]
+offset_left = -23.0
+offset_top = 6.0
+offset_right = 5.0
+offset_bottom = 6.0
+
+[connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
+[connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
