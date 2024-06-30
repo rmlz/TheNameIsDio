@@ -64,20 +64,27 @@ func change_size(vector: Vector2):
 func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
 	if amount == 0:
 		return
+	var is_tank = statistics.get_hit_cooldown_secs == 0
 	if health:
 		health.damage(amount)
-	run_damage_color_feedback()
+	run_damage_color_feedback(is_tank)
+	if is_tank:
+		return
 	velocity = collision_vector * amount * 200
-	
+
 	$StateMachine.transition_to("StateCoolDown", {
 		"cd_time": statistics.get_hit_cooldown_secs, 
 		"hit": true, 
 		"ignore_cd": ignore_cooldown
 		})
 	
-func run_damage_color_feedback() -> void:
+func run_damage_color_feedback(is_tank: bool) -> void:
 	var tween = create_tween()
-	modulate = Color.DARK_RED
+	if is_tank:
+		modulate = Color.AQUAMARINE
+		modulate.v = 5
+	else :
+		modulate = Color.DARK_RED
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(

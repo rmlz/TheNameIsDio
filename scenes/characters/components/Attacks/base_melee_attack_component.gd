@@ -30,7 +30,13 @@ func attack(target_position: Vector2) -> void:
 	if character is EnemyBase:
 		assert(target_position != null)
 		var direction_to_target = (target_position - character.position).normalized()
-		if is_range_attack():
+		var attack_direction: Vector2
+		if character.animated_sprite.flip_h:
+			attack_direction = Vector2.LEFT
+		else:
+			attack_direction = Vector2.RIGHT
+		var dot_product = direction_to_target.dot(attack_direction)
+		if is_range_attack() and dot_product >= 0.1:
 			target.receive_damage(character._hit_damage, direction_to_target)
 		target = null
 	elif character is PlayerObject:

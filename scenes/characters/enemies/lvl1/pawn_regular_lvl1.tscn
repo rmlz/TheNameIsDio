@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://cla7n8te3icba"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_b2fjf"]
-[ext_resource type="Resource" uid="uid://yqpm13qvo5k8" path="res://scenes/characters/resources/pawn_regular_stats.tres" id="2_d801a"]
+[ext_resource type="Resource" uid="uid://yqpm13qvo5k8" path="res://scenes/characters/resources/character_statistics/pawn_regular_stats.tres" id="2_d801a"]
 [ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/characters/components/Attacks/MeleeAttackComponent.tscn" id="2_dv11u"]
 [ext_resource type="Texture2D" uid="uid://cym3p52ebid77" path="res://assets/TinySword/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="3_7stli"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="4_lk6j8"]
