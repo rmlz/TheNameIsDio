@@ -1,25 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://886ndd2bi0fq"]
+[gd_scene load_steps=6 format=3 uid="uid://886ndd2bi0fq"]
 
 [ext_resource type="Script" path="res://scripts/ui/mobile_joypad.gd" id="1_kx5m3"]
 [ext_resource type="Texture2D" uid="uid://5exspp54ee1k" path="res://assets/Joystick Handle/JoystickSplitted.png" id="2_3iehq"]
-[ext_resource type="Texture2D" uid="uid://3nk2f1pwoth3" path="res://assets/Joystick Handle/SmallHandle.png" id="3_1ah11"]
+[ext_resource type="Texture2D" uid="uid://b0f5vro6xh54h" path="res://assets/Joystick Handle/Joystick.png" id="3_21xyd"]
 [ext_resource type="Texture2D" uid="uid://wvi3xittg87p" path="res://assets/Joystick Handle/SmallHandleFilled.png" id="3_wny8s"]
+[ext_resource type="Texture2D" uid="uid://c5iex4yx3kt7c" path="res://assets/Joystick Handle/LargeButtonFilled.png" id="4_4tj6y"]
 
 [node name="MobileJoypad" type="CanvasLayer"]
 script = ExtResource("1_kx5m3")
 
 [node name="TouchJoy" type="TouchScreenButton" parent="."]
-position = Vector2(48, 361)
-scale = Vector2(0.702, 0.702)
+position = Vector2(50, 361)
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("2_3iehq")
 
 [node name="TouchHitButton" type="TouchScreenButton" parent="."]
-position = Vector2(968, 445)
-scale = Vector2(0.702, 0.702)
-texture_normal = ExtResource("3_1ah11")
-texture_pressed = ExtResource("3_wny8s")
+position = Vector2(882, 361)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("3_21xyd")
+texture_pressed = ExtResource("4_4tj6y")
 
 [node name="InputHandle" type="Sprite2D" parent="."]
-position = Vector2(170, 486)
+position = Vector2(156, 461)
 scale = Vector2(0.702, 0.702)
 texture = ExtResource("3_wny8s")
