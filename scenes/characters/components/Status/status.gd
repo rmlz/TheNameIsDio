@@ -49,7 +49,7 @@ func set_stacks(new_stacks: int) -> void:
 	status_changed.emit()
 	
 func expire() -> void:
-	pass
+	character_owner._speed = character_owner._calc_speed
 	
 func animate() -> void:
 	pass
@@ -66,8 +66,10 @@ func _proccess_status_on_physics():
 	if not character_owner:
 		return
 	if stack_type == StackType.DURATION:
+		character_owner._speed = character_owner._calc_speed
 		character_owner._speed *= (1 + speed_mod_percent)
 	if stack_type == StackType.INTENSITY:
+		character_owner._speed = character_owner._calc_speed
 		character_owner._speed *= (1 + speed_mod_percent) ** stacks
 		
 func on_apply_timer_timeout() -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://brx2k5c7kdntu"]
+[gd_scene load_steps=25 format=3 uid="uid://brx2k5c7kdntu"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_qvya4"]
-[ext_resource type="Resource" uid="uid://bjjqqiv0gl8vy" path="res://scenes/characters/resources/character_statistics/sheep_regular_stats.tres" id="2_aidsk"]
+[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_its8y"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="3_a3sdd"]
 [ext_resource type="PackedScene" uid="uid://bltbe8h75ogpp" path="res://misc/collectable/meat.tscn" id="3_im3f6"]
+[ext_resource type="Script" path="res://scenes/characters/resources/character_statistics/character_statistics.gd" id="3_xlvdy"]
 [ext_resource type="Texture2D" uid="uid://b63vhw5wilkox" path="res://assets/TinySword/Resources/HappySheep_All.png" id="4_adhcs"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="5_8jk1q"]
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="6_blep5"]
@@ -15,6 +16,15 @@
 [ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="12_ohbyw"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="14_o3j6s"]
 [ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="15_lhcne"]
+
+[sub_resource type="Resource" id="Resource_gxs3n"]
+script = ExtResource("3_xlvdy")
+max_health = 1.0
+speed = 1.7
+get_hit_cooldown_secs = 0.5
+hit_damage = 5
+size = 1
+death_prefab = ExtResource("2_its8y")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sqxo"]
 size = Vector2(80, 20)
@@ -134,12 +144,12 @@ _data = {
 "Walk": SubResource("Animation_ad0mr")
 }
 
-[node name="SheepRegularLvl1" type="CharacterBody2D" groups=["enemies"]]
+[node name="SheepSmallLvl2" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -20)
 motion_mode = 1
 script = ExtResource("1_qvya4")
 deal_damage_time_cooldown = 0.7
-statistics = ExtResource("2_aidsk")
+statistics = SubResource("Resource_gxs3n")
 
 [node name="Sizeable" type="Node2D" parent="."]
 position = Vector2(0, 30)
@@ -186,7 +196,7 @@ offset_bottom = -15.0
 
 [node name="DropItemsComponent" type="Node" parent="."]
 script = ExtResource("12_ohbyw")
-min_drops = 1
+max_drops = 1
 drops = Array[PackedScene]([ExtResource("3_im3f6")])
 
 [node name="StateMachine" type="Node" parent="."]

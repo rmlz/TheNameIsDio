@@ -405,9 +405,9 @@ radius = 32.0156
 [node name="Arrow" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_8ljsd")
-speed = 700.0
+speed = 650.0
 bump_ground_reduce_speed = 1.0
-damage = 25
+damage = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
