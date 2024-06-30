@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8jmyervrqfck"]
 
 [ext_resource type="Texture2D" uid="uid://c8u8cnsbyqyhh" path="res://assets/TinySword/Resources/Resources/W_Spawn.png" id="1_5eovf"]
-[ext_resource type="Script" path="res://scripts/collectable.gd" id="2_4sls1"]
+[ext_resource type="Script" path="res://misc/collectable/collectable.gd" id="2_4sls1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ltjl1"]
 atlas = ExtResource("1_5eovf")

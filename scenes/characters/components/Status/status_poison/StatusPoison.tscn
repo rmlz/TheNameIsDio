@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://epao2p7585f8"]
+
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_poison/status_poison.gd" id="1_4fojc"]
+[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="2_6e60j"]
+
+[node name="StatusPoison" type="Node"]
+script = ExtResource("1_4fojc")
+id = "Poison"
+stack_type = 2
+can_expire = true
+duration = 2
+icon = ExtResource("2_6e60j")
+
+[node name="ApplyTimer" type="Timer" parent="."]
