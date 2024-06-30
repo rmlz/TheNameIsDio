@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4whdiwpjb7p3"]
+[gd_scene load_steps=8 format=3 uid="uid://b4whdiwpjb7p3"]
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="2_unw4g"]
-[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/enemies/lvl1/sheep.tscn" id="3_ghnj4"]
+[ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="3_i2gaw"]
+[ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="4_6ygln"]
+[ext_resource type="PackedScene" uid="uid://bltbe8h75ogpp" path="res://misc/collectable/meat.tscn" id="5_d78yk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -94,10 +95,14 @@ offset_right = -504.0
 offset_bottom = 613.0
 text = "Attack-up2"
 
-[node name="GoblinTorch" parent="." instance=ExtResource("2_unw4g")]
-
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
 position = Vector2(638, 321)
 
-[node name="Sheep5" parent="." instance=ExtResource("3_ghnj4")]
-position = Vector2(1019, 627)
+[node name="Gold" parent="." instance=ExtResource("3_i2gaw")]
+position = Vector2(298, 149)
+
+[node name="Wood" parent="." instance=ExtResource("4_6ygln")]
+position = Vector2(497, 95)
+
+[node name="Meat" parent="." instance=ExtResource("5_d78yk")]
+position = Vector2(154, 68)
