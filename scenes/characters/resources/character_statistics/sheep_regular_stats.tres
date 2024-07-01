@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterStatistics" load_steps=3 format=3 uid="uid://bjjqqiv0gl8vy"]
+
+[ext_resource type="Script" path="res://scenes/characters/resources/character_statistics/character_statistics.gd" id="1_eqkxh"]
+[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="1_vh7w0"]
+
+[resource]
+script = ExtResource("1_eqkxh")
+max_health = 1.0
+speed = 1.5
+get_hit_cooldown_secs = 1.0
+hit_damage = 10
+size = 2
+death_prefab = ExtResource("1_vh7w0")

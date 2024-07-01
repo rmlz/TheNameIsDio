@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://fe8k7ueri7kk"]
+
+[ext_resource type="Script" path="res://scenes/characters/components/Attacks/base_ranged_attack_component.gd" id="1_jejkj"]
+
+[node name="RangedAttackComponent" type="Node2D"]
+script = ExtResource("1_jejkj")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="AttackArea"]

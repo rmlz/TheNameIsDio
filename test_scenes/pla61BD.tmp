@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4whdiwpjb7p3"]
+[gd_scene load_steps=9 format=3 uid="uid://b4whdiwpjb7p3"]
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="3_1s4nh"]
-[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl2/bow_arrow_small_lvl2.tscn" id="5_knjg1"]
+[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl1/sheep_regular_lvl1.tscn" id="3_ghnj4"]
+[ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="3_h5grt"]
+[ext_resource type="Script" path="res://scenes/characters/resources/character_statistics.gd" id="4_vgn4y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -12,6 +13,15 @@ font_size = 70
 [sub_resource type="LabelSettings" id="LabelSettings_gcj74"]
 line_spacing = 80.0
 font_size = 80
+
+[sub_resource type="Resource" id="Resource_4gxfs"]
+script = ExtResource("4_vgn4y")
+max_health = 5.0
+speed = 2.0
+get_hit_cooldown_secs = 1.0
+hit_damage = 5
+size = 4
+death_prefab = ExtResource("3_h5grt")
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -94,9 +104,8 @@ offset_right = -504.0
 offset_bottom = 613.0
 text = "Attack-up2"
 
+[node name="Sheep" parent="." instance=ExtResource("3_ghnj4")]
+statistics = SubResource("Resource_4gxfs")
+
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
-position = Vector2(1057, 464)
-
-[node name="PawnBigLvl4" parent="." instance=ExtResource("3_1s4nh")]
-
-[node name="BowAndArrowSmallLvl2" parent="." instance=ExtResource("5_knjg1")]
+position = Vector2(619, 287)

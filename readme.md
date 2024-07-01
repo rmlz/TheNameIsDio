@@ -74,13 +74,13 @@ The main goal is to survive for 20 minutes. Second goal is to collect as many lo
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-This project was made to learn more about Godot Engine and to create a simple game. 
-The game is a prototype and it's open for anyone who wants to learn more about Godot Engine. 
-It is a simple action game where the player must survive the most they can, and get
+This project was started to learn more about Godot Engine and to create a simple game. 
+The game is a prototype and is open for anyone who wants to learn more about Godot Engine. 
+It is a simple action game where the player must survive the most they can, and gets
 some inspiration from the game "Vampire Survivors".
 
 The code is open for anyone who wants to learn more of Godot. 
-You also may create your own game respecting the Mozilla licence.
+You also may create your own game respecting the Mozilla licence set up for this project.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -94,12 +94,10 @@ You also may create your own game respecting the Mozilla licence.
 ## Roadmap
 ### What is new?
 
-- Version 0.0.3
-  - [x] DIO-5 Reworked player node and mobile ui touch screen
-  - [x] DIO-6 Reworks enemies and adds new enemy: Bow and Arrow
-  - [x] DIO-7 Adds status ailments (Freeze and Poison) to enemies and a new Magic 
-skill avilabla after 5 minutes of gameplay.
-  - [x] DIO-8 Reworks the map ta make it easy to update for new versions
+- Version 0.0.4
+  - [x] DIO-9 Reworks how enemy stats are set up
+  - [x] DIO-10 Improve dynamite animation quality
+  - [x] DIO-11 Animate collectable on map
 
 ### What is next?
   - [ ] Add sound fx and music
@@ -111,11 +109,21 @@ skill avilabla after 5 minutes of gameplay.
 
 ### Previous versions
 
+- Version 0.0.3
+  - [x] DIO-5 Reworked player node and mobile ui touch screen
+  - [x] DIO-6 Reworks enemies and adds new enemy: Bow and Arrow
+  - [x] DIO-7 Adds status ailments (Freeze and Poison) to enemies and a new Magic
+    skill avilabla after 5 minutes of gameplay.
+  - [x] DIO-8 Reworks the map ta make it easy to update for new versions
+
+
 - Version 0.0.2
   - [x] Dio-1 Implements mobile-pad for touch screen devices
   - [x] Dio-2 rebuild EnemyBase implementation to handle ranged attacks
   - [x] Dio-3 rebuild EnemyBase into different composition nodes
   - [x] Dio-4 Reworks enemies, animations, mobspawner and time-lapse
+
+
 - Version 0.0.1
   - [x] Create first playable version
 

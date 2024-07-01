@@ -1,0 +1,190 @@
+[gd_scene load_steps=23 format=3 uid="uid://blkiwodt8jlje"]
+
+[ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_64eka"]
+[ext_resource type="Resource" uid="uid://kw8kewi2iomj" path="res://scenes/characters/resources/character_statistics/goblin_torch_regular_stats.tres" id="2_3aruq"]
+[ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/characters/components/Attacks/MeleeAttackComponent.tscn" id="3_fuadw"]
+[ext_resource type="Texture2D" uid="uid://dp6w40ktkrmda" path="res://assets/TinySword/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="4_jexl6"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="5_rcm76"]
+[ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="6_esww2"]
+[ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="7_6d32n"]
+[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="8_vwnvq"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="9_cw8hm"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="10_ehrh2"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="11_uounl"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="12_eb1gd"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="13_wxyc8"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="14_q3dfi"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="15_4drs7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wys8g"]
+size = Vector2(100, 40)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
+radius = 11.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_mijel"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4bkds"]
+resource_name = "Melee_Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ymy7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ad0mr"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0u0i"]
+_data = {
+"Idle": SubResource("Animation_mijel"),
+"Melee_Attack": SubResource("Animation_4bkds"),
+"RESET": SubResource("Animation_ymy7b"),
+"Walk": SubResource("Animation_ad0mr")
+}
+
+[node name="GoblinTorchRegularLvl3" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(0, -20)
+motion_mode = 1
+script = ExtResource("1_64eka")
+statistics = ExtResource("2_3aruq")
+
+[node name="Sizeable" type="Node2D" parent="."]
+
+[node name="MeleeAttackComponent" parent="Sizeable" instance=ExtResource("3_fuadw")]
+scale = Vector2(1.5, 1.5)
+attack_shape = SubResource("RectangleShape2D_wys8g")
+
+[node name="DamageDigitMarker" type="Marker2D" parent="Sizeable"]
+unique_name_in_owner = true
+position = Vector2(0, -37)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
+position = Vector2(0, -42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
+position = Vector2(0, -17)
+texture = ExtResource("4_jexl6")
+hframes = 7
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmps0")
+debug_color = Color(0.989457, 0, 0.290225, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_rcm76")]
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("6_esww2")
+min_drops = 1
+max_drops = 2
+drops = Array[PackedScene]([ExtResource("7_6d32n")])
+
+[node name="SizeChanger" parent="." instance=ExtResource("8_vwnvq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k0u0i")
+}
+autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("9_cw8hm")
+initial_state = NodePath("StateIdle")
+
+[node name="StateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("10_ehrh2")
+aggro_distance = 2000
+
+[node name="StateFollow" type="Node" parent="StateMachine"]
+script = ExtResource("11_uounl")
+
+[node name="StateAttack" type="Node" parent="StateMachine"]
+script = ExtResource("12_eb1gd")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("13_wxyc8")
+
+[node name="StateKeepDistance" type="Node" parent="StateMachine"]
+script = ExtResource("14_q3dfi")
+
+[node name="DEBUG_STATE" type="Label" parent="."]
+offset_left = 36.0
+offset_top = -38.0
+offset_right = 78.0
+offset_bottom = -15.0
+
+[node name="StatusComponent" parent="." instance=ExtResource("15_4drs7")]
+
+[connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
+[connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]

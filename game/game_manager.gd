@@ -7,10 +7,10 @@ var points: float = 0
 var is_game_over: bool = false
 var is_playing: bool = false
 var is_touch_joypad_enabled = false
-var is_debug_enabled = false
+var is_debug_enabled = true
 var time_elapsed: float = 0.0
 
-var max_spawned_monsters = 200
+var max_spawned_monsters = 500
 var current_spawned_monster = 0
 
 var ritual2_started = false
@@ -29,6 +29,7 @@ func reset():
 	is_playing = false
 	time_elapsed = 0.0
 	current_spawned_monster = 0
+	ritual2_started = false
 	
 func is_game_on_play() -> bool:
 	return is_game_over or is_playing

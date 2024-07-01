@@ -1,10 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqoqokisw8ngt"]
+[gd_scene load_steps=21 format=3 uid="uid://bqoqokisw8ngt"]
 
-[ext_resource type="Script" path="res://scripts/system/mob_spawner.gd" id="1_gl0ov"]
-[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/enemies/lvl1/goblin_torch.tscn" id="2_g1ky7"]
-[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/enemies/lvl1/goblin_tnt.tscn" id="3_4e1wc"]
-[ext_resource type="PackedScene" uid="uid://cla7n8te3icba" path="res://scenes/enemies/lvl1/pawn.tscn" id="4_qgvbt"]
-[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/enemies/lvl1/sheep.tscn" id="5_15gr4"]
+[ext_resource type="Script" path="res://scenes/mob_spawner/mob_spawner.gd" id="1_gl0ov"]
+[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/characters/enemies/lvl2/goblin_tnt_regular_lvl2.tscn" id="3_4e1wc"]
+[ext_resource type="Script" path="res://scenes/characters/resources/spawn_odds/spawn_mob.gd" id="3_grslj"]
+[ext_resource type="PackedScene" uid="uid://cla7n8te3icba" path="res://scenes/characters/enemies/lvl1/pawn_regular_lvl1.tscn" id="4_qgvbt"]
+[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl2/bow_arrow_small_lvl2.tscn" id="6_y00qf"]
+[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl2/sheep_small_lvl2.tscn" id="7_12nf5"]
+[ext_resource type="PackedScene" uid="uid://bseak21tmcn4n" path="res://scenes/characters/enemies/lvl3/goblin_tnt_big_lvl3.tscn" id="8_b62xo"]
+[ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="8_sxfbk"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl3/goblin_torch_regular_lvl3.tscn" id="9_iwh3x"]
+
+[sub_resource type="Resource" id="Resource_ataxg"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("4_qgvbt")
+mob_odds = 2
+
+[sub_resource type="Resource" id="Resource_wka2b"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("7_12nf5")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_ysjgg"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("3_4e1wc")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_ge4r3"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("6_y00qf")
+mob_odds = 2
+
+[sub_resource type="Resource" id="Resource_jglxl"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("7_12nf5")
+mob_odds = 3
+
+[sub_resource type="Resource" id="Resource_dkcc4"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("8_b62xo")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_160rn"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("9_iwh3x")
+mob_odds = 3
+
+[sub_resource type="Resource" id="Resource_a4rjg"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("8_sxfbk")
+mob_odds = 1
 
 [sub_resource type="Curve2D" id="Curve2D_kjmaf"]
 _data = {
@@ -12,19 +56,51 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_7fghd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2018.31, -1325.41, 0, 0, 0, 0, 3673.29, -1309.29, 0, 0, 0, 0, 3962.92, 2750.48, 0, 0, 0, 0, -1995.72, 2596.28, 0, 0, 0, 0, -2011.43, -1332.47)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_vemru"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1501.87, -1124.84, 0, 0, 0, 0, 3347.32, -1088.56, 0, 0, 0, 0, 3394.45, 2390.67, 0, 0, 0, 0, -1701.18, 2306.01, 0, 0, 0, 0, -1643.25, -1161.13)
+}
+point_count = 5
+
 [node name="MobSpawner" type="Node2D"]
 script = ExtResource("1_gl0ov")
-lvl1_creatures = Array[PackedScene]([ExtResource("5_15gr4"), ExtResource("4_qgvbt")])
-lvl2_creatures = Array[PackedScene]([ExtResource("2_g1ky7"), ExtResource("3_4e1wc"), ExtResource("5_15gr4")])
+lvl1_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_ataxg"), SubResource("Resource_wka2b")])
+lvl2_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_ysjgg"), SubResource("Resource_ge4r3"), SubResource("Resource_jglxl")])
+lvl3_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_dkcc4"), SubResource("Resource_160rn")])
+lvl4_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_a4rjg")])
 initial_spawn_rate = 25
 spawn_rate_per_minute = 5.0
 break_intensity = 0.25
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="PathLvl1" type="Path2D" parent="."]
 position = Vector2(-258.316, -110.959)
 scale = Vector2(1.01852, 0.992174)
 curve = SubResource("Curve2D_kjmaf")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollowLvl1" type="PathFollow2D" parent="PathLvl1"]
 position = Vector2(-2436.57, -1574.36)
 rotation = 0.0115079
+
+[node name="PathLvl2" type="Path2D" parent="."]
+position = Vector2(-258.316, -110.959)
+scale = Vector2(1.01852, 0.992174)
+curve = SubResource("Curve2D_7fghd")
+
+[node name="PathFollowLvl2" type="PathFollow2D" parent="PathLvl2"]
+position = Vector2(-2018.31, -1325.41)
+rotation = 0.00283224
+
+[node name="PathLvl3" type="Path2D" parent="."]
+position = Vector2(-258.316, -110.959)
+scale = Vector2(1.01852, 0.992174)
+curve = SubResource("Curve2D_vemru")
+
+[node name="PathFollowLvl3" type="PathFollow2D" parent="PathLvl3"]
+position = Vector2(-1501.87, -1124.84)
+rotation = 0.0074815

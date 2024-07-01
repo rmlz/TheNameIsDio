@@ -1,0 +1,193 @@
+[gd_scene load_steps=24 format=3 uid="uid://cse3yrvxsdkh7"]
+
+[ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_uo8lj"]
+[ext_resource type="Resource" uid="uid://dqbx2vhm3xqp" path="res://scenes/characters/resources/character_statistics/bow_and_arrow_small_stats.tres" id="2_85y3c"]
+[ext_resource type="Texture2D" uid="uid://bkolctafg5h32" path="res://assets/TinySword/Factions/Knights/Troops/Archer/Purple/Archer_Purlple.png" id="3_0twuo"]
+[ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/characters/components/Attacks/RangedAttackComponent.tscn" id="4_cpay5"]
+[ext_resource type="PackedScene" uid="uid://b0i44wx1y72bx" path="res://scenes/projectile/Arrow/Arrow.tscn" id="5_5vf38"]
+[ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="6_buavs"]
+[ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="7_5e15b"]
+[ext_resource type="PackedScene" uid="uid://b8jmyervrqfck" path="res://misc/collectable/wood.tscn" id="8_v5dka"]
+[ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="9_ymsgb"]
+[ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="10_2ip4i"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateIdle.gd" id="11_fl3o3"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateFollow.gd" id="12_lpsne"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateAttack.gd" id="13_8ysff"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="14_tpc15"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="15_665f6"]
+[ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="16_qhasx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp4pv"]
+radius = 300.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmps0"]
+radius = 11.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_mijel"]
+resource_name = "Idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ymy7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4bkds"]
+resource_name = "Ranged_Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(7, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ad0mr"]
+resource_name = "Walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0u0i"]
+_data = {
+"Idle": SubResource("Animation_mijel"),
+"RESET": SubResource("Animation_ymy7b"),
+"Ranged_Attack": SubResource("Animation_4bkds"),
+"Walk": SubResource("Animation_ad0mr")
+}
+
+[node name="BowAndArrowSmallLvl2" type="CharacterBody2D" groups=["enemies"]]
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_uo8lj")
+deal_damage_time_cooldown = 2.0
+statistics = ExtResource("2_85y3c")
+
+[node name="Sizeable" type="Node2D" parent="."]
+
+[node name="DamageDigitMarker" type="Marker2D" parent="Sizeable"]
+unique_name_in_owner = true
+position = Vector2(0, -37)
+
+[node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
+position = Vector2(36, -7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sizeable"]
+position = Vector2(0, -17)
+texture = ExtResource("3_0twuo")
+hframes = 8
+vframes = 7
+
+[node name="RangedAttackComponent" parent="." instance=ExtResource("4_cpay5")]
+scale = Vector2(2, 2)
+projectile_scene = ExtResource("5_5vf38")
+attack_shape = SubResource("CircleShape2D_xp4pv")
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_buavs")]
+
+[node name="DropItemsComponent" type="Node" parent="."]
+script = ExtResource("7_5e15b")
+max_drops = 2
+drops = Array[PackedScene]([ExtResource("8_v5dka")])
+
+[node name="SizeChanger" parent="." instance=ExtResource("9_ymsgb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmps0")
+debug_color = Color(0.989457, 0, 0.290225, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k0u0i")
+}
+autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("10_2ip4i")
+initial_state = NodePath("StateIdle")
+
+[node name="StateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("11_fl3o3")
+aggro_distance = 9999
+keep_distance = 500
+
+[node name="StateFollow" type="Node" parent="StateMachine"]
+script = ExtResource("12_lpsne")
+
+[node name="StateAttack" type="Node" parent="StateMachine"]
+script = ExtResource("13_8ysff")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("14_tpc15")
+
+[node name="StateKeepDistance" type="Node" parent="StateMachine"]
+script = ExtResource("15_665f6")
+
+[node name="DEBUG_STATE" type="Label" parent="."]
+offset_left = 36.0
+offset_top = -38.0
+offset_right = 78.0
+offset_bottom = -15.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StatusComponent" parent="." instance=ExtResource("16_qhasx")]
+
+[connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
+[connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
