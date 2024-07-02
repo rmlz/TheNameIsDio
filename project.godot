@@ -19,10 +19,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://game/game_manager.gd"
+Login="*res://scripts/login_script/login.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
 
 [input]
 
