@@ -62,7 +62,6 @@ func _input(event):
 
 func _physics_process(delta):
 	if joystick_active:
-		
 		if move_vector.x > 0:
 			Input.action_release("move_left")
 			Input.action_press("move_right", absf((move_vector.x)))

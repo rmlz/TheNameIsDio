@@ -3,8 +3,10 @@ extends CanvasLayer
 @onready var start_button: Button = $ButtonPanel/Control/StartButton
 @onready var animation: AnimationPlayer = $FadeAnimation
 
+func _ready():
+	await Firebase.Auth.login_succeeded
 
-func _process(delta):
+func _process(_delta):
 	if not start_button.has_focus():
 		if Input.is_anything_pressed():
 			start_button.grab_focus()
