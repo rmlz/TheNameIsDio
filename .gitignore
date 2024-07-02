@@ -2,5 +2,5 @@
 .godot/
 .idea/
 exports/
-*.env
+.env
 scripts/login_script/login.gd
