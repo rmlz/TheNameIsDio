@@ -16,3 +16,4 @@ func on_login_failed(code, message):
 
 func on_login_succeed():
 	print("Login succeeded!!!")
+	print(JSON.stringify(result))

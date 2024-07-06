@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1p3ovs1bgayo"]
+[gd_scene load_steps=21 format=3 uid="uid://b1p3ovs1bgayo"]
 
 [ext_resource type="TileSet" uid="uid://lfdic2f1r71g" path="res://tilemap/main_tilemap.tres" id="1_htx0j"]
-[ext_resource type="Texture2D" uid="uid://dtwpicyws6j1a" path="res://assets/TinySword/UI/Ribbons/Ribbon_Yellow_Connection_Down.png" id="1_lmvas"]
+[ext_resource type="Script" path="res://scenes/ranking/ranking_scene.gd" id="1_phh4a"]
 [ext_resource type="Texture2D" uid="uid://3ffpm2eo8upt" path="res://assets/TinySword/UI/Ribbons/Ribbon_Blue_Connection_Down.png" id="1_yevps"]
 [ext_resource type="Texture2D" uid="uid://duovrlkays8la" path="res://assets/TinySword/UI/Buttons/Button_Blue_3Slides.png" id="2_kom5d"]
 [ext_resource type="Texture2D" uid="uid://bhmjrhscxpt0f" path="res://assets/TinySword/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="3_mikki"]
 [ext_resource type="Texture2D" uid="uid://cyus34w8jg4mu" path="res://assets/TinySword/UI/Buttons/Button_Hover_3Slides.png" id="4_1ih1o"]
 [ext_resource type="Texture2D" uid="uid://bstknpqt2xx5s" path="res://assets/TinySword/UI/Buttons/Button_Disable_3Slides.png" id="5_tnrjq"]
+[ext_resource type="PackedScene" uid="uid://fgrf41lor15x" path="res://scenes/ranking/RankingRow.tscn" id="7_rgf8n"]
 
 [sub_resource type="FontVariation" id="FontVariation_pcuc0"]
 spacing_bottom = 20
@@ -54,17 +55,31 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 64, 60)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hy6pn"]
-texture = ExtResource("1_lmvas")
-texture_margin_left = 16.0
-texture_margin_top = 45.0
-texture_margin_right = 16.0
-texture_margin_bottom = 45.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 64, 60)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rfex"]
+bg_color = Color(0.97, 0.95642, 0.6984, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7ub8"]
+bg_color = Color(0.972549, 0.94902, 0.45098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.972549, 0.639216, 0.45098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="RankingScene" type="CanvasLayer"]
+script = ExtResource("1_phh4a")
+ranking_row = ExtResource("7_rgf8n")
+availableVersions = PackedStringArray("v0.0.4")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_htx0j")
@@ -75,7 +90,7 @@ layer_1/name = "water"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 458752, 3, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524303, 3, 0, 524304, 3, 0, 458768, 3, 0, 458769, 3, 0, 524305, 3, 0, 524302, 3, 0, 524301, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 458767, 3, 0, 458766, 3, 0, 458765, 3, 0, 458764, 3, 0, 458763, 3, 0, 458762, 3, 0, 458761, 3, 0, 458760, 3, 0, 458759, 3, 0, 458758, 3, 0, 458757, 3, 0, 458756, 3, 0, 458755, 3, 0, 458754, 3, 0, 458753, 3, 0, 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 393227, 3, 0, 393228, 3, 0, 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0, 393233, 3, 0)
 layer_2/name = "over_ground"
-layer_2/tile_data = PackedInt32Array(393216, 2, 5, 393217, 65538, 5, 393218, 65538, 5, 393219, 65538, 5, 393220, 65538, 5, 393221, 65538, 5, 393222, 131074, 5, 327687, 65538, 5, 327688, 65538, 5, 327689, 2, 7, 327690, 65538, 7, 327691, 131074, 7, 327692, 65538, 5, 327693, 131074, 5, 393230, 65538, 5, 393231, 65538, 5, 393232, 65538, 5, 393233, 65538, 5, 327686, 65538, 4, 327685, 65538, 4, 327684, 65538, 4, 327683, 65538, 4, 327682, 65538, 4, 327681, 65538, 4, 327680, 65538, 4, 262151, 65538, 4, 262152, 65538, 4, 262156, 65538, 4, 262157, 65538, 4, 327694, 65538, 4, 327695, 65538, 4, 327696, 65538, 4, 327697, 65538, 4, 458753, 327680, 2, 458754, 393216, 2, 524291, 327680, 2, 524292, 393216, 2, 524293, 393216, 2, 524294, 393216, 2, 524295, 393216, 2, 524296, 393216, 2, 524297, 393216, 2, 524298, 393216, 2, 524299, 393216, 2, 524300, 393216, 2, 524301, 393216, 2, 524302, 458752, 2, 458767, 458752, 2)
+layer_2/tile_data = PackedInt32Array(393216, 65538, 3, 393217, 65538, 5, 393218, 65538, 5, 393219, 65538, 5, 393220, 65538, 5, 393221, 65538, 5, 393222, 131074, 5, 327687, 65538, 5, 327688, 65538, 5, 327689, 2, 7, 327690, 65538, 7, 327691, 131074, 7, 327692, 65538, 5, 327693, 131074, 5, 393230, 65538, 5, 393231, 65538, 5, 393232, 65538, 5, 393233, 65538, 3, 327686, 65538, 4, 327685, 65538, 4, 327684, 65538, 4, 327683, 65538, 4, 327682, 65538, 4, 327681, 65538, 4, 327680, 65538, 4, 262151, 65538, 4, 262152, 65538, 4, 262156, 65538, 4, 262157, 65538, 4, 327694, 65538, 4, 327695, 65538, 4, 327696, 65538, 4, 327697, 65538, 4, 458753, 327680, 2, 458754, 393216, 2, 524291, 327680, 2, 524292, 393216, 2, 524293, 393216, 2, 524294, 393216, 2, 524295, 393216, 2, 524296, 393216, 2, 524297, 393216, 2, 524298, 393216, 2, 524299, 393216, 2, 524300, 393216, 2, 524301, 393216, 2, 524302, 458752, 2, 458767, 458752, 2)
 layer_3/name = "over_ground_2"
 layer_3/tile_data = PackedInt32Array(327680, 65536, 2, 327681, 65536, 2, 327682, 65536, 2, 327683, 65536, 2, 327684, 65536, 2, 327685, 65536, 2, 327686, 131072, 2, 262151, 65536, 2, 262152, 65536, 2, 262156, 65536, 2, 262157, 65536, 2, 327694, 0, 2, 327695, 65536, 2, 327696, 65536, 2, 327697, 65536, 2)
 layer_4/name = "Decorative"
@@ -98,17 +113,19 @@ size_flags_vertical = 0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+[node name="LinesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/LinesContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Previous" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Previous" type="Button" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
@@ -124,10 +141,11 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wt2qx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xy21h")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
+disabled = true
 button_mask = 7
 text = "Previous"
 
-[node name="TitlePanel" type="Panel" parent="ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TitlePanel" type="Panel" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -135,7 +153,7 @@ size_flags_vertical = 0
 size_flags_stretch_ratio = 0.32
 theme_override_styles/panel = SubResource("StyleBoxTexture_nukxx")
 
-[node name="Title" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/TitlePanel"]
+[node name="Title" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/TitlePanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -149,7 +167,8 @@ label_settings = SubResource("LabelSettings_h4evl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Version" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/TitlePanel"]
+[node name="Version" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/TitlePanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -164,7 +183,8 @@ label_settings = SubResource("LabelSettings_bpe8s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Next" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Next" type="Button" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
@@ -183,14 +203,14 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
 button_mask = 7
 text = "Next"
 
-[node name="HeaderPanel" type="Panel" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="HeaderPanel" type="Panel" parent="ScrollContainer/MarginContainer/LinesContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.13
 theme_override_styles/panel = SubResource("StyleBoxTexture_joe4o")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -198,13 +218,13 @@ offset_bottom = 50.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 8
 
-[node name="LabelRank" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer/MarginContainer"]
+[node name="LabelRank" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
 size_flags_vertical = 1
@@ -212,24 +232,24 @@ text = "Rank"
 label_settings = SubResource("LabelSettings_h4evl")
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 
-[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer/MarginContainer2"]
+[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Name"
 label_settings = SubResource("LabelSettings_h4evl")
 vertical_alignment = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 
-[node name="LabelScore" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer/MarginContainer3"]
+[node name="LabelScore" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer3"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Score"
@@ -237,12 +257,12 @@ label_settings = SubResource("LabelSettings_h4evl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 16
 
-[node name="LabelTime" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderPanel/HBoxContainer/MarginContainer4"]
+[node name="LabelTime" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer4"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Time
@@ -251,70 +271,25 @@ label_settings = SubResource("LabelSettings_h4evl")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="ScrollContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.13
-theme_override_styles/panel = SubResource("StyleBoxTexture_hy6pn")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 50.0
+[node name="LoadingBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -41.5
+offset_right = 249.5
+offset_bottom = 41.5
 grow_horizontal = 2
-theme_override_constants/separation = 190
-alignment = 1
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_1rfex")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q7ub8")
+step = 1.0
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_right = 8
-
-[node name="LabelRank" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-size_flags_vertical = 1
-text = "1st"
-label_settings = SubResource("LabelSettings_h4evl")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 8
-
-[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "BAB"
-label_settings = SubResource("LabelSettings_h4evl")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 8
-
-[node name="LabelScore" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer/MarginContainer3"]
-layout_mode = 2
-text = "0001234578"
-label_settings = SubResource("LabelSettings_h4evl")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 16
-
-[node name="LabelTime" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Panel3/HBoxContainer/MarginContainer4"]
-layout_mode = 2
-text = "10:23
-"
-label_settings = SubResource("LabelSettings_h4evl")
-horizontal_alignment = 1
-vertical_alignment = 1
+[connection signal="pressed" from="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]

@@ -69,6 +69,8 @@ func _on_request_completed(result : int, response_code : int, headers : PackedSt
 	if bod != "":
 		bod = Utilities.get_json_data(bod)
 
+	if GameManager.is_debug_enabled:
+		print(bod)
 	var failed: bool = bod is Dictionary and bod.has("error") and response_code != HTTPClient.RESPONSE_OK
 
 	# Probably going to regret this...
