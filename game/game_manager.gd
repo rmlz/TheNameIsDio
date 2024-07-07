@@ -9,7 +9,7 @@ var is_playing: bool = false
 var is_touch_joypad_enabled = false
 var is_debug_enabled = true
 var time_elapsed: float = 0.0
-var max_game_time: int = 1 #minutes
+var max_game_time: int = 20 #minutes
 var time_left: float = 0.0
 
 var max_spawned_monsters = 500
