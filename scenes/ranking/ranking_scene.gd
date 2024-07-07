@@ -4,17 +4,18 @@ class_name RankingScene
 @onready var linesContainer: VBoxContainer = %LinesContainer
 @onready var next_button: Button = %Next
 @onready var previous_button: Button = %Previous
+@onready var return_button: Button = %Return
 @onready var version_name: Label = %Version
 @onready var loading_bar: ProgressBar = %LoadingBar
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var ranking_row: PackedScene
 @export var availableVersions: PackedStringArray
 var versionIndex = 0
-
-func _ready():
-	_toggle_buttons()
-	await Firebase.Auth.login_succeeded
-	_query_ranking()
 	
+func start_screen():
+	_toggle_buttons()
+	_query_ranking()
+
 func _query_ranking():
 	create_loading()
 	var query: FirestoreQuery = (FirestoreQuery.new()
@@ -39,6 +40,12 @@ func _toggle_buttons():
 	previous_button.disabled = versionIndex == 0
 	next_button.disabled = versionIndex == availableVersions.size() - 1
 	version_name.text = availableVersions[versionIndex]
+	if not previous_button.disabled:
+		previous_button.grab_focus()
+	elif not next_button.disabled:
+		next_button.grab_focus()
+	else:
+		return_button.grab_focus()
 	
 func _clear_actual_ranking():
 	for node in linesContainer.get_children():
@@ -58,7 +65,7 @@ func end_and_close_loading():
 
 func get_ordinal(number) -> String:
 	var suffix: String
-	if 10 <= number % 100 or number % 100 <= 20:    
+	if 10 <= number % 100 and number % 100 <= 20:    
 		suffix = 'th'
 	else:
 		suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(number % 10, 'th')
@@ -75,3 +82,15 @@ func _on_next_pressed():
 	_toggle_buttons()
 	_clear_actual_ranking()
 	_query_ranking()
+
+
+func _on_return_pressed():
+	animation_player.current_animation = "fade_out"
+	animation_player.play()
+
+
+func _on_animation_player_animation_finished(anim_name: String):
+	if anim_name == "fade_out":
+		get_tree().change_scene_to_file("res://scene_ui/game_start.tscn")
+	elif anim_name == "fade_in":
+		start_screen()

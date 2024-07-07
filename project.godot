@@ -14,6 +14,7 @@ config/name="The Name is Dio"
 config/version="v0.0.4"
 run/main_scene="res://scene_ui/game_start.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
