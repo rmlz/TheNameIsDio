@@ -6,9 +6,9 @@ INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIs
 manifest
 ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:2:1-54:12
 MERGED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:2:1-54:12
-INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:2:1-33:12
 MERGED from [godot-lib.template_debug.aar] C:\Users\Ramon\.gradle\caches\transforms-3\1d2f4d75c034fbcf1699ed1528521307\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:2:1-35:12
 MERGED from [androidx.fragment:fragment:1.6.2] C:\Users\Ramon\.gradle\caches\transforms-3\a1052a08c437a0cfe93531a0770d912d\transformed\fragment-1.6.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.7.2] C:\Users\Ramon\.gradle\caches\transforms-3\17217bd060487ee6e9dd0a6d5894ffa1\transformed\jetified-activity-1.7.2\AndroidManifest.xml:17:1-22:12
@@ -71,7 +71,7 @@ application
 ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:18:5-52:19
 MERGED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:18:5-52:19
 MERGED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:18:5-52:19
-INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:14:5-31:19
+INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:15:5-32:19
 MERGED from [godot-lib.template_debug.aar] C:\Users\Ramon\.gradle\caches\transforms-3\1d2f4d75c034fbcf1699ed1528521307\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:9:5-33:19
 MERGED from [godot-lib.template_debug.aar] C:\Users\Ramon\.gradle\caches\transforms-3\1d2f4d75c034fbcf1699ed1528521307\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:9:5-33:19
 MERGED from [androidx.core:core:1.8.0] C:\Users\Ramon\.gradle\caches\transforms-3\245f1aa0863a677574781ac0a1900f6e\transformed\core-1.8.0\AndroidManifest.xml:24:5-89
@@ -102,7 +102,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Ramon\.gradle\cach
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:20:9-36
 		REJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:20:9-36
 	tools:replace
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:21:9-143
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:22:9-143
 	android:isGame
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:23:9-30
 		REJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:23:9-30
@@ -115,7 +115,7 @@ MERGED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDi
 MERGED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:33:9-50:20
 REJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:45:13-49:29
 	tools:node
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:24:154-186
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:25:154-186
 	android:screenOrientation
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:40:13-50
 		REJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:40:13-50
@@ -144,7 +144,7 @@ REJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIs
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:36:13-55
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:36:13-55
 	tools:replace
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:24:58-153
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:25:58-153
 	android:name
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:34:13-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER
@@ -161,30 +161,34 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:48:17-77
 	android:name
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\AndroidManifest.xml:48:27-74
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:11:5-76
+	android:name
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:11:22-73
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:11:5-67
+ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:5-67
 	android:name
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:11:22-64
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:22-64
 uses-feature#android.hardware.vulkan.level
-ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:5-132
+ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:5-132
 	android:version
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:110-129
-	tools:node
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:19-39
-	android:required
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:85-109
-	android:name
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:12:40-84
-uses-feature#android.hardware.vulkan.version
-ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:5-140
-	android:version
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:111-137
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:110-129
 	tools:node
 		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:19-39
 	android:required
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:87-110
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:85-109
 	android:name
-		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:40-86
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:13:40-84
+uses-feature#android.hardware.vulkan.version
+ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:14:5-140
+	android:version
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:14:111-137
+	tools:node
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:14:19-39
+	android:required
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:14:87-110
+	android:name
+		ADDED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml:14:40-86
 uses-sdk
 INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\src\debug\AndroidManifest.xml

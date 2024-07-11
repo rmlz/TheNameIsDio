@@ -4,3 +4,9 @@
 exports/
 .env
 scripts/login_script/login.gd
+
+android/build/assets/
+
+android/build/build/
+
+android/build/

@@ -37,6 +37,8 @@ func start_ritual2():
 	startRitualTwo()
 	
 func _process(delta: float) -> void:
+	if GameManager.is_game_over:
+		queue_free()
 	ritual_1_bar.value = ritual_1_timer.time_left / ritual1_cooldown * 100
 	ritual_2_bar.value = ritual_2_timer.time_left / ritual2_cooldown * 100
 	GameManager.player_position = position

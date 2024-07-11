@@ -1,4 +1,0 @@
-#Mon Jul 01 10:50:17 BRT 2024
-base.0=C\:\\Users\\Ramon\\Documents\\01-RBDEV\\Godot\\Trilha Godot Dio\\TheNameIsDio\\android\\build\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
-path.0=0/classes.dex
-renamed.0=classes.dex

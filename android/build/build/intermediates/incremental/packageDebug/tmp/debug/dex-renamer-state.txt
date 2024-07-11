@@ -1,4 +1,4 @@
-#Mon Jul 01 10:58:57 BRT 2024
+#Thu Jul 11 01:31:51 BRT 2024
 base.0=C\:\\Users\\Ramon\\Documents\\01-RBDEV\\Godot\\Trilha Godot Dio\\TheNameIsDio\\android\\build\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Ramon\\Documents\\01-RBDEV\\Godot\\Trilha Godot Dio\\TheNameIsDio\\android\\build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Ramon\\Documents\\01-RBDEV\\Godot\\Trilha Godot Dio\\TheNameIsDio\\android\\build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
