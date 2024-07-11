@@ -1,0 +1,440 @@
+[gd_scene load_steps=25 format=3 uid="uid://b1p3ovs1bgayo"]
+
+[ext_resource type="TileSet" uid="uid://lfdic2f1r71g" path="res://tilemap/main_tilemap.tres" id="1_htx0j"]
+[ext_resource type="Script" path="res://scenes/ranking/ranking_scene.gd" id="1_phh4a"]
+[ext_resource type="Texture2D" uid="uid://3ffpm2eo8upt" path="res://assets/TinySword/UI/Ribbons/Ribbon_Blue_Connection_Down.png" id="1_yevps"]
+[ext_resource type="Texture2D" uid="uid://duovrlkays8la" path="res://assets/TinySword/UI/Buttons/Button_Blue_3Slides.png" id="2_kom5d"]
+[ext_resource type="Texture2D" uid="uid://bhmjrhscxpt0f" path="res://assets/TinySword/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="3_mikki"]
+[ext_resource type="Texture2D" uid="uid://cyus34w8jg4mu" path="res://assets/TinySword/UI/Buttons/Button_Hover_3Slides.png" id="4_1ih1o"]
+[ext_resource type="Texture2D" uid="uid://bstknpqt2xx5s" path="res://assets/TinySword/UI/Buttons/Button_Disable_3Slides.png" id="5_tnrjq"]
+[ext_resource type="PackedScene" uid="uid://fgrf41lor15x" path="res://scenes/ranking/RankingRow.tscn" id="7_rgf8n"]
+[ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="9_yr7tx"]
+
+[sub_resource type="FontVariation" id="FontVariation_pcuc0"]
+spacing_bottom = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68jcx"]
+texture = ExtResource("2_kom5d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wt2qx"]
+texture = ExtResource("4_1ih1o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xy21h"]
+texture = ExtResource("3_mikki")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ci58d"]
+texture = ExtResource("5_tnrjq")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4mpe1"]
+load_path = "res://.godot/imported/Banner_Horizontal.png-04a539e11965f9d29291b7972d1716f5.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nukxx"]
+texture = SubResource("CompressedTexture2D_4mpe1")
+texture_margin_left = 96.0
+texture_margin_top = 15.0
+texture_margin_right = 96.0
+texture_margin_bottom = 45.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(32, 45, 128, 135)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4evl"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpe8s"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_joe4o"]
+texture = ExtResource("1_yevps")
+texture_margin_left = 16.0
+texture_margin_top = 45.0
+texture_margin_right = 16.0
+texture_margin_bottom = 45.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 64, 60)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rfex"]
+bg_color = Color(0.97, 0.95642, 0.6984, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7ub8"]
+bg_color = Color(0.972549, 0.94902, 0.45098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.972549, 0.639216, 0.45098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_263od"]
+resource_name = "fade_in"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.450625, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(7.46426, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LoadingBar:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(5.65685, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(3.13833, 11.3137),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g323m"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.450625),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 7.46426),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LoadingBar:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 5.65685),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(11.3137, 3.13833),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uff7l"]
+_data = {
+"fade_in": SubResource("Animation_263od"),
+"fade_out": SubResource("Animation_g323m")
+}
+
+[node name="RankingScene" type="CanvasLayer"]
+script = ExtResource("1_phh4a")
+ranking_row = ExtResource("7_rgf8n")
+availableVersions = PackedStringArray("v0.0.4")
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color(1, 1, 1, 0)
+tile_set = ExtResource("1_htx0j")
+format = 2
+layer_0/name = "ground"
+layer_0/tile_data = PackedInt32Array(0, 65536, 1, 1, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 5, 65536, 1, 6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 10, 65536, 1, 11, 65536, 1, 12, 65536, 1, 13, 65536, 1, 14, 65536, 1, 15, 65536, 1, 16, 65536, 1, 17, 65536, 1, 65553, 65536, 1, 65552, 65536, 1, 65551, 65536, 1, 65550, 65536, 1, 65549, 65536, 1, 65548, 65536, 1, 65547, 65536, 1, 65546, 65536, 1, 65545, 65536, 1, 65544, 65536, 1, 65543, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 65540, 65536, 1, 65539, 65536, 1, 65538, 65536, 1, 65537, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 131073, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 131076, 65536, 1, 131077, 65536, 1, 131078, 65536, 1, 131079, 65536, 1, 131080, 65536, 1, 131081, 65536, 1, 131082, 65536, 1, 131083, 65536, 1, 131084, 65536, 1, 131085, 65536, 1, 131086, 65536, 1, 131087, 65536, 1, 131088, 65536, 1, 131089, 65536, 1, 196625, 65536, 1, 262161, 65536, 1, 327697, 65536, 1, 327696, 65536, 1, 262160, 65536, 1, 196624, 65536, 1, 327695, 65536, 1, 262159, 65536, 1, 262158, 65536, 1, 327694, 65536, 1, 327693, 65536, 1, 393229, 393216, 1, 393228, 393216, 1, 393227, 393216, 1, 327691, 65536, 1, 327690, 65536, 1, 327689, 65536, 1, 327688, 65536, 1, 262151, 65536, 1, 262150, 65536, 1, 262149, 65536, 1, 262148, 65536, 1, 262147, 65536, 1, 262146, 65536, 1, 262145, 65536, 1, 262144, 65536, 1, 196608, 65536, 1, 196609, 65536, 1, 196610, 65536, 1, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 196615, 65536, 1, 196616, 65536, 1, 196617, 65536, 1, 196618, 65536, 1, 196619, 65536, 1, 196620, 65536, 1, 196621, 65536, 1, 262157, 65536, 1, 262156, 65536, 1, 262155, 65536, 1, 262154, 65536, 1, 262153, 65536, 1, 262152, 65536, 1, 327692, 65536, 1, 393223, 393216, 1, 393224, 393216, 1, 393225, 393216, 1, 393226, 393216, 1, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 327684, 65536, 1, 327683, 65536, 1, 327682, 65536, 1, 327681, 65536, 1, 327680, 65536, 1, 458755, 393216, 1, 458756, 393216, 1, 458757, 393216, 1, 458758, 393216, 1, 458759, 393216, 1, 458760, 393216, 1, 458761, 393216, 1, 458762, 393216, 1, 458763, 393216, 1, 458764, 393216, 1, 458765, 393216, 1, 458766, 393216, 1, 393217, 393216, 1, 393218, 393216, 1, 393219, 393216, 1, 393220, 393216, 1, 393221, 393216, 1, 393222, 393216, 1, 393230, 393216, 1, 393231, 393216, 1, 393232, 393216, 1, 393233, 393216, 1, 458752, 65550, 2, 524289, 65550, 2, 524290, 65550, 2, 589827, 65550, 2, 589828, 65550, 2, 589830, 65550, 2, 589829, 65550, 2, 589831, 65550, 2, 589832, 65550, 2, 589833, 65550, 2, 589834, 65550, 2, 589835, 65550, 2, 589836, 65550, 2, 589837, 65550, 2, 589838, 65550, 2, 524303, 65550, 2, 458768, 65550, 2, 458769, 65550, 2, 196622, 65536, 1, 196623, 65536, 1)
+layer_1/name = "water"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 458752, 3, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524303, 3, 0, 524304, 3, 0, 458768, 3, 0, 458769, 3, 0, 524305, 3, 0, 524302, 3, 0, 524301, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 458767, 3, 0, 458766, 3, 0, 458765, 3, 0, 458764, 3, 0, 458763, 3, 0, 458762, 3, 0, 458761, 3, 0, 458760, 3, 0, 458759, 3, 0, 458758, 3, 0, 458757, 3, 0, 458756, 3, 0, 458755, 3, 0, 458754, 3, 0, 458753, 3, 0, 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 393227, 3, 0, 393228, 3, 0, 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0, 393233, 3, 0)
+layer_2/name = "over_ground"
+layer_2/tile_data = PackedInt32Array(393216, 65538, 3, 393217, 65538, 5, 393218, 65538, 5, 393219, 65538, 5, 393220, 65538, 5, 393221, 65538, 5, 393222, 131074, 5, 327687, 65538, 5, 327688, 65538, 5, 327689, 2, 7, 327690, 65538, 7, 327691, 131074, 7, 327692, 65538, 5, 327693, 131074, 5, 393230, 65538, 5, 393231, 65538, 5, 393232, 65538, 5, 393233, 65538, 3, 327686, 65538, 4, 327685, 65538, 4, 327684, 65538, 4, 327683, 65538, 4, 327682, 65538, 4, 327681, 65538, 4, 327680, 65538, 4, 262151, 65538, 4, 262152, 65538, 4, 262156, 65538, 4, 262157, 65538, 4, 327694, 65538, 4, 327695, 65538, 4, 327696, 65538, 4, 327697, 65538, 4, 458753, 327680, 2, 458754, 393216, 2, 524291, 327680, 2, 524292, 393216, 2, 524293, 393216, 2, 524294, 393216, 2, 524295, 393216, 2, 524296, 393216, 2, 524297, 393216, 2, 524298, 393216, 2, 524299, 393216, 2, 524300, 393216, 2, 524301, 393216, 2, 524302, 458752, 2, 458767, 458752, 2)
+layer_3/name = "over_ground_2"
+layer_3/tile_data = PackedInt32Array(327680, 65536, 2, 327681, 65536, 2, 327682, 65536, 2, 327683, 65536, 2, 327684, 65536, 2, 327685, 65536, 2, 327686, 131072, 2, 262151, 65536, 2, 262152, 65536, 2, 262156, 65536, 2, 262157, 65536, 2, 327694, 0, 2, 327695, 65536, 2, 327696, 65536, 2, 327697, 65536, 2)
+layer_4/name = "Decorative"
+layer_4/tile_data = PackedInt32Array(196610, 6, 0, 131073, 5, 0, 196609, 10, 0, 131074, 15, 65536, 196608, 15, 65536, 327681, 15, 65536, 0, 15, 65536, 196614, 15, 65536, 65547, 15, 65536, 131081, 15, 65536, 196624, 15, 65536, 15, 15, 65536, 327697, 15, 65536, 262159, 15, 65536, 262157, 15, 65536, 131075, 16, 2, 131076, 65552, 2, 65540, 65552, 1, 4, 65552, 0, 3, 16, 0, 65539, 16, 1, 131077, 5, 0, 65541, 7, 0, 327685, 10, 0, 262150, 10, 0, 327683, 15, 131072, 131084, 15, 131072, 65550, 15, 262144, 458757, 15, 196608)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="LinesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/LinesContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Previous" type="Button" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.254503, 0.342283, 0.370296, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.619608, 0.529412, 0.462745, 1)
+theme_override_fonts/font = SubResource("FontVariation_pcuc0")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wt2qx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xy21h")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
+disabled = true
+button_mask = 7
+text = "Previous"
+
+[node name="TitlePanel" type="Panel" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.32
+theme_override_styles/panel = SubResource("StyleBoxTexture_nukxx")
+
+[node name="Title" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/TitlePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "Leaderboard"
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/TitlePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -574.0
+offset_top = 36.0
+offset_right = 578.0
+offset_bottom = 86.0
+grow_horizontal = 2
+text = "v0.0.4"
+label_settings = SubResource("LabelSettings_bpe8s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next" type="Button" parent="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.254503, 0.342283, 0.370296, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.619608, 0.529412, 0.462745, 1)
+theme_override_fonts/font = SubResource("FontVariation_pcuc0")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wt2qx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xy21h")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
+button_mask = 7
+text = "Next"
+
+[node name="HeaderPanel" type="Panel" parent="ScrollContainer/MarginContainer/LinesContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.13
+theme_override_styles/panel = SubResource("StyleBoxTexture_joe4o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 8
+
+[node name="LabelRank" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 60)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Rank"
+label_settings = SubResource("LabelSettings_h4evl")
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="LabelName" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_h4evl")
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="LabelScore" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 16
+
+[node name="LabelTime" type="Label" parent="ScrollContainer/MarginContainer/LinesContainer/HeaderPanel/HBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Time
+"
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LoadingBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -41.5
+offset_right = 249.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_1rfex")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q7ub8")
+step = 1.0
+
+[node name="Container" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Return" type="Button" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 21.0
+offset_top = -36.0
+offset_right = 125.0
+offset_bottom = 18.0
+theme = ExtResource("9_yr7tx")
+button_mask = 7
+text = "Return"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uff7l")
+}
+autoplay = "fade_in"
+
+[connection signal="pressed" from="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="ScrollContainer/MarginContainer/LinesContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Container/Return" to="." method="_on_return_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
