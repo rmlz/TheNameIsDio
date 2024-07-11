@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4whdiwpjb7p3"]
+[gd_scene load_steps=6 format=3 uid="uid://b4whdiwpjb7p3"]
 
+[ext_resource type="PackedScene" uid="uid://bseak21tmcn4n" path="res://scenes/characters/enemies/lvl3/goblin_tnt_big_lvl3.tscn" id="1_4ao2x"]
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="3_1s4nh"]
-[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl2/bow_arrow_small_lvl2.tscn" id="5_knjg1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -15,6 +14,18 @@ font_size = 80
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
+
+[node name="GoblinTNTBigLvl3" parent="." instance=ExtResource("1_4ao2x")]
+position = Vector2(51, 179)
+
+[node name="GoblinTNTBigLvl4" parent="." instance=ExtResource("1_4ao2x")]
+position = Vector2(288, 107)
+
+[node name="GoblinTNTBigLvl5" parent="." instance=ExtResource("1_4ao2x")]
+position = Vector2(218, 436)
+
+[node name="GoblinTNTBigLvl6" parent="." instance=ExtResource("1_4ao2x")]
+position = Vector2(682, 255)
 
 [node name="Spritesheet" type="Sprite2D" parent="."]
 visible = false
@@ -96,7 +107,3 @@ text = "Attack-up2"
 
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
 position = Vector2(1057, 464)
-
-[node name="PawnBigLvl4" parent="." instance=ExtResource("3_1s4nh")]
-
-[node name="BowAndArrowSmallLvl2" parent="." instance=ExtResource("5_knjg1")]

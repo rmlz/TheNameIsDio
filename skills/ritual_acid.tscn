@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bijitbu44runy"]
+[gd_scene load_steps=19 format=3 uid="uid://bijitbu44runy"]
 
 [ext_resource type="Script" path="res://skills/ritual_acid.gd" id="1_50e7o"]
 [ext_resource type="PackedScene" uid="uid://epao2p7585f8" path="res://scenes/characters/components/Status/status_poison/StatusPoison.tscn" id="2_gxi46"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcpcdvll7ug82" path="res://assets/Particle Pack/smoke_10.png" id="5_0a22b"]
 [ext_resource type="Texture2D" uid="uid://1px2kgsp24r1" path="res://assets/Particle Pack/magic_02.png" id="6_2xdjr"]
 [ext_resource type="Texture2D" uid="uid://dxhiixx5rkcu" path="res://assets/Particle Pack/circle_02.png" id="7_lg76e"]
+[ext_resource type="AudioStream" uid="uid://c55cdy0vw31lt" path="res://assets/sfx/rituals/Retro Weird 15.wav" id="8_epv2j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_veyl5"]
 blend_mode = 1
@@ -398,3 +399,7 @@ texture = ExtResource("7_lg76e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_hgvsh")
 debug_color = Color(0.944332, 0.122216, 0.507724, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_epv2j")
+autoplay = true

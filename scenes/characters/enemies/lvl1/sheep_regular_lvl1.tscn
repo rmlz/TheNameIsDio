@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://brx2k5c7kdntu"]
+[gd_scene load_steps=24 format=3 uid="uid://brx2k5c7kdntu"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_qvya4"]
 [ext_resource type="Resource" uid="uid://bjjqqiv0gl8vy" path="res://scenes/characters/resources/character_statistics/sheep_regular_stats.tres" id="2_aidsk"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="12_ohbyw"]
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="14_o3j6s"]
 [ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="15_lhcne"]
+[ext_resource type="AudioStream" uid="uid://cw7uswoci1ku7" path="res://assets/sfx/weapons/FGHTImpt_Anime Melee 8-cut.wav" id="16_2xk35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sqxo"]
 size = Vector2(80, 20)
@@ -214,6 +215,9 @@ offset_left = -23.0
 offset_top = 6.0
 offset_right = 5.0
 offset_bottom = 6.0
+
+[node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_2xk35")
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

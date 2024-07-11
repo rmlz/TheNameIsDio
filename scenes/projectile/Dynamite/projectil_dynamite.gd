@@ -25,7 +25,6 @@ func _do_damage():
 			var enemy: EnemyBase = body
 			var push_vector = (enemy.position - position).normalized() * 5
 			enemy.receive_damage(damage, push_vector, true)
-	queue_free()
 	
 func calculate_movement():
 	velocity = movement_direction * speed * (1 - bump_ground_reduce_speed) ** number_of_bumps

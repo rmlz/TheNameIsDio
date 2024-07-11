@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4r8mmefx7got"]
+[gd_scene load_steps=11 format=3 uid="uid://b4r8mmefx7got"]
 
 [ext_resource type="Script" path="res://skills/ritual.gd" id="1_bhx7p"]
 [ext_resource type="PackedScene" uid="uid://clh2thlhet16k" path="res://scenes/characters/components/Status/status_freeze/StatusFreeze.tscn" id="2_8iq32"]
 [ext_resource type="Texture2D" uid="uid://cmj16l5h4sbkb" path="res://assets/Particle Pack/light_01.png" id="3_fibwo"]
 [ext_resource type="Texture2D" uid="uid://cmhuve2j2wcxa" path="res://assets/Particle Pack/magic_03.png" id="4_bl0sk"]
+[ext_resource type="AudioStream" uid="uid://rrs3h0eiix4h" path="res://assets/sfx/rituals/Retro Charge 07.wav" id="5_y30dd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_veyl5"]
 blend_mode = 1
@@ -123,7 +124,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_4fseb"]
 resource_name = "idle"
-length = 2.5
+length = 2.84
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -296,3 +297,7 @@ texture = ExtResource("4_bl0sk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_hgvsh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_y30dd")
+autoplay = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://djdpt7vb13n4o"]
+[gd_scene load_steps=22 format=3 uid="uid://djdpt7vb13n4o"]
 
 [ext_resource type="Script" path="res://scenes/projectile/Dynamite/projectil_dynamite.gd" id="1_okaqg"]
 [ext_resource type="Texture2D" uid="uid://b6h27arnvmhif" path="res://assets/TinySword/Factions/Goblins/Troops/TNT/Dynamite/Dynamite.png" id="2_c062v"]
 [ext_resource type="Texture2D" uid="uid://cn4kmkvagrd3i" path="res://assets/TinySword/Effects/Explosion/Explosions.png" id="3_3g70n"]
+[ext_resource type="AudioStream" uid="uid://c7pted8w2t4m6" path="res://assets/sfx/weapons/Retro Weapon Bomb 06.wav" id="4_ymfmt"]
 
 [sub_resource type="Animation" id="Animation_ekujh"]
 length = 0.001
@@ -95,7 +96,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_jqm6a"]
 resource_name = "thrown"
-length = 5.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -127,8 +128,8 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2, 2.8, 3, 4.5, 4.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2, 2.8, 3, 4.5, 4.8, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"bump_projectile_to_ground"
@@ -144,6 +145,9 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"_do_damage"
+}, {
+"args": [],
+"method": &"queue_free"
 }]
 }
 tracks/3/type = "value"
@@ -169,6 +173,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(0.420448, 5.46416),
 "update": 0,
 "values": [0.0, 18.8496]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m3ycv"]
@@ -284,3 +300,8 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("CircleShape2D_vwkex")
 debug_color = Color(0.998034, 0, 0.152153, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ymfmt")
+volume_db = -5.0
+max_distance = 500.0
