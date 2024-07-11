@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var health: HealthComponent = $HealthComponent
 @onready var animation_player = $AnimationPlayer
 @onready var debug_state: Label = $DEBUG_STATE
+@onready var hit_audio = $HitAudio
+
 var ranged_attack_component: BaseRangedAttackComponent
 var melee_attack_component: BaseMeleeAttackComponent
 var status_component: StatusComponent
@@ -64,6 +66,8 @@ func change_size(vector: Vector2):
 func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
 	if amount == 0:
 		return
+	if (hit_audio):
+		hit_audio.play(0)
 	var is_tank = statistics.get_hit_cooldown_secs == 0
 	if health:
 		health.damage(amount)

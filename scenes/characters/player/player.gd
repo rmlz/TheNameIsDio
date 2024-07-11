@@ -7,6 +7,8 @@ var ritual_1_timer: Timer
 @onready var ritual_2_bar: ProgressBar = $Ritual2Bar
 var ritual_2_timer: Timer
 
+@onready var collect_audio: AudioStreamPlayer2D = $CollectAudio
+
 @export var ritual1: PackedScene
 @export var ritual1_cooldown: int = 15
 
@@ -49,15 +51,6 @@ func _process(delta: float) -> void:
 	not GameManager.is_touch_joypad_enabled) or is_attack_mobile_pressed:
 		pass
 		#attack()
-
-func damage_animation() -> void:
-	var tween = create_tween()
-	%Sprite2D.modulate = Color.DARK_RED
-	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_QUINT)
-	tween.tween_property(
-		%Sprite2D, "modulate", Color.WHITE, 0.3
-	)
 
 func die() -> void:
 	GameManager.is_game_over = true
