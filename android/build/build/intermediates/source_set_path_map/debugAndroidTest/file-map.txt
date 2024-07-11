@@ -1,4 +1,0 @@
-com.godot.game.test-androidTest-0 C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\build\generated\res\resValues\androidTest\debug
-com.godot.game.test-mergeDebugAndroidTestResources-1 C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.godot.game.test-mergeDebugAndroidTestResources-2 C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.godot.game.test-merged_res-3 C:\Users\Ramon\Documents\01-RBDEV\Godot\Trilha Godot Dio\TheNameIsDio\android\build\build\intermediates\merged_res\debugAndroidTest
