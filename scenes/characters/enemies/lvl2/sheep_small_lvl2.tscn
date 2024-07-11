@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://brx2k5c7kdntu"]
+[gd_scene load_steps=27 format=3 uid="uid://brx2k5c7kdntu"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_qvya4"]
 [ext_resource type="PackedScene" uid="uid://bcdg5dqevplb4" path="res://misc/system/skull.tscn" id="2_its8y"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b3syll70m8nxj" path="res://scenes/characters/components/Sizeable/Sizeable.tscn" id="14_o3j6s"]
 [ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="15_lhcne"]
 [ext_resource type="AudioStream" uid="uid://cw7uswoci1ku7" path="res://assets/sfx/weapons/FGHTImpt_Anime Melee 8-cut.wav" id="17_bqlu8"]
+[ext_resource type="AudioStream" uid="uid://cjp7fue3x15a4" path="res://assets/sfx/weapons/Retro Impact Metal 05.wav" id="18_va25i"]
 
 [sub_resource type="Resource" id="Resource_gxs3n"]
 script = ExtResource("3_xlvdy")
@@ -228,6 +229,10 @@ offset_bottom = 6.0
 
 [node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_bqlu8")
+
+[node name="TankAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_va25i")
+pitch_scale = 1.36
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

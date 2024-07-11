@@ -1,7 +1,6 @@
 class_name Ritual
 extends Node2D
 
-
 @export var damage: int = 2
 @export var status: PackedScene
 @onready var damage_area = $Area2D
@@ -16,7 +15,7 @@ func deal_damage() -> void:
 			apply_status(enemy)
 	pass
 	
-func apply_status(enemy: EnemyBase):
+func apply_status(enemy: EnemyBase) -> void:
 	if status:
 		status_scene = status.instantiate()
 	if status_scene and not enemy.is_queued_for_deletion():

@@ -88,7 +88,7 @@ update_rotation = false
 update_scale = false
 
 [node name="MobSpawner" parent="." instance=ExtResource("5_y4uf8")]
-initial_spawn_rate = 50
+initial_spawn_rate = 75
 spawn_rate_per_minute = 20.0
 wave_duration = 60
 break_intensity = 0.2
