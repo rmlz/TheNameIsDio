@@ -13,13 +13,13 @@ var ritual_3_timer: Timer
 @onready var collect_audio: AudioStreamPlayer2D = $CollectAudio
 
 @export var ritual1: PackedScene
-@export var ritual1_cooldown: int = 15
+@export var ritual1_cooldown: int = 13
 
 @export var ritual2: PackedScene
-@export var ritual2_cooldown: int = 20
+@export var ritual2_cooldown: int = 19
 
 @export var ritual3: PackedScene
-@export var ritual3_cooldown: int = 10
+@export var ritual3_cooldown: int = 23
 
 var _hit_cooldown: float = 0.0
 var attack_cooldown: float = 0.65
@@ -33,6 +33,7 @@ func _ready():
 	_hit_cooldown = statistics.get_hit_cooldown_secs
 	_setup_ritual_bars()
 	GameManager.turn_ritual_2_on.connect(start_ritual2)
+	GameManager.turn_ritual_3_on.connect(start_ritual3)
 
 func _setup_ritual_bars():
 	ritual_1_timer = $Ritual1Timer
@@ -43,7 +44,7 @@ func _setup_ritual_bars():
 	ritual_2_bar.visible = false
 	ritual_3_timer = $Ritual3Timer
 	ritual_3_timer.wait_time = ritual3_cooldown
-	ritual_3_timer.start()
+	ritual_3_bar.visible = false
 	
 func start_ritual2():
 	ritual_2_timer.start()
