@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var debug_state: Label = $DEBUG_STATE
 @onready var hit_audio = $HitAudio
+@onready var tank_hit_audio = $TankAudio
 
 var ranged_attack_component: BaseRangedAttackComponent
 var melee_attack_component: BaseMeleeAttackComponent
@@ -15,6 +16,7 @@ var size_changer: SizeChanger
 @export var statistics: CharacterStatistics
 
 var death_prefab: PackedScene
+var invicible: bool = false
 
 # Calculated constant params
 var _calc_hit_damage: int
@@ -66,9 +68,11 @@ func change_size(vector: Vector2):
 func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
 	if amount == 0:
 		return
-	if (hit_audio):
+	var is_tank = statistics.get_hit_cooldown_secs == 0 or invicible
+	if hit_audio and not is_tank:
 		hit_audio.play(0)
-	var is_tank = statistics.get_hit_cooldown_secs == 0
+	if tank_hit_audio and is_tank:
+		tank_hit_audio.play(0)
 	if health:
 		health.damage(amount)
 	run_damage_color_feedback(is_tank)

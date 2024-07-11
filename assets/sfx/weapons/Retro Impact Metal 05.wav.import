@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjp7fue3x15a4"
+path="res://.godot/imported/Retro Impact Metal 05.wav-9c081769250e7d622ea533c70f3df9fd.sample"
+
+[deps]
+
+source_file="res://assets/sfx/weapons/Retro Impact Metal 05.wav"
+dest_files=["res://.godot/imported/Retro Impact Metal 05.wav-9c081769250e7d622ea533c70f3df9fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
