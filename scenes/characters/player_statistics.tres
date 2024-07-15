@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_5dawr")
-max_health = 1.0
+max_health = 200.0
 speed = 3.0
 get_hit_cooldown_secs = 0.5
 hit_damage = 1
