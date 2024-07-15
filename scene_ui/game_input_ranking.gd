@@ -8,14 +8,28 @@ class_name InputRank
 @onready var error_label: Label = $Error
 
 var confirm_cancel = false
+var text_edit_mouse_entered = false
 
 var initial_screen: PackedScene
 
 func _ready():
 	$Label2.text = "%09d points" % [GameManager.points]
 	loading_screen.hide()
-	text_edit.grab_focus()
 	initial_screen = preload("res://scene_ui/game_start.tscn")
+
+func _grab_focus():
+	if not text_edit.has_focus():
+		text_edit.grab_focus()
+	var htmlAnswer = JavaScriptBridge.eval("prompt('%s');" % ["Please enter text"], true)
+	if htmlAnswer:
+		text_edit.text = htmlAnswer
+		text_edit.release_focus()
+		
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed() and text_edit_mouse_entered:
+		_grab_focus()
+		
+		
 	
 func return_to_initial_screen():
 	get_tree().change_scene_to_packed(initial_screen) 
@@ -51,7 +65,7 @@ func send_rank_object():
 	}
 	await collection.add("", data)
 	
-func _on_text_edit_text_submitted(new_text):
+func _on_text_edit_text_submitted(_new_text):
 	submit_rank()
 
 func _on_cancel_pressed():
@@ -64,3 +78,11 @@ func _on_cancel_pressed():
 
 func _on_submit_pressed():
 	submit_rank()
+
+
+func _on_text_edit_mouse_entered():
+	text_edit_mouse_entered = true
+
+
+func _on_text_edit_mouse_exited():
+	text_edit_mouse_entered = false

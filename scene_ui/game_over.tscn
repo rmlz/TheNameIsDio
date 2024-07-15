@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dso8vqow7g32i"]
+[gd_scene load_steps=10 format=3 uid="uid://dso8vqow7g32i"]
 
 [ext_resource type="Texture2D" uid="uid://ch0fqex2bkeeg" path="res://assets/TinySword/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_51whj"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="1_euvpb"]
@@ -144,38 +144,10 @@ tracks/4/keys = {
 "values": [Vector2(382, 203)]
 }
 
-[sub_resource type="Animation" id="Animation_5n2c5"]
-resource_name = "show_rank"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameInputRanking:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameInputRanking:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mmxic"]
 _data = {
 "GameOver": SubResource("Animation_0hjc1"),
-"RESET": SubResource("Animation_hkbu4"),
-"show_rank": SubResource("Animation_5n2c5")
+"RESET": SubResource("Animation_hkbu4")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_csavy"]
