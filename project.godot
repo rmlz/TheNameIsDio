@@ -11,17 +11,25 @@ config_version=5
 [application]
 
 config/name="The Name is Dio"
+config/version="v0.0.5"
 run/main_scene="res://scene_ui/game_start.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://game/game_manager.gd"
+Login="*res://scripts/login_script/login.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
 
 [input]
 
@@ -79,3 +87,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true

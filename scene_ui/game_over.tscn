@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dso8vqow7g32i"]
+[gd_scene load_steps=10 format=3 uid="uid://dso8vqow7g32i"]
 
 [ext_resource type="Texture2D" uid="uid://ch0fqex2bkeeg" path="res://assets/TinySword/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_51whj"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui.gd" id="1_euvpb"]
+[ext_resource type="PackedScene" uid="uid://fvim72hmelps" path="res://scene_ui/game_input_ranking.tscn" id="3_ehd4h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3t6v"]
 texture = ExtResource("1_51whj")
@@ -18,7 +19,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_0hjc1"]
 resource_name = "GameOver"
-length = 1.5
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,10 +27,10 @@ tracks/0/path = NodePath("Background:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(3.03143, 1),
+"times": PackedFloat32Array(0, 1.5, 4.6, 5),
+"transitions": PackedFloat32Array(3.03143, 1, 1, 1),
 "update": 0,
-"values": [Color(0.294118, 0, 0, 0), Color(0.294118, 0, 0, 0.403922)]
+"values": [Color(0.294118, 0, 0, 0), Color(0.294118, 0, 0, 0.403922), Color(0.294118, 0, 0, 0.403922), Color(0.294118, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -38,10 +39,10 @@ tracks/1/path = NodePath("GameOverPanel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(11.3137, 0.933031),
+"times": PackedFloat32Array(0, 1.5, 4.6, 5),
+"transitions": PackedFloat32Array(11.3137, 0.933031, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -50,10 +51,10 @@ tracks/2/path = NodePath("GameOverPanel:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.5, 4.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(556, 150), Vector2(456, 101)]
+"values": [Vector2(556, 150), Vector2(456, 101), Vector2(456, 101), Vector2(456, 101)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -74,10 +75,10 @@ tracks/4/path = NodePath("PointsLabel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.258817, 1),
+"times": PackedFloat32Array(0, 1.5, 4.6, 5),
+"transitions": PackedFloat32Array(0.258817, 1, 1, 1),
 "update": 0,
-"values": [Vector2(382, -167), Vector2(382, 203)]
+"values": [Vector2(382, -167), Vector2(382, 203), Vector2(382, 203), Vector2(382, -167)]
 }
 
 [sub_resource type="Animation" id="Animation_hkbu4"]
@@ -157,7 +158,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="GameOverUI" type="CanvasLayer"]
 script = ExtResource("1_euvpb")
-restart_delay = 7
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -221,3 +221,6 @@ text = "Dio has done 1234567890 points"
 label_settings = SubResource("LabelSettings_csavy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameInputRanking" parent="." instance=ExtResource("3_ehd4h")]
+modulate = Color(1, 1, 1, 0)

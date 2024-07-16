@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://fgrf41lor15x"]
+
+[ext_resource type="Texture2D" uid="uid://dtwpicyws6j1a" path="res://assets/TinySword/UI/Ribbons/Ribbon_Yellow_Connection_Down.png" id="1_34jpq"]
+[ext_resource type="Script" path="res://scenes/ranking/ranking_row.gd" id="2_smjxf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hy6pn"]
+texture = ExtResource("1_34jpq")
+texture_margin_left = 16.0
+texture_margin_top = 45.0
+texture_margin_right = 16.0
+texture_margin_bottom = 45.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 64, 60)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4evl"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[node name="RankingRow" type="Panel"]
+custom_minimum_size = Vector2(0, 80)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.13
+theme_override_styles/panel = SubResource("StyleBoxTexture_hy6pn")
+script = ExtResource("2_smjxf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/separation = 190
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 8
+
+[node name="LabelRank" type="Label" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="LabelName" type="Label" parent="HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="LabelScore" type="Label" parent="HBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 16
+
+[node name="LabelTime" type="Label" parent="HBoxContainer/MarginContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_h4evl")
+horizontal_alignment = 1
+vertical_alignment = 1

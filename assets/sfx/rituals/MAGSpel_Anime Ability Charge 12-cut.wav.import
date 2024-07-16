@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxxyvpafrg853"
+path="res://.godot/imported/MAGSpel_Anime Ability Charge 12-cut.wav-f4e08d8dcddc220081b149d5f73f2c26.sample"
+
+[deps]
+
+source_file="res://assets/sfx/rituals/MAGSpel_Anime Ability Charge 12-cut.wav"
+dest_files=["res://.godot/imported/MAGSpel_Anime Ability Charge 12-cut.wav-f4e08d8dcddc220081b149d5f73f2c26.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

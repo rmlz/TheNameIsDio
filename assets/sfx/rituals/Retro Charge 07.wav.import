@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rrs3h0eiix4h"
+path="res://.godot/imported/Retro Charge 07.wav-78bebcad7b88df0670ef00fb8e765e2d.sample"
+
+[deps]
+
+source_file="res://assets/sfx/rituals/Retro Charge 07.wav"
+dest_files=["res://.godot/imported/Retro Charge 07.wav-78bebcad7b88df0670ef00fb8e765e2d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -93,21 +93,24 @@ You also may create your own game respecting the Mozilla licence set up for this
 <!-- ROADMAP -->
 ## Roadmap
 ### What is new?
+- Versio 0.0.5
+  - [x] DIO-12 Create first ANDROID version of the game
+  - [x] DIO-13 Players can submit their scores to a ranking board
+  - [x] DIO-14 Fix issue with the mobile joypad not properly handling touch with two fingers
+  - [x] DIO-15 Add first sound effects to the game
+  - [x] DIO-16 Add new shield magic to player
+
+### What is next?
+  - [ ] Add music
+  - [ ] Add buying system for player's skills
+  - [ ] Add new map features
+
+### Previous versions
 
 - Version 0.0.4
   - [x] DIO-9 Reworks how enemy stats are set up
   - [x] DIO-10 Improve dynamite animation quality
   - [x] DIO-11 Animate collectable on map
-
-### What is next?
-  - [ ] Add sound fx and music
-  - [ ] Add new behavior to creatures
-  - [ ] Implements players saving their results to a ranking board
-  - [ ] Improve how new skills are unlocked for player
-  - [ ] Add new skills to player
-  - [ ] Add new map features
-
-### Previous versions
 
 - Version 0.0.3
   - [x] DIO-5 Reworked player node and mobile ui touch screen

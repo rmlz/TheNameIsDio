@@ -11,6 +11,8 @@ var joystick_active: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var move_vector: Vector2 = Vector2.ZERO
 
+var down: Dictionary = {"touch_joy": {"index": null}, "touch_hit": {"index": null}}
+
 func _ready():
 	touch_hit_button = $TouchHitButton
 	touch_joy =$TouchJoy
@@ -24,9 +26,19 @@ func _ready():
 	touch_joy_center = positioned_touch_joy_center
 	touch_joy_radius = touch_joy_size.x - touch_joy_center.x
 	
+	if not GameManager.is_debug_enabled:
+		$Label.hide()
+	
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		if touch_joy.is_pressed():
+		if not touch_joy.is_pressed():
+			down["touch_joy"] = {"index": null}
+			$InputHandle.position = touch_joy_center
+		elif (
+				touch_joy.is_pressed() and down["touch_joy"]["index"] == null or
+				touch_joy.is_pressed() and down["touch_joy"]["index"] == event.index
+			):
+			down["touch_joy"] = {"index": event.index}
 			input_vector = calculate_move_vector(event.position)
 			print(input_vector)
 			joystick_active = true
@@ -42,9 +54,10 @@ func _input(event):
 				$InputHandle.position.distance_to(touch_joy_center) / Vector2(touch_joy_radius, touch_joy_radius))
 			print("TESTE")
 			print(move_vector)
-		else:
-			$InputHandle.position = touch_joy_center
-		if touch_hit_button.is_pressed():
+		if not touch_hit_button.is_pressed():
+			down["touch_hit"] = {"index": null}
+		elif touch_hit_button.is_pressed():
+			down["touch_hit"] = {"index": event.index}
 			Input.action_press("attack")
 			print("HIT!")
 	
@@ -61,8 +74,8 @@ func _input(event):
 		$InputHandle.visible = joystick_active
 
 func _physics_process(delta):
+	$Label.text = str(down)
 	if joystick_active:
-		
 		if move_vector.x > 0:
 			Input.action_release("move_left")
 			Input.action_press("move_right", absf((move_vector.x)))

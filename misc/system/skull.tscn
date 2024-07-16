@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcdg5dqevplb4"]
+[gd_scene load_steps=6 format=3 uid="uid://bcdg5dqevplb4"]
 
 [ext_resource type="Texture2D" uid="uid://cm20ej3sg6iyu" path="res://assets/TinySword/Factions/Knights/Troops/Dead/Dead.png" id="1_te7ym"]
+[ext_resource type="AudioStream" uid="uid://cw7uswoci1ku7" path="res://assets/sfx/weapons/FGHTImpt_Anime Melee 8-cut.wav" id="2_jxyhk"]
 
 [sub_resource type="Animation" id="Animation_ech10"]
 length = 0.001
@@ -65,3 +66,7 @@ libraries = {
 "": SubResource("AnimationLibrary_qtq4j")
 }
 autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jxyhk")
+autoplay = true

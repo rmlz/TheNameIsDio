@@ -1,0 +1,91 @@
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://bo2qtwpabvjqx"]
+
+[ext_resource type="Texture2D" uid="uid://bstknpqt2xx5s" path="res://assets/TinySword/UI/Buttons/Button_Disable_3Slides.png" id="1_l1mv5"]
+[ext_resource type="Texture2D" uid="uid://cyus34w8jg4mu" path="res://assets/TinySword/UI/Buttons/Button_Hover_3Slides.png" id="2_jb5d0"]
+[ext_resource type="Texture2D" uid="uid://duovrlkays8la" path="res://assets/TinySword/UI/Buttons/Button_Blue_3Slides.png" id="3_moebv"]
+[ext_resource type="Texture2D" uid="uid://bhmjrhscxpt0f" path="res://assets/TinySword/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="4_je00d"]
+[ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="5_85uic"]
+
+[sub_resource type="FontVariation" id="FontVariation_tgbdm"]
+variation_embolden = 0.5
+spacing_bottom = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hgfsi"]
+texture = ExtResource("1_l1mv5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4qob"]
+texture = ExtResource("2_jb5d0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6otav"]
+texture = ExtResource("3_moebv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fldu1"]
+texture = ExtResource("4_je00d")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yki3x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nq6bp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yuaie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_butct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bukk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oqwuw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsbuh"]
+texture = ExtResource("5_85uic")
+texture_margin_left = 32.0
+texture_margin_top = 60.0
+texture_margin_right = 32.0
+texture_margin_bottom = 45.0
+region_rect = Rect2(32, 0, 128, 165)
+
+[sub_resource type="FontVariation" id="FontVariation_3jlbm"]
+variation_embolden = 0.39
+spacing_space = 30
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibpa4"]
+texture = ExtResource("5_85uic")
+texture_margin_left = 32.0
+texture_margin_top = 60.0
+texture_margin_right = 32.0
+texture_margin_bottom = 45.0
+region_rect = Rect2(32, 0, 128, 165)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.32, 0.30368, 0.2912, 1)
+Button/colors/font_focus_color = Color(0.815686, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(0.513726, 0.635294, 0.67451, 1)
+Button/colors/font_pressed_color = Color(0.1769, 0.288115, 0.29, 1)
+Button/fonts/font = SubResource("FontVariation_tgbdm")
+Button/styles/disabled = SubResource("StyleBoxTexture_hgfsi")
+Button/styles/hover = SubResource("StyleBoxTexture_l4qob")
+Button/styles/normal = SubResource("StyleBoxTexture_6otav")
+Button/styles/pressed = SubResource("StyleBoxTexture_fldu1")
+CheckButton/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+CheckButton/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_hover_color = Color(0.2, 0.2, 0.2, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0.4, 0.4, 0.4, 1)
+CheckButton/colors/font_outline_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_yki3x")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_nq6bp")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_yuaie")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_butct")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_6bukk")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_oqwuw")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0.88, 0, 0, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0.36, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/styles/normal = SubResource("StyleBoxTexture_rsbuh")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+TextEdit/fonts/font = SubResource("FontVariation_3jlbm")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_ibpa4")

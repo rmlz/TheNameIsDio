@@ -1,0 +1,281 @@
+[gd_scene load_steps=8 format=3 uid="uid://fvim72hmelps"]
+
+[ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="1_xpicn"]
+[ext_resource type="Script" path="res://scene_ui/game_input_ranking.gd" id="2_35jyx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewbry"]
+bg_color = Color(0, 0, 0, 0.243137)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdyxe"]
+bg_color = Color(0, 0, 0, 0.560784)
+
+[sub_resource type="Animation" id="Animation_tu03d"]
+resource_name = "loading"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 274.5), Vector2(350, 274.5), Vector2(400, 274.5), Vector2(1200, 274.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 360), Vector2(450, 360), Vector2(500, 360), Vector2(1200, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_t4e77"]
+resource_name = "fade_in"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5.1, 6.1),
+"transitions": PackedFloat32Array(1, 3.73213),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextEdit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_grab_focus"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rah5o"]
+_data = {
+"fade_in": SubResource("Animation_t4e77"),
+"loading": SubResource("Animation_tu03d")
+}
+
+[node name="GameInputRanking" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xpicn")
+script = ExtResource("2_35jyx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ewbry")
+
+[node name="TextEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -164.0
+offset_right = 104.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xpicn")
+theme_override_font_sizes/font_size = 72
+placeholder_text = "AAA"
+alignment = 1
+max_length = 3
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Submit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 142.5
+offset_top = 56.0
+offset_right = 257.5
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Submit"
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.5
+offset_top = 56.0
+offset_right = -142.5
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 130.0
+offset_right = 99.0
+offset_bottom = 153.0
+grow_horizontal = 2
+text = "Input your 3-letter Initials and be part of our rankings!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 100.0
+offset_right = 99.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.882353, 0, 1)
+text = "000000 points"
+horizontal_alignment = 1
+
+[node name="Error" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 370.0
+offset_right = 99.0
+offset_bottom = 393.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.270588, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+horizontal_alignment = 1
+
+[node name="Loading" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Loading"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdyxe")
+
+[node name="Label" type="Label" parent="Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 90.6667
+offset_top = -49.5
+offset_right = 591.813
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.290196)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 72
+text = "SUBMITTING..."
+
+[node name="Label2" type="Label" parent="Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 157.333
+offset_top = 36.0
+offset_right = 430.506
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.290196)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 48
+text = "Please wait"
+
+[node name="Success" type="Label" parent="Loading"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = 126.0
+offset_right = 193.5
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.266667, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Success! You can verify your place in our rankings!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Loading"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_rah5o")
+}
+autoplay = "fade_in"
+
+[connection signal="text_submitted" from="TextEdit" to="." method="_on_text_edit_text_submitted"]
+[connection signal="pressed" from="Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
