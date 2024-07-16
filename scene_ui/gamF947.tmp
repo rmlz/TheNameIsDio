@@ -56,11 +56,11 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("..")
+tracks/1/path = NodePath("../TextEdit")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(6.1),
+"times": PackedFloat32Array(5.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -276,8 +276,6 @@ libraries = {
 }
 autoplay = "fade_in"
 
-[connection signal="mouse_entered" from="TextEdit" to="." method="_on_text_edit_mouse_entered"]
-[connection signal="mouse_exited" from="TextEdit" to="." method="_on_text_edit_mouse_exited"]
 [connection signal="text_submitted" from="TextEdit" to="." method="_on_text_edit_text_submitted"]
 [connection signal="pressed" from="Submit" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
