@@ -1,15 +1,25 @@
 extends Node
 
 func _ready():
-	$PanelPoints/Points.text = "Points: %09d" % [GameManager.points]
+	$PanelPoints/Points.text = "Points: %09d" % [GameManager.get_points()]
+	GameManager.on_change_points.connect(_on_points_changed)
 	$PanelTime/Time.text = "Time: %02d:%02d" % [GameManager.max_game_time, 0]
+	GameManager.on_change_time_left.connect(_on_time_changed)
 	$DebugPanelMonsters.visible = GameManager.is_debug_enabled
+	if (GameManager.is_debug_enabled):
+		GameManager.on_change_spawn_number.connect(_on_monster_spawned_number_changed)
+		
+
+func _on_monster_spawned_number_changed(new_number_monster_spawned: int):
+	$DebugPanelMonsters/NumberMonsters.text = "Monsters:\n%03d" % new_number_monster_spawned
+
+func _on_points_changed(new_points: int):
+	$PanelPoints/Points.text = "Points: %09d" % [new_points]
 	
-func _process(delta):
-	$PanelPoints/Points.text = "Points: %09d" % [GameManager.points]
-	var sec = fmod(GameManager.time_left, 60.0)
-	var min = int(GameManager.time_left / 60)
+func _on_time_changed(new_time_left: float):
+	var sec = fmod(GameManager.get_time_left(), 60.0)
+	var min = int(GameManager.get_time_left() / 60)
 	$PanelTime/Time.text = "Time: %02d:%02d" % [min, sec]
-	if GameManager.is_debug_enabled:
-		$DebugPanelMonsters/NumberMonsters.text = "Monsters:\n%03d" % GameManager.current_spawned_monster
-	
+
+func _on_button_buy_pressed():
+	pass # Replace with function body.

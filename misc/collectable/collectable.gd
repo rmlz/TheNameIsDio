@@ -27,7 +27,7 @@ func _on_area_2d_body_entered(body):
 func on_collect(player: PlayerObject) -> void:
 	player.health.heal(health_regen)
 	player.collect_audio.play()
-	GameManager.points += points
+	GameManager.change_points_by(points)
 	queue_free()
 
 

@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 	ritual_2_bar.value = ritual_2_timer.time_left / ritual2_cooldown * 100
 	ritual_3_bar.value = ritual_3_timer.time_left / ritual3_cooldown * 100
 	GameManager.player_position = position
-	GameManager.points += delta * 10
+	GameManager.change_points_by(delta * 10)
 
 	# Ataque
 	if (Input.is_action_just_pressed("attack") and 

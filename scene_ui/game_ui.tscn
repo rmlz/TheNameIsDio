@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxkktynitxh83"]
+[gd_scene load_steps=6 format=3 uid="uid://dxkktynitxh83"]
 
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="1_24ibf"]
 [ext_resource type="Script" path="res://scripts/ui/game_ui.gd" id="1_r7qc6"]
+[ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="3_2le8l"]
+[ext_resource type="Texture2D" uid="uid://cppe78hnn3aul" path="res://assets/TinySword/UI/Icons/Regular_07.png" id="4_wn7tu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hafy"]
 texture = ExtResource("1_24ibf")
@@ -31,6 +33,33 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Points: 123456789"
 vertical_alignment = 1
+
+[node name="PanelButtons" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -263.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7hafy")
+
+[node name="ButtonBuy" type="Button" parent="PanelButtons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -28.0
+offset_right = 32.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_2le8l")
+button_mask = 7
+icon = ExtResource("4_wn7tu")
+icon_alignment = 1
 
 [node name="PanelTime" type="Panel" parent="."]
 anchors_preset = 5
@@ -76,3 +105,5 @@ text = "Monsters:
 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="PanelButtons/ButtonBuy" to="." method="_on_button_buy_pressed"]

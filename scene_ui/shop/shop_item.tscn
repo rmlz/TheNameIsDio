@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://sqsqcehfirp2"]
+
+[ext_resource type="Texture2D" uid="uid://dsfltlas7vksl" path="res://assets/TinySword/UI/Buttons/Button_Disable_9Slides.png" id="1_5emeg"]
+[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="1_c8qfk"]
+[ext_resource type="Script" path="res://scene_ui/shop/shop_item.gd" id="2_j5f6x"]
+[ext_resource type="Texture2D" uid="uid://dakmsvpjlmq38" path="res://assets/icons/coin.png" id="2_wtby7"]
+[ext_resource type="Theme" uid="uid://btptwqgwk4d06" path="res://themes/shop_item_theme.tres" id="3_2m7k5"]
+[ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="5_g4suf"]
+[ext_resource type="Texture2D" uid="uid://cppe78hnn3aul" path="res://assets/TinySword/UI/Icons/Regular_07.png" id="6_g1ptb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h7is2"]
+texture = ExtResource("1_5emeg")
+texture_margin_left = 32.0
+texture_margin_top = 30.0
+texture_margin_right = 32.0
+texture_margin_bottom = 27.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 192, 192)
+
+[node name="ShopItem" type="Panel"]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_h7is2")
+script = ExtResource("2_j5f6x")
+
+[node name="Panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_c8qfk")
+stretch_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_2m7k5")
+theme_type_variation = &"LabelTitle"
+text = "Poison Gas"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+theme = ExtResource("3_2m7k5")
+theme_type_variation = &"LabelDescription"
+text = "A poison gas that affects every foe within it"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Coin" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_wtby7")
+stretch_mode = 2
+
+[node name="Cost" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_2m7k5")
+theme_type_variation = &"LabelCost"
+text = "000000 Points"
+
+[node name="BuyButton" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("5_g4suf")
+button_mask = 7
+icon = ExtResource("6_g1ptb")
+alignment = 0
+icon_alignment = 1
+expand_icon = true
