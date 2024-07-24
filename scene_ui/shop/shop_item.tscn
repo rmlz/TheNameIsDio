@@ -19,13 +19,10 @@ axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 192, 192)
 
 [node name="ShopItem" type="Panel"]
+visible = false
 custom_minimum_size = Vector2(300, 300)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
+offset_right = 300.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_h7is2")
 script = ExtResource("2_j5f6x")
 
@@ -98,3 +95,17 @@ icon = ExtResource("6_g1ptb")
 alignment = 0
 icon_alignment = 1
 expand_icon = true
+
+[node name="PurchasedLabel" type="Label" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.509804)
+theme_override_colors/font_outline_color = Color(0.66, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Purchased"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

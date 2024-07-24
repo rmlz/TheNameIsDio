@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://bfdjcaf878jye"]
+
+[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="1_s2rb6"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="2_an3ja"]
+
+[resource]
+script = ExtResource("2_an3ja")
+icon = ExtResource("1_s2rb6")
+title = "Poison Gas"
+description = "A posion gas that affects every foe within it"
+cost = 100000
+is_ritual = false
+is_buff = true

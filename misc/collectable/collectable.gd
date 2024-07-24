@@ -8,6 +8,7 @@ func _ready():
 	_animate_light()
 	
 func _animate_light():
+	# TODO levar o timer abaixo para um único timer no GameManager
 	await get_tree().create_timer(10).timeout
 	var tween = create_tween()
 	modulate.v = 15

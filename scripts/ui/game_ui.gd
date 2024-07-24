@@ -1,4 +1,6 @@
-extends Node
+extends CanvasLayer
+
+signal on_button_buy_clicked
 
 func _ready():
 	$PanelPoints/Points.text = "Points: %09d" % [GameManager.get_points()]
@@ -17,9 +19,9 @@ func _on_points_changed(new_points: int):
 	$PanelPoints/Points.text = "Points: %09d" % [new_points]
 	
 func _on_time_changed(new_time_left: float):
-	var sec = fmod(GameManager.get_time_left(), 60.0)
-	var min = int(GameManager.get_time_left() / 60)
+	var sec = fmod(new_time_left, 60.0)
+	var min = int(new_time_left / 60)
 	$PanelTime/Time.text = "Time: %02d:%02d" % [min, sec]
 
 func _on_button_buy_pressed():
-	pass # Replace with function body.
+	on_button_buy_clicked.emit()

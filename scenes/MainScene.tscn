@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xg1ipo2gat5j"]
+[gd_scene load_steps=14 format=3 uid="uid://xg1ipo2gat5j"]
 
 [ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://scene_ui/game_ui.tscn" id="1_1u21x"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="1_a81x0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://886ndd2bi0fq" path="res://scene_ui/mobile_joypad.tscn" id="3_sk0xl"]
 [ext_resource type="TileSet" uid="uid://lfdic2f1r71g" path="res://tilemap/main_tilemap.tres" id="3_ys3vv"]
 [ext_resource type="PackedScene" uid="uid://bqoqokisw8ngt" path="res://scenes/mob_spawner/mob_spawner.tscn" id="5_y4uf8"]
+[ext_resource type="PackedScene" uid="uid://dh7axds3vfdv" path="res://scene_ui/shop/ShopScene.tscn" id="8_shpwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0pdb"]
 size = Vector2(5018, 21724)
@@ -97,6 +98,8 @@ break_intensity = 0.2
 
 [node name="GameUI" parent="." instance=ExtResource("1_1u21x")]
 
+[node name="ShopScene" parent="." instance=ExtResource("8_shpwu")]
+
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-9620, -3051)
 
@@ -130,4 +133,5 @@ libraries = {
 }
 autoplay = "start_play"
 
+[connection signal="on_button_buy_clicked" from="GameUI" to="." method="_on_game_ui_on_button_buy_clicked"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_fade_in_finished"]

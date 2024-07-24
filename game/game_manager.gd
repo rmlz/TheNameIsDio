@@ -1,10 +1,9 @@
 extends Node
 
-signal turn_ritual_2_on
-signal turn_ritual_3_on
 signal on_change_points
 signal on_change_time_left
 signal on_change_spawn_number
+signal on_new_item_bought
 
 var player_position: Vector2
 var _points: float = 0 : set = _set_points
@@ -21,18 +20,9 @@ var _max_spawned_monsters = 500
 var _current_spawned_monster = 0
 var version = ProjectSettings.get_setting("application/config/version")
 
-var ritual2_started = false
-var ritual3_started = false
-
 func _process(delta):
 	if is_game_on_play():
 		_update_timer(delta)
-		if _time_elapsed >= 300 and not ritual2_started:
-			ritual2_started = true
-			turn_ritual_2_on.emit()
-		if _time_elapsed >= 600 and not ritual3_started:
-			ritual3_started = true
-			turn_ritual_3_on.emit()
 
 func reset():
 	player_position = Vector2.ZERO
@@ -41,8 +31,6 @@ func reset():
 	is_playing = false
 	_time_elapsed = 0.0
 	_current_spawned_monster = 0
-	ritual2_started = false
-	ritual3_started = false
 	
 func is_game_on_play() -> bool:
 	return is_game_over or is_playing
@@ -74,3 +62,6 @@ func _set_points(value: float):
 	
 func get_points() -> int:
 	return _points
+	
+func on_buy_shop_item(item: ShopItemResource):
+	on_new_item_bought.emit(item)

@@ -7,6 +7,7 @@ class_name ShopItemResource
 @export var title: String
 @export var description: String
 @export var cost: int
+var is_purchased: bool = false
 
 @export_category("Settings")
 @export var is_ritual: bool = true:
