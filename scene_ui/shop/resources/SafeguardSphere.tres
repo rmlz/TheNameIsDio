@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=4 format=3 uid="uid://86h7mrghve55"]
+
+[ext_resource type="Texture2D" uid="uid://b6ld15qggcoko" path="res://assets/icons/shield.png" id="1_sp87m"]
+[ext_resource type="PackedScene" uid="uid://dab4uhdy2ljf1" path="res://skills/ritual_shield.tscn" id="2_87s0y"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="3_r1l5h"]
+
+[resource]
+script = ExtResource("3_r1l5h")
+icon = ExtResource("1_sp87m")
+title = "Safeguard Sphere"
+description = "When casted, makes your defense impenetrable for an amount of time."
+cost = 50000
+is_ritual = true
+is_buff = false
+cooldown = 23.0
+scene = ExtResource("2_87s0y")

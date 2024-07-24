@@ -8,8 +8,8 @@
 script = ExtResource("1_f7b16")
 icon = ExtResource("1_xokyj")
 title = "Poison Gas"
-description = "A posion gas that affects every foe within it"
-cost = 100000
+description = "Launches a poison gas that affects every foe within it"
+cost = 30000
 is_ritual = true
 is_buff = false
 cooldown = 17.0

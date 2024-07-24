@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dh7axds3vfdv"]
+[gd_scene load_steps=22 format=3 uid="uid://dh7axds3vfdv"]
 
 [ext_resource type="Script" path="res://scene_ui/shop/shop_screen.gd" id="1_6a6j6"]
 [ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="2_eya23"]
+[ext_resource type="Resource" uid="uid://b0iypt2csb6x7" path="res://scene_ui/shop/resources/FreezingAura.tres" id="2_fdr6e"]
 [ext_resource type="Resource" uid="uid://cy5biyey7p3s0" path="res://scene_ui/shop/resources/PoisonGas.tres" id="2_sirl3"]
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="3_g1wql"]
+[ext_resource type="Resource" uid="uid://86h7mrghve55" path="res://scene_ui/shop/resources/SafeguardSphere.tres" id="4_8ei7j"]
 [ext_resource type="Texture2D" uid="uid://dakmsvpjlmq38" path="res://assets/icons/coin.png" id="4_8xlo2"]
 [ext_resource type="PackedScene" uid="uid://sqsqcehfirp2" path="res://scene_ui/shop/shop_item.tscn" id="5_nriyi"]
 [ext_resource type="Texture2D" uid="uid://c5hksm4bro0ag" path="res://assets/TinySword/UI/Icons/Regular_01.png" id="7_56xrv"]
@@ -195,14 +197,12 @@ _data = {
 [node name="ShopScene" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_6a6j6")
-itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("2_sirl3")])
+itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("2_fdr6e"), ExtResource("2_sirl3"), ExtResource("4_8ei7j")])
 item_scene = ExtResource("5_nriyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_top = 800.0
 offset_right = 1152.0
-offset_bottom = 1448.0
+offset_bottom = 648.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 50
@@ -235,7 +235,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 5
+theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 3
 
@@ -245,9 +245,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 421.5
+offset_left = -104.5
 offset_top = 20.0
-offset_right = 630.5
+offset_right = 104.5
 offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stldt")

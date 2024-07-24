@@ -20,6 +20,7 @@ func add_ritual(item: ShopItemResource):
 	
 	bar.add_child(timer)
 	$GridContainer.add_child(bar)
+	GameManager.change_points_by(-item.cost)
 	_next_bar_index()
 
 func _setup_ritual_timer(cool_down: int, scene: PackedScene) -> Timer:
