@@ -1,0 +1,6 @@
+[gd_resource type="CurveTexture" load_steps=2 format=3 uid="uid://c82g3rx3wv8jt"]
+
+[ext_resource type="Curve" uid="uid://dd8vkpjdlsgss" path="res://skills/wind_ritual/resources/alpha_curve.tres" id="1_erc0o"]
+
+[resource]
+curve = ExtResource("1_erc0o")
