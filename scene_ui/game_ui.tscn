@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxkktynitxh83"]
+[gd_scene load_steps=16 format=3 uid="uid://dxkktynitxh83"]
 
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="1_24ibf"]
 [ext_resource type="Script" path="res://scripts/ui/game_ui.gd" id="1_r7qc6"]
 [ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="3_2le8l"]
+[ext_resource type="Texture2D" uid="uid://dakmsvpjlmq38" path="res://assets/icons/coin.png" id="3_c3fi2"]
 [ext_resource type="Texture2D" uid="uid://cppe78hnn3aul" path="res://assets/TinySword/UI/Icons/Regular_07.png" id="4_wn7tu"]
+[ext_resource type="Texture2D" uid="uid://bly4ixndbw6wb" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides.png" id="5_43yho"]
+[ext_resource type="Texture2D" uid="uid://dqikkip0l0sdn" path="res://assets/TinySword/UI/Icons/Regular_11.png" id="6_68s6r"]
+[ext_resource type="Texture2D" uid="uid://bsre88jixychl" path="res://assets/TinySword/UI/Buttons/Button_Red_3Slides_Pressed.png" id="6_kae55"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hafy"]
 texture = ExtResource("1_24ibf")
@@ -15,7 +19,200 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(32, 0, 128, 166)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6jlg8"]
+texture = ExtResource("5_43yho")
+region_rect = Rect2(0, 0, 192, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0asd"]
+texture = ExtResource("6_kae55")
+
+[sub_resource type="Animation" id="Animation_v7ikj"]
+resource_name = "On_Pause"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(2.54912, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 2.9, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fdfvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o3k3b"]
+resource_name = "On_Unpause"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3.2),
+"transitions": PackedFloat32Array(2.54912, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.9, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvxlq"]
+_data = {
+"On_Pause": SubResource("Animation_v7ikj"),
+"On_Unpause": SubResource("Animation_o3k3b"),
+"RESET": SubResource("Animation_fdfvj")
+}
+
 [node name="GameUI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_r7qc6")
 
 [node name="PanelPoints" type="Panel" parent="."]
@@ -23,15 +220,33 @@ offset_right = 263.0
 offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7hafy")
 
-[node name="Points" type="Label" parent="PanelPoints"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelPoints"]
 layout_mode = 1
-offset_left = 23.0
-offset_top = 46.0
-offset_right = 235.0
-offset_bottom = 80.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -20.0
+offset_right = 106.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelPoints/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c3fi2")
+stretch_mode = 2
+
+[node name="Points" type="Label" parent="PanelPoints/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Points: 123456789"
+text = ": 123456789"
 vertical_alignment = 1
 
 [node name="PanelButtons" type="Panel" parent="."]
@@ -43,7 +258,7 @@ offset_bottom = 120.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7hafy")
 
-[node name="ButtonBuy" type="Button" parent="PanelButtons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelButtons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,15 +266,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = -28.0
+offset_top = -32.0
 offset_right = 32.0
-offset_bottom = 36.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ButtonBuy" type="Button" parent="PanelButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("3_2le8l")
 button_mask = 7
 icon = ExtResource("4_wn7tu")
 icon_alignment = 1
+
+[node name="ButtonPause" type="Button" parent="PanelButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_2le8l")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6jlg8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x0asd")
+toggle_mode = true
+button_mask = 7
+icon = ExtResource("6_68s6r")
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="PanelTime" type="Panel" parent="."]
 anchors_preset = 5
@@ -106,4 +337,79 @@ text = "Monsters:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PanelButtons/ButtonBuy" to="." method="_on_button_buy_pressed"]
+[node name="Label1" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -66.0
+offset_right = 28.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(27, 66)
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -66.0
+offset_right = 28.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(27, 66)
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -66.0
+offset_right = 28.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(27, 66)
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pvxlq")
+}
+
+[connection signal="pressed" from="PanelButtons/HBoxContainer/ButtonBuy" to="." method="_on_button_buy_pressed"]
+[connection signal="pressed" from="PanelButtons/HBoxContainer/ButtonPause" to="." method="_on_button_pause_pressed"]

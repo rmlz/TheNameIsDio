@@ -8,7 +8,6 @@ signal on_item_button_buy_clicked
 signal on_button_close_clicked
 
 func _ready():
-	GameManager._set_points(50000)
 	on_item_button_buy_clicked.connect(GameManager.on_buy_shop_item)
 	_instantiate_itens()
 	
@@ -45,3 +44,4 @@ func _on_close_button_pressed():
 	await %AnimationPlayer.animation_finished
 	for item: ShopItem in %ItemGrid.get_children():
 		item.hide()
+	on_button_close_clicked.emit()

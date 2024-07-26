@@ -98,7 +98,7 @@ break_intensity = 0.2
 
 [node name="GameUI" parent="." instance=ExtResource("1_1u21x")]
 
-[node name="ShopScene" parent="." instance=ExtResource("8_shpwu")]
+[node name="ShopScene" parent="GameUI" instance=ExtResource("8_shpwu")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-9620, -3051)
@@ -133,5 +133,4 @@ libraries = {
 }
 autoplay = "start_play"
 
-[connection signal="on_button_buy_clicked" from="GameUI" to="." method="_on_game_ui_on_button_buy_clicked"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_fade_in_finished"]
