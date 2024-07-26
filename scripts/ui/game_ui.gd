@@ -38,6 +38,7 @@ func _on_button_pause_pressed():
 		$AnimationPlayer.play("On_Pause")
 	else:
 		$AnimationPlayer.play("On_Unpause")
+		%ButtonPause.release_focus()
 	await $AnimationPlayer.animation_finished
 	get_tree().paused = not get_tree().paused
 	%ButtonPause.disabled = false
