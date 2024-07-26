@@ -15,6 +15,7 @@ signal change_health
 func _ready():
 	if (get_parent() is EnemyBase):
 		enemy_object = get_parent()
+	health_bar = $HealthBar
 
 func _process(_delta):
 	health_bar.visible = show_bar

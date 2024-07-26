@@ -22,3 +22,7 @@ func trigger_game_over():
 func _process(delta):
 	if GameManager.is_game_over:
 		trigger_game_over()
+
+
+func _on_game_ui_on_button_buy_clicked():
+	$ShopScene.open_window()

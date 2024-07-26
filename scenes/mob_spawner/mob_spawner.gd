@@ -81,7 +81,7 @@ func _spawn_monsters(creature_scenes: Array[PackedScene]) -> bool:
 			print("Spawned: %1s" % creature.name)
 			creature.global_position = points[idx]
 			get_parent().add_child(creature)
-			GameManager.current_spawned_monster += 1
+			GameManager.change_monster_spawn_number_by(1)
 			has_spawned_monster = true
 	
 	return has_spawned_monster

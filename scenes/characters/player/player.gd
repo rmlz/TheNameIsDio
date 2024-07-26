@@ -1,15 +1,7 @@
 class_name PlayerObject
 extends CharacterBase
 
-@onready var ritual_1_bar: ProgressBar = $Ritual1Bar
-var ritual_1_timer: Timer
-
-@onready var ritual_2_bar: ProgressBar = $Ritual2Bar
-var ritual_2_timer: Timer
-
-@onready var ritual_3_bar: ProgressBar = $Ritual3Bar
-var ritual_3_timer: Timer
-
+@onready var skill_progress_bars: PlayerSkillProgressBars = %SkillProgressBars
 @onready var collect_audio: AudioStreamPlayer2D = $CollectAudio
 
 @export var ritual1: PackedScene
@@ -28,48 +20,34 @@ var input_vector: Vector2 = Vector2.ZERO
 var is_attack_mobile_pressed: bool = false
 var mobile_joypad: CanvasLayer
 
-func _ready(): 
+func _ready():
+	GameManager.on_new_item_bought.connect(update_by_item_bought)
 	basic_setup()
 	_hit_cooldown = statistics.get_hit_cooldown_secs
-	_setup_ritual_bars()
-	GameManager.turn_ritual_2_on.connect(start_ritual2)
-	GameManager.turn_ritual_3_on.connect(start_ritual3)
+	
+func update_by_item_bought(item: ShopItemResource):
+	if item.is_ritual:
+		skill_progress_bars.add_ritual(item)
+	if item.is_buff:
+		add_buff(item)
 
-func _setup_ritual_bars():
-	ritual_1_timer = $Ritual1Timer
-	ritual_1_timer.wait_time = ritual1_cooldown
-	ritual_1_timer.start()
-	ritual_2_timer = $Ritual2Timer
-	ritual_2_timer.wait_time = ritual2_cooldown
-	ritual_2_bar.visible = false
-	ritual_3_timer = $Ritual3Timer
-	ritual_3_timer.wait_time = ritual3_cooldown
-	ritual_3_bar.visible = false
-	
-func start_ritual2():
-	ritual_2_timer.start()
-	ritual_2_bar.visible = true
-	startRitualTwo()
-	
-func start_ritual3():
-	ritual_3_timer.start()
-	ritual_3_bar.visible = true
-	startRitualThree()
+func add_buff(item: ShopItemResource):
+	pass
 	
 func _process(delta: float) -> void:
 	if GameManager.is_game_over:
 		queue_free()
-	ritual_1_bar.value = ritual_1_timer.time_left / ritual1_cooldown * 100
-	ritual_2_bar.value = ritual_2_timer.time_left / ritual2_cooldown * 100
-	ritual_3_bar.value = ritual_3_timer.time_left / ritual3_cooldown * 100
+	
+	#ritual_1_bar.value = ritual_1_timer.time_left / ritual1_cooldown * 100
+	#ritual_2_bar.value = ritual_2_timer.time_left / ritual2_cooldown * 100
+	#ritual_3_bar.value = ritual_3_timer.time_left / ritual3_cooldown * 100
 	GameManager.player_position = position
-	GameManager.points += delta * 10
+	GameManager.change_points_by(delta * 10)
 
 	# Ataque
 	if (Input.is_action_just_pressed("attack") and 
 	not GameManager.is_touch_joypad_enabled) or is_attack_mobile_pressed:
 		pass
-		#attack()
 
 func die() -> void:
 	GameManager.is_game_over = true
@@ -103,3 +81,7 @@ func startRitualThree() -> void:
 
 func _on_health_equal_zero():
 	die()
+
+
+func _on_skill_progress_bars_on_ritual_timer_timeout(ritual_scene: PackedScene):
+	add_child(ritual_scene.instantiate())

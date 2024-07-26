@@ -8,7 +8,7 @@ func _move_project() -> void:
 	calculate_movement()
 	move_and_slide()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_move_project()
 
 func start_explosion():

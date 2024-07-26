@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=4 format=3 uid="uid://b0iypt2csb6x7"]
+
+[ext_resource type="Texture2D" uid="uid://d0d8ax08vkbvh" path="res://assets/icons/snow.png" id="1_bc7se"]
+[ext_resource type="PackedScene" uid="uid://b4r8mmefx7got" path="res://skills/ritual.tscn" id="2_wxwpu"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="3_pjd1s"]
+
+[resource]
+script = ExtResource("3_pjd1s")
+icon = ExtResource("1_bc7se")
+title = "Freezing Aura"
+description = "Starts a freezing aura that damages and slows enemies within it"
+cost = 25000
+is_ritual = true
+is_buff = false
+cooldown = 13.0
+scene = ExtResource("2_wxwpu")

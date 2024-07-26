@@ -13,7 +13,7 @@ var text_edit_mouse_entered = false
 var initial_screen: PackedScene
 
 func _ready():
-	$Label2.text = "%09d points" % [GameManager.points]
+	$Label2.text = "%09d points" % [GameManager.get_points()]
 	loading_screen.hide()
 	initial_screen = preload("res://scene_ui/game_start.tscn")
 
@@ -59,7 +59,7 @@ func send_rank_object():
 	var collection: FirestoreCollection = Firebase.Firestore.collection("ranking")
 	var data: Dictionary = {
 		"version": GameManager.version,
-		"score": int(GameManager.points),
+		"score": int(GameManager.get_points()),
 		"time": int(GameManager.time_elapsed),
 		"name": text_edit.text
 	}
