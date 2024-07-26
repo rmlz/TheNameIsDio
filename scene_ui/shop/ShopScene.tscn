@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dh7axds3vfdv"]
+[gd_scene load_steps=23 format=3 uid="uid://dh7axds3vfdv"]
 
 [ext_resource type="Script" path="res://scene_ui/shop/shop_screen.gd" id="1_6a6j6"]
 [ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="2_eya23"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://86h7mrghve55" path="res://scene_ui/shop/resources/SafeguardSphere.tres" id="4_8ei7j"]
 [ext_resource type="Texture2D" uid="uid://dakmsvpjlmq38" path="res://assets/icons/coin.png" id="4_8xlo2"]
 [ext_resource type="PackedScene" uid="uid://sqsqcehfirp2" path="res://scene_ui/shop/shop_item.tscn" id="5_nriyi"]
+[ext_resource type="Resource" uid="uid://cdtg62iet6nxq" path="res://scene_ui/shop/resources/WindBlast.tres" id="5_wiag5"]
 [ext_resource type="Texture2D" uid="uid://c5hksm4bro0ag" path="res://assets/TinySword/UI/Icons/Regular_01.png" id="7_56xrv"]
 [ext_resource type="Texture2D" uid="uid://jfdedlai65bk" path="res://assets/TinySword/UI/Icons/Pressed_01.png" id="8_sfu0d"]
 [ext_resource type="Texture2D" uid="uid://cs7cfqijckeph" path="res://assets/TinySword/UI/Icons/Disable_01.png" id="9_lga3e"]
@@ -39,72 +40,6 @@ expand_margin_bottom = 20.0
 texture = ExtResource("9_lga3e")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mr44"]
-
-[sub_resource type="Animation" id="Animation_ky5tc"]
-resource_name = "open_shop_window"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 800), Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/Panel/GoldPanel:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1, 1.2, 1.5),
-"transitions": PackedFloat32Array(1, 0.233258, 0.277392),
-"update": 0,
-"values": [Vector2(421.5, 900), Vector2(421.5, 0), Vector2(421.5, 20)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"animate_items_open"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_cunug"]
 length = 0.001
@@ -187,6 +122,72 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ky5tc"]
+resource_name = "open_shop_window"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 800), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Panel/GoldPanel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 0.233258, 0.277392),
+"update": 0,
+"values": [Vector2(421.5, 900), Vector2(421.5, 0), Vector2(421.5, 20)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animate_items_open"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j0nc2"]
 _data = {
 "RESET": SubResource("Animation_cunug"),
@@ -197,7 +198,7 @@ _data = {
 [node name="ShopScene" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_6a6j6")
-itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("2_fdr6e"), ExtResource("2_sirl3"), ExtResource("4_8ei7j")])
+itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("2_fdr6e"), ExtResource("2_sirl3"), ExtResource("4_8ei7j"), ExtResource("5_wiag5")])
 item_scene = ExtResource("5_nriyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -245,9 +246,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -104.5
+offset_left = 421.5
 offset_top = 20.0
-offset_right = 104.5
+offset_right = 630.5
 offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stldt")
