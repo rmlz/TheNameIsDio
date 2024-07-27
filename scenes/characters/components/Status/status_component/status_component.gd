@@ -1,7 +1,6 @@
-class_name StatusComponent
 extends GridContainer
+class_name StatusComponent
 
-@export var STATUS_APPLY_INTERVAL := 0.5
 const STATUS_UI = preload("res://scenes/characters/components/Status/StatusScene.tscn")
 
 func add_status(status: Status, target: CharacterBase) -> void:
@@ -23,7 +22,9 @@ func add_status(status: Status, target: CharacterBase) -> void:
 	
 	# New status is stackable (intensity)
 	if status.stack_type == Status.StackType.INTENSITY:
-		_get_status(status.id).stacks += status.stacks
+		var number_of_stacks
+		var owned_status = _get_status(status.id)
+		owned_status.stacks += status.stacks
 		return
 	
 	# New istatus is stackable (duration)
