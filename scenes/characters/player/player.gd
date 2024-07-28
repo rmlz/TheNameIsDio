@@ -21,6 +21,7 @@ var is_attack_mobile_pressed: bool = false
 var mobile_joypad: CanvasLayer
 
 func _ready():
+	status_component = $StatusComponent
 	GameManager.on_new_item_bought.connect(update_by_item_bought)
 	basic_setup()
 	_hit_cooldown = statistics.get_hit_cooldown_secs
@@ -32,7 +33,8 @@ func update_by_item_bought(item: ShopItemResource):
 		add_buff(item)
 
 func add_buff(item: ShopItemResource):
-	pass
+	var status: Status = item.buff_status_resource.instantiate()
+	status_component.add_status(status, self)
 	
 func _process(delta: float) -> void:
 	if GameManager.is_game_over:

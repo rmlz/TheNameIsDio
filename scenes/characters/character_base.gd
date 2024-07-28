@@ -45,6 +45,10 @@ func basic_setup() -> void:
 	death_prefab = statistics.death_prefab
 	calculate_params()
 	
+	health.initialize_health(statistics.max_health)
+	if size_changer:
+		change_size(size_changer.get_scale_vector(statistics.size))
+	
 	
 func calculate_params():
 	_calc_hit_damage = statistics.hit_damage
@@ -54,10 +58,6 @@ func calculate_params():
 	_hit_damage = _calc_hit_damage
 	_damage_time_cooldown = _calc_damage_time_cooldown
 	_speed = _calc_speed
-	
-	health.initialize_health(statistics.max_health)
-	if size_changer:
-		change_size(size_changer.get_scale_vector(statistics.size))
 	
 func change_size(vector: Vector2):
 	for node: Node2D in $Sizeable.get_children():

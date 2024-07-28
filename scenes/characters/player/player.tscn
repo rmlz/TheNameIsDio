@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cxge6rvc7mdfy"]
+[gd_scene load_steps=31 format=3 uid="uid://cxge6rvc7mdfy"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_j415d"]
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_xy6bu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateWalkPlayer.gd" id="7_tw0vt"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateAttackPlayer.gd" id="8_hasv2"]
 [ext_resource type="PackedScene" uid="uid://cn3tk328sld4o" path="res://scenes/characters/player/SkillProgressBars.tscn" id="9_h0n2f"]
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_component/status_component.gd" id="9_ubphb"]
 [ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/characters/components/Attacks/MeleeAttackComponent.tscn" id="10_mxbui"]
 [ext_resource type="AudioStream" uid="uid://b0vb2dyckuxf8" path="res://assets/sfx/weapons/FGHTClth_Anime Swing 4-cut.wav" id="12_ehnf4"]
 [ext_resource type="AudioStream" uid="uid://4je5ehr4pent" path="res://assets/sfx/weapons/Retro Descending Long 04.wav" id="13_8rpkh"]
@@ -274,6 +275,13 @@ autoplay = "Idle"
 [node name="HealthComponent" parent="." instance=ExtResource("6_oxflf")]
 scale = Vector2(0.7, 0.7)
 show_bar = true
+
+[node name="StatusComponent" type="GridContainer" parent="."]
+offset_left = 1.0
+offset_top = -121.0
+offset_right = 41.0
+offset_bottom = -81.0
+script = ExtResource("9_ubphb")
 
 [node name="SkillProgressBars" parent="." instance=ExtResource("9_h0n2f")]
 unique_name_in_owner = true

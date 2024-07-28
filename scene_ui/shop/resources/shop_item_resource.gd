@@ -25,13 +25,13 @@ var is_purchased: bool = false
 @export var scene: PackedScene
 
 @export_category("Buff")
-@export var buff_resource: Resource
+@export var buff_status_resource: PackedScene
 
 func _validate_property(property: Dictionary):
 	if property.name in ["cooldown", "scene"] and not is_ritual:
 		cooldown = 0
 		scene = null
 		property.usage = PROPERTY_USAGE_NONE
-	if property.name in ["buff_resource"] and not is_buff:
-		buff_resource = null
+	if property.name in ["buff_status_resource"] and not is_buff:
+		buff_status_resource = null
 		property.usage = PROPERTY_USAGE_NONE
