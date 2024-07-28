@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=4 format=3 uid="uid://dr4bed1y6q1mg"]
+
+[ext_resource type="PackedScene" uid="uid://bc3ioicahb7n4" path="res://scenes/characters/components/Status/status_quickening/StatusQuickening.tscn" id="1_yn2yk"]
+[ext_resource type="Texture2D" uid="uid://x5qam5pkhkhw" path="res://assets/icons/boots.png" id="2_gdx7e"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="3_4cyfb"]
+
+[resource]
+script = ExtResource("3_4cyfb")
+icon = ExtResource("2_gdx7e")
+title = "Boots of Quickening"
+description = "Enchanted boots that boost your speed"
+cost = 20000
+is_ritual = false
+is_buff = true
+buff_status_resource = ExtResource("1_yn2yk")

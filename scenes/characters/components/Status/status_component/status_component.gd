@@ -24,7 +24,7 @@ func add_status(status: Status, target: CharacterBase) -> void:
 	if status.stack_type == Status.StackType.INTENSITY:
 		var number_of_stacks
 		var owned_status = _get_status(status.id)
-		owned_status.stacks += status.stacks
+		owned_status.stacks += status.add_stacks
 		return
 	
 	# New istatus is stackable (duration)

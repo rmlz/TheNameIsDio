@@ -1,1 +1,2 @@
 extends Status
+class_name TrueStrength

@@ -12,6 +12,7 @@ enum StackType {NONE, INTENSITY, DURATION}
 @export var can_expire: bool
 @export var duration: int: set = set_duration
 @export var stacks: int: set = set_stacks
+var add_stacks = stacks
 
 @export_category("Status Parameters")
 @export_range(0, 100) var damage_per_application: int = 1
