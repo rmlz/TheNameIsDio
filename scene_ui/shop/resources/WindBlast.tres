@@ -12,5 +12,5 @@ description = "Unleashes a powerful burst of wind that knocks back enemies and d
 cost = 32000
 is_ritual = true
 is_buff = false
-cooldown = 7.0
+cooldown = 23.0
 scene = ExtResource("2_77sxe")
