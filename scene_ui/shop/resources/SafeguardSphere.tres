@@ -12,5 +12,5 @@ description = "When casted, makes your defense impenetrable for an amount of tim
 cost = 36000
 is_ritual = true
 is_buff = false
-cooldown = 23.0
+cooldown = 29.0
 scene = ExtResource("2_87s0y")
