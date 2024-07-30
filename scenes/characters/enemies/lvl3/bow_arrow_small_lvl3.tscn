@@ -112,7 +112,7 @@ _data = {
 "Walk": SubResource("Animation_ad0mr")
 }
 
-[node name="BowAndArrowSmallLvl2" type="CharacterBody2D" groups=["enemies"]]
+[node name="BowAndArrowSmallLvl3" type="CharacterBody2D" groups=["enemies"]]
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_uo8lj")

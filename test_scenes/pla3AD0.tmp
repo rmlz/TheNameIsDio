@@ -97,16 +97,4 @@ text = "Attack-up2"
 position = Vector2(1057, 464)
 
 [node name="GoblinBarrelLvl3" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(664, 324)
-
-[node name="GoblinBarrelLvl4" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(306, 58)
-
-[node name="GoblinBarrelLvl5" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(26, 390)
-
-[node name="GoblinBarrelLvl6" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(-138, 206)
-
-[node name="GoblinBarrelLvl7" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(1372, 644)
+position = Vector2(50, 62)

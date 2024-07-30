@@ -35,6 +35,7 @@ func update_by_item_bought(item: ShopItemResource):
 func add_buff(item: ShopItemResource):
 	var status: Status = item.buff_status_resource.instantiate()
 	status_component.add_status(status, self)
+	GameManager.change_points_by(-item.cost)
 	
 func _process(delta: float) -> void:
 	if GameManager.is_game_over:

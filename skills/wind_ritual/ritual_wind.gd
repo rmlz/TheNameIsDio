@@ -10,5 +10,5 @@ func deal_damage() -> void:
 			var distance_to_player = enemy.position.distance_to(GameManager.player_position)
 			var collision_vector = vector_to_player.normalized() * max(0, max_push  - distance_to_player / 200) 
 
-			enemy.receive_damage(damage, collision_vector)
+			enemy.receive_damage_ignore_tanking(damage, collision_vector, 1)
 			apply_status(enemy)

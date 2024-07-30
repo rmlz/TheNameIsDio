@@ -27,8 +27,11 @@ func _do_damage():
 		if body.is_in_group("player"):
 			var player: PlayerObject = body
 			var push_vector = (player.position - position).normalized() * 5
-			player.get_hit(damage, push_vector)
-			queue_free()
+			player.receive_damage(damage, push_vector)
+		if body.is_in_group("enemies") and friend_fire:
+			var enemy: EnemyBase = body
+			var push_vector = (enemy.position - position).normalized() * 5
+			enemy.receive_damage(damage, push_vector, true)
 
 func bump_projectile_to_ground():
 	pass

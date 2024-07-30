@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/characters/enemies/lvl2/goblin_tnt_regular_lvl2.tscn" id="3_4e1wc"]
 [ext_resource type="Script" path="res://scenes/characters/resources/spawn_odds/spawn_mob.gd" id="3_grslj"]
 [ext_resource type="PackedScene" uid="uid://cla7n8te3icba" path="res://scenes/characters/enemies/lvl1/pawn_regular_lvl1.tscn" id="4_qgvbt"]
-[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl2/bow_arrow_small_lvl2.tscn" id="6_y00qf"]
+[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl3/bow_arrow_small_lvl3.tscn" id="6_y00qf"]
 [ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl2/sheep_small_lvl2.tscn" id="7_12nf5"]
 [ext_resource type="PackedScene" uid="uid://bseak21tmcn4n" path="res://scenes/characters/enemies/lvl3/goblin_tnt_big_lvl3.tscn" id="8_b62xo"]
 [ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="8_sxfbk"]
@@ -64,7 +64,7 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_vemru"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1501.87, -1124.84, 0, 0, 0, 0, 3347.32, -1088.56, 0, 0, 0, 0, 3394.45, 2390.67, 0, 0, 0, 0, -1701.18, 2306.01, 0, 0, 0, 0, -1643.25, -1161.13)
+"points": PackedVector2Array(0, 0, 0, 0, -481.762, -364.897, 0, 0, 0, 0, 2106.31, -297.368, 0, 0, 0, 0, 2124.96, 1332.39, 0, 0, 0, 0, -481.762, 1294.09, 0, 0, 0, 0, -471.944, -364.897)
 }
 point_count = 5
 
@@ -102,5 +102,14 @@ scale = Vector2(1.01852, 0.992174)
 curve = SubResource("Curve2D_vemru")
 
 [node name="PathFollowLvl3" type="PathFollow2D" parent="PathLvl3"]
-position = Vector2(-1501.87, -1124.84)
-rotation = 0.0074815
+position = Vector2(-481.762, -364.897)
+rotation = 0.0260863
+
+[node name="PathStart" type="Path2D" parent="."]
+position = Vector2(-258.316, -110.959)
+scale = Vector2(1.01852, 0.992174)
+curve = SubResource("Curve2D_vemru")
+
+[node name="PathFollowStart" type="PathFollow2D" parent="PathStart"]
+position = Vector2(-481.762, -364.897)
+rotation = 0.0260863
