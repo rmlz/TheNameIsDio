@@ -181,7 +181,7 @@ attack_shape = SubResource("CircleShape2D_0xgsq")
 [node name="DropItemsComponent" type="Node" parent="."]
 script = ExtResource("7_fejic")
 min_drops = 3
-max_drops = 12
+max_drops = 4
 drops = Array[PackedScene]([ExtResource("8_ujhun"), ExtResource("9_o56ya"), ExtResource("10_nowjn")])
 
 [node name="SizeChanger" parent="." instance=ExtResource("10_t1cbw")]
