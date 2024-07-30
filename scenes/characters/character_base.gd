@@ -85,6 +85,19 @@ func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = fa
 		"hit": true, 
 		"ignore_cd": ignore_cooldown
 		})
+func receive_damage_ignore_tanking(amount: int, collision_vector: Vector2, hit_cooldown: float):
+	if amount == 0:
+		return
+	hit_audio.play(0)
+	if health:
+		health.damage(amount)
+	run_damage_color_feedback(false)
+	velocity = collision_vector * amount * 200
+	$StateMachine.transition_to("StateCoolDown", {
+		"cd_time": hit_cooldown, 
+		"hit": true, 
+		"ignore_cd": false
+		})
 	
 func run_damage_color_feedback(is_tank: bool) -> void:
 	var tween = create_tween()
