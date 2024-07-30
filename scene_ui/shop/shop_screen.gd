@@ -8,6 +8,7 @@ signal on_item_button_buy_clicked
 signal on_button_close_clicked
 
 func _ready():
+	hide()
 	on_item_button_buy_clicked.connect(GameManager.on_buy_shop_item)
 	_instantiate_itens()
 	
