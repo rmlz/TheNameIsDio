@@ -45,6 +45,10 @@ func basic_setup() -> void:
 	death_prefab = statistics.death_prefab
 	calculate_params()
 	
+	health.initialize_health(statistics.max_health)
+	if size_changer:
+		change_size(size_changer.get_scale_vector(statistics.size))
+	
 	
 func calculate_params():
 	_calc_hit_damage = statistics.hit_damage
@@ -54,10 +58,6 @@ func calculate_params():
 	_hit_damage = _calc_hit_damage
 	_damage_time_cooldown = _calc_damage_time_cooldown
 	_speed = _calc_speed
-	
-	health.initialize_health(statistics.max_health)
-	if size_changer:
-		change_size(size_changer.get_scale_vector(statistics.size))
 	
 func change_size(vector: Vector2):
 	for node: Node2D in $Sizeable.get_children():
@@ -84,6 +84,19 @@ func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = fa
 		"cd_time": statistics.get_hit_cooldown_secs, 
 		"hit": true, 
 		"ignore_cd": ignore_cooldown
+		})
+func receive_damage_ignore_tanking(amount: int, collision_vector: Vector2, hit_cooldown: float):
+	if amount == 0:
+		return
+	hit_audio.play(0)
+	if health:
+		health.damage(amount)
+	run_damage_color_feedback(false)
+	velocity = collision_vector * amount * 200
+	$StateMachine.transition_to("StateCoolDown", {
+		"cd_time": hit_cooldown, 
+		"hit": true, 
+		"ignore_cd": false
 		})
 	
 func run_damage_color_feedback(is_tank: bool) -> void:

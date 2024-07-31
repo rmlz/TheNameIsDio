@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc3ioicahb7n4"]
+
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_quickening/status_quickening.gd" id="1_3yn3j"]
+[ext_resource type="Texture2D" uid="uid://x5qam5pkhkhw" path="res://assets/icons/boots.png" id="2_8277l"]
+
+[node name="StatusQuickening" type="Node"]
+script = ExtResource("1_3yn3j")
+id = "Quickening"
+stack_type = 1
+stacks = 1
+speed_mod_percent = 0.3
+seconds = 0.1
+icon = ExtResource("2_8277l")

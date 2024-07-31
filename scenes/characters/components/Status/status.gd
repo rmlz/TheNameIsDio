@@ -12,6 +12,7 @@ enum StackType {NONE, INTENSITY, DURATION}
 @export var can_expire: bool
 @export var duration: int: set = set_duration
 @export var stacks: int: set = set_stacks
+var add_stacks = stacks
 
 @export_category("Status Parameters")
 @export_range(0, 100) var damage_per_application: int = 1
@@ -68,9 +69,13 @@ func _proccess_status_on_physics():
 	if stack_type == StackType.DURATION:
 		character_owner._speed = character_owner._calc_speed
 		character_owner._speed *= (1 + speed_mod_percent)
+		character_owner._hit_damage = character_owner._calc_hit_damage
+		character_owner._hit_damage *= (1 + attack_mod_percent)
 	if stack_type == StackType.INTENSITY:
 		character_owner._speed = character_owner._calc_speed
 		character_owner._speed *= (1 + speed_mod_percent) ** stacks
+		character_owner._hit_damage = character_owner._calc_hit_damage
+		character_owner._hit_damage *= (1 + attack_mod_percent) ** stacks
 		
 func on_apply_timer_timeout() -> void:
 	apply_status()

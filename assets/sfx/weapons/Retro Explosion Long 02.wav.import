@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxw2k20n2auxq"
+path="res://.godot/imported/Retro Explosion Long 02.wav-e66117419301ca0b09ffc1c1d582f741.sample"
+
+[deps]
+
+source_file="res://assets/sfx/weapons/Retro Explosion Long 02.wav"
+dest_files=["res://.godot/imported/Retro Explosion Long 02.wav-e66117419301ca0b09ffc1c1d582f741.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

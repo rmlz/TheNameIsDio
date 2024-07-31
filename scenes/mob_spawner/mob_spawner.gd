@@ -1,6 +1,8 @@
 extends Node2D
 
 var path_follow_array: Array[PathFollow2D] = []
+@export_category("start")
+@export var start_creature_numbers = 10
 @export_category("lvl1")
 @export var lvl1_creatures: Array[SpawnMob] = []
 @export_category("lvl2")
@@ -14,6 +16,7 @@ var path_follow_array: Array[PathFollow2D] = []
 @export var spawn_rate_per_minute: float = 0.0
 @export var wave_duration: int = 30
 @export var break_intensity: float = 0.1
+var is_start = true
 
 var mobs_per_minute: float = 0
 var time: float = 0.0
@@ -22,6 +25,10 @@ var cooldown: float = 1
 func _ready():
 	for path2d: Path2D in get_children():
 		path_follow_array.append(path2d.get_child(0))
+	for i in range(start_creature_numbers):
+		spawn_monsters()
+	is_start = false
+	
 
 func _process(delta: float) -> void:
 	cooldown -= delta
@@ -30,7 +37,8 @@ func _process(delta: float) -> void:
 	var sin_wave = sin((time * TAU) / wave_duration)
 	var wave_factor = remap(sin_wave, -1, 1, break_intensity, 1)
 	var spawn_rate = (initial_spawn_rate + spawn_rate_per_minute) * wave_factor
-	print(
+	if GameManager.is_debug_enabled:
+		print(
 	"""
 --------
 Sin_wave = %05f
@@ -42,7 +50,8 @@ spawn_rate = %05f
 	
 	var interval: float = 60 / mobs_per_minute
 	cooldown = interval
-	print("cooldown = %03f" % cooldown) 
+	if GameManager.is_debug_enabled:
+		print("cooldown = %03f" % cooldown) 
 	
 	var monsterSpawned: bool = false
 	while not monsterSpawned:
@@ -54,6 +63,8 @@ func spawn_monsters() -> bool:
 	var creature_odd: int
 	var creature_scenes: Array[PackedScene]
 	
+	if is_start:
+		return _spawn_start_monsters(get_next_creature(lvl1_creatures))
 	if time < 1020:
 		creature_scenes.append(get_next_creature(lvl1_creatures))
 		if time > 300:
@@ -78,13 +89,31 @@ func _spawn_monsters(creature_scenes: Array[PackedScene]) -> bool:
 			if not creature_scenes[idx]:
 				continue
 			var creature: Node2D = creature_scenes[idx].instantiate()
-			print("Spawned: %1s" % creature.name)
+			if GameManager.is_debug_enabled:
+				print("Spawned: %1s" % creature.name)
+				print("Distance: %1f" % parameters.position.distance_to(GameManager.player_position))
 			creature.global_position = points[idx]
 			get_parent().add_child(creature)
-			GameManager.current_spawned_monster += 1
+			GameManager.change_monster_spawn_number_by(1)
 			has_spawned_monster = true
 	
 	return has_spawned_monster
+
+func _spawn_start_monsters(creature_scene: PackedScene) -> bool:
+	var point: Vector2 = get_spawn_point()[3]
+	var state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = point
+	if not state.intersect_point(parameters, 1).size() > 0:
+		var creature: Node2D = creature_scene.instantiate()
+		if GameManager.is_debug_enabled:
+			print("Spawned: %1s" % creature.name)
+			print("Distance: %1f" % point.distance_to(GameManager.player_position))
+		creature.global_position = point
+		get_parent().add_child.call_deferred(creature)
+		GameManager.change_monster_spawn_number_by(1)
+		return true
+	return false
 	
 func get_next_creature(array: Array[SpawnMob]) -> PackedScene:
 	var max_odds = 0

@@ -20,7 +20,7 @@ func die() -> void:
 		death_object.position = position
 		get_parent().add_child(death_object)
 	drop_items_component.drop_items()
-	GameManager.current_spawned_monster -= 1
+	GameManager.change_monster_spawn_number_by(-1)
 	queue_free()
 
 func is_range_to_attack_player() -> int:

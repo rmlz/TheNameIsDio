@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx4q1usjh8x1g"]
+
+[ext_resource type="Script" path="res://scenes/characters/components/Status/status_true_strength/status_true_strength.gd" id="1_woey4"]
+[ext_resource type="Texture2D" uid="uid://dc4csiswutnpw" path="res://assets/icons/strength.png" id="2_3mp1j"]
+
+[node name="StatusTrueStrength" type="Node"]
+script = ExtResource("1_woey4")
+id = "TrueStr"
+stack_type = 1
+stacks = 1
+damage_per_application = 0
+attack_mod_percent = 1.0
+seconds = 0.1
+icon = ExtResource("2_3mp1j")

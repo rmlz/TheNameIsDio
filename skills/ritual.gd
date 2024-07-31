@@ -13,7 +13,6 @@ func deal_damage() -> void:
 			var enemy: EnemyBase = body
 			enemy.receive_damage(damage, (enemy.position - GameManager.player_position).normalized())
 			apply_status(enemy)
-	pass
 	
 func apply_status(enemy: EnemyBase) -> void:
 	if status:
@@ -21,3 +20,5 @@ func apply_status(enemy: EnemyBase) -> void:
 	if status_scene and not enemy.is_queued_for_deletion():
 		enemy.status_component.add_status(status_scene, enemy)
 		
+func animate():
+	pass

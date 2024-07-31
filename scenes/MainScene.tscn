@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xg1ipo2gat5j"]
+[gd_scene load_steps=29 format=3 uid="uid://xg1ipo2gat5j"]
 
 [ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://scene_ui/game_ui.tscn" id="1_1u21x"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="1_a81x0"]
@@ -7,6 +7,50 @@
 [ext_resource type="PackedScene" uid="uid://886ndd2bi0fq" path="res://scene_ui/mobile_joypad.tscn" id="3_sk0xl"]
 [ext_resource type="TileSet" uid="uid://lfdic2f1r71g" path="res://tilemap/main_tilemap.tres" id="3_ys3vv"]
 [ext_resource type="PackedScene" uid="uid://bqoqokisw8ngt" path="res://scenes/mob_spawner/mob_spawner.tscn" id="5_y4uf8"]
+[ext_resource type="PackedScene" uid="uid://bseak21tmcn4n" path="res://scenes/characters/enemies/lvl3/goblin_tnt_big_lvl3.tscn" id="6_l3pee"]
+[ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/characters/enemies/lvl2/goblin_tnt_regular_lvl2.tscn" id="6_yx2f2"]
+[ext_resource type="Script" path="res://scenes/characters/resources/spawn_odds/spawn_mob.gd" id="7_uv7ut"]
+[ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl3/goblin_torch_regular_lvl3.tscn" id="8_ny44i"]
+[ext_resource type="PackedScene" uid="uid://dh7axds3vfdv" path="res://scene_ui/shop/ShopScene.tscn" id="8_shpwu"]
+[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl2/sheep_small_lvl2.tscn" id="8_ug07u"]
+[ext_resource type="PackedScene" uid="uid://b1lc2wh286ub5" path="res://scenes/characters/enemies/lvl3/goblin_barrel_regular_lvl3.tscn" id="9_nyys7"]
+[ext_resource type="PackedScene" uid="uid://c8poql2yjhcog" path="res://scenes/characters/enemies/lvl2/goblin_barrel_regular_lvl2.tscn" id="9_r581b"]
+[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl3/bow_arrow_small_lvl3.tscn" id="12_8a6s3"]
+
+[sub_resource type="Resource" id="Resource_ysjgg"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("6_yx2f2")
+mob_odds = 5
+
+[sub_resource type="Resource" id="Resource_jglxl"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("8_ug07u")
+mob_odds = 4
+
+[sub_resource type="Resource" id="Resource_wybef"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("9_r581b")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_f070k"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("6_l3pee")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_3rnvm"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("8_ny44i")
+mob_odds = 5
+
+[sub_resource type="Resource" id="Resource_3r6l6"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("9_nyys7")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_i66sm"]
+script = ExtResource("7_uv7ut")
+mob_scene = ExtResource("12_8a6s3")
+mob_odds = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0pdb"]
 size = Vector2(5018, 21724)
@@ -88,6 +132,8 @@ update_rotation = false
 update_scale = false
 
 [node name="MobSpawner" parent="." instance=ExtResource("5_y4uf8")]
+lvl2_creatures = Array[ExtResource("7_uv7ut")]([SubResource("Resource_ysjgg"), SubResource("Resource_jglxl"), SubResource("Resource_wybef")])
+lvl3_creatures = Array[ExtResource("7_uv7ut")]([SubResource("Resource_f070k"), SubResource("Resource_3rnvm"), SubResource("Resource_3r6l6"), SubResource("Resource_i66sm")])
 initial_spawn_rate = 75
 spawn_rate_per_minute = 20.0
 wave_duration = 60
@@ -96,6 +142,8 @@ break_intensity = 0.2
 [node name="MobileJoypad" parent="." instance=ExtResource("3_sk0xl")]
 
 [node name="GameUI" parent="." instance=ExtResource("1_1u21x")]
+
+[node name="ShopScene" parent="GameUI" instance=ExtResource("8_shpwu")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-9620, -3051)

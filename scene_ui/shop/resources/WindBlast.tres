@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=4 format=3 uid="uid://cdtg62iet6nxq"]
+
+[ext_resource type="Texture2D" uid="uid://dpunulrla6nrw" path="res://assets/icons/wind.png" id="1_6hqi4"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="1_i4yrj"]
+[ext_resource type="PackedScene" uid="uid://bwo2ijcwsdj46" path="res://skills/wind_ritual/ritual_wind.tscn" id="2_77sxe"]
+
+[resource]
+script = ExtResource("1_i4yrj")
+icon = ExtResource("1_6hqi4")
+title = "Wind Blast"
+description = "Unleashes a powerful burst of wind that knocks back enemies and deals damage."
+cost = 32000
+is_ritual = true
+is_buff = false
+cooldown = 23.0
+scene = ExtResource("2_77sxe")

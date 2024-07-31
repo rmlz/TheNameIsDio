@@ -1,0 +1,17 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://dh1nkjih5xpor"]
+
+[ext_resource type="Texture2D" uid="uid://c82g3rx3wv8jt" path="res://skills/wind_ritual/resources/curve_texture.tres" id="1_6ngqx"]
+[ext_resource type="Texture2D" uid="uid://6xbs0d4dblhu" path="res://skills/wind_ritual/resources/color_gradient_1d.tres" id="2_666du"]
+
+[resource]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 3000.0
+radial_accel_max = 3000.0
+scale_min = 0.7
+color_ramp = ExtResource("2_666du")
+alpha_curve = ExtResource("1_6ngqx")

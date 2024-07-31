@@ -4,7 +4,7 @@ var last_int = 0
 
 func _ready():
 	var points_label: Label = $PointsLabel
-	points_label.text = "Dio has done %09d points" % [GameManager.points]
+	points_label.text = "Dio has done %09d points" % [GameManager.get_points()]
 	
 	
 func _process(delta):

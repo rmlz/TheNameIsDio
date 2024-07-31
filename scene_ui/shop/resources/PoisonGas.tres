@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=4 format=3 uid="uid://cy5biyey7p3s0"]
+
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="1_f7b16"]
+[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="1_xokyj"]
+[ext_resource type="PackedScene" uid="uid://bijitbu44runy" path="res://skills/ritual_acid.tscn" id="2_swn1l"]
+
+[resource]
+script = ExtResource("1_f7b16")
+icon = ExtResource("1_xokyj")
+title = "Poison Gas"
+description = "Launches a poison gas that affects every foe within it"
+cost = 35000
+is_ritual = true
+is_buff = false
+cooldown = 17.0
+scene = ExtResource("2_swn1l")

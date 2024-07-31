@@ -8,6 +8,7 @@ func _ready():
 	_animate_light()
 	
 func _animate_light():
+	# TODO levar o timer abaixo para um único timer no GameManager
 	await get_tree().create_timer(10).timeout
 	var tween = create_tween()
 	modulate.v = 15
@@ -27,7 +28,7 @@ func _on_area_2d_body_entered(body):
 func on_collect(player: PlayerObject) -> void:
 	player.health.heal(health_regen)
 	player.collect_audio.play()
-	GameManager.points += points
+	GameManager.change_points_by(points)
 	queue_free()
 
 
