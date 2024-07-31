@@ -18,7 +18,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][contributorS-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -93,19 +93,26 @@ You also may create your own game respecting the Mozilla licence set up for this
 <!-- ROADMAP -->
 ## Roadmap
 ### What is new?
-- Versio 0.0.5
+- VersioN 0.0.6
+  - [x] DIO-17 Creates buying system for player's skills
+  - [x] DIO-18 Adds pause button
+  - [x] DIO-19 Adds new "wind" skill
+  - [x] DIO-20 Adds two new buff skills
+  - [x] DIO-21 Improves shield skiils from 1 to 3 seconds duration
+  - [X] DIO-22 Creates new Enemy: Goblin Barrel
+
+### What is next?
+  - [ ] Add music
+  - [ ] Add new map features
+
+### Previous versions
+
+- VersioN 0.0.5
   - [x] DIO-12 Create first ANDROID version of the game
   - [x] DIO-13 Players can submit their scores to a ranking board
   - [x] DIO-14 Fix issue with the mobile joypad not properly handling touch with two fingers
   - [x] DIO-15 Add first sound effects to the game
   - [x] DIO-16 Add new shield magic to player
-
-### What is next?
-  - [ ] Add music
-  - [ ] Add buying system for player's skills
-  - [ ] Add new map features
-
-### Previous versions
 
 - Version 0.0.4
   - [x] DIO-9 Reworks how enemy stats are set up

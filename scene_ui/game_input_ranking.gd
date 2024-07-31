@@ -60,7 +60,7 @@ func send_rank_object():
 	var data: Dictionary = {
 		"version": GameManager.version,
 		"score": int(GameManager.get_points()),
-		"time": int(GameManager.time_elapsed),
+		"time": int(GameManager._time_elapsed),
 		"name": text_edit.text
 	}
 	await collection.add("", data)

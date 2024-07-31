@@ -21,7 +21,8 @@ func _query_ranking():
 	var query: FirestoreQuery = (FirestoreQuery.new()
 		.from("ranking")
 		.where("version", FirestoreQuery.OPERATOR.EQUAL, availableVersions[versionIndex])
-		.order_by("score", FirestoreQuery.DIRECTION.DESCENDING))
+		.order_by("score", FirestoreQuery.DIRECTION.DESCENDING)
+		.limit(100))
 	
 	var results: Array = await Firebase.Firestore.query(query)
 	await end_and_close_loading()
@@ -53,6 +54,7 @@ func _clear_actual_ranking():
 			node.queue_free()
 			
 func create_loading():
+	loading_bar.visible = true
 	for i in range(9):
 		await get_tree().create_timer(0.1).timeout
 		loading_bar.value = loading_bar.value + 10
@@ -62,6 +64,7 @@ func end_and_close_loading():
 	await get_tree().create_timer(0.2).timeout
 	loading_bar.visible = false
 	loading_bar.value = 0
+	
 
 func get_ordinal(number) -> String:
 	var suffix: String
