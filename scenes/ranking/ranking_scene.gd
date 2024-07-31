@@ -21,7 +21,8 @@ func _query_ranking():
 	var query: FirestoreQuery = (FirestoreQuery.new()
 		.from("ranking")
 		.where("version", FirestoreQuery.OPERATOR.EQUAL, availableVersions[versionIndex])
-		.order_by("score", FirestoreQuery.DIRECTION.DESCENDING))
+		.order_by("score", FirestoreQuery.DIRECTION.DESCENDING)
+		.limit(100))
 	
 	var results: Array = await Firebase.Firestore.query(query)
 	await end_and_close_loading()
