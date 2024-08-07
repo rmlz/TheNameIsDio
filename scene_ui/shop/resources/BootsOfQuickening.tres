@@ -8,8 +8,10 @@
 script = ExtResource("3_4cyfb")
 icon = ExtResource("2_gdx7e")
 title = "Boots of Quickening"
+id = "boots_quickening"
 description = "Enchanted boots that boost your speed"
 cost = 20000
 is_ritual = false
 is_buff = true
+is_item = null
 buff_status_resource = ExtResource("1_yn2yk")

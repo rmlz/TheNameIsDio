@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItemResource" load_steps=3 format=3 uid="uid://6o4w7hcng57t"]
+
+[ext_resource type="Texture2D" uid="uid://uvo48fxa6tuy" path="res://assets/icons/stone_ruby.png" id="1_7mh3q"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="1_ws0cw"]
+
+[resource]
+script = ExtResource("1_ws0cw")
+icon = ExtResource("1_7mh3q")
+title = "Arcane Amplifier"
+id = "arcane_amplifier"
+description = "A mystical artifact that imbues any sword with an extended reach"
+cost = 1000
+is_ritual = false
+is_buff = false
+is_item = true

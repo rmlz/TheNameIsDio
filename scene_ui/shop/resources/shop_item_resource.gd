@@ -5,6 +5,7 @@ class_name ShopItemResource
 @export_category("Presentation")
 @export var icon: Texture
 @export var title: String
+@export var id: String
 @export var description: String
 @export var cost: int
 var is_purchased: bool = false
@@ -18,6 +19,11 @@ var is_purchased: bool = false
 @export var is_buff: bool:
 	set(value):
 		is_buff = value
+		notify_property_list_changed()
+
+@export var is_item: bool:
+	set(value):
+		is_item = value
 		notify_property_list_changed()
 
 @export_category("Ritual")

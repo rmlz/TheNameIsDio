@@ -6,6 +6,8 @@ func _ready():
 	character = owner
 
 func enter(_msg:= {}) -> void:
+	if (_msg["arcane_amplifier"]):
+		character.attack_amplifier_player.play("Amplify")
 	attack_type = 1
 	character.animation_player.play("attack-side")
 	

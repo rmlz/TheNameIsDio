@@ -8,8 +8,10 @@
 script = ExtResource("3_1gq2x")
 icon = ExtResource("2_hekbe")
 title = "True Strength"
+id = "true_str"
 description = "Turns sword attacks more effective"
 cost = 18000
 is_ritual = false
 is_buff = true
+is_item = null
 buff_status_resource = ExtResource("1_o1yjw")

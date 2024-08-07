@@ -15,7 +15,10 @@ func update(_delta: float) -> void:
 	character.move_and_slide()
 	
 	if Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("StateAttack", {"type": 1})
+		var dict = {"type": 1}
+		dict.merge(character.get_items())
+		state_machine.transition_to(
+			"StateAttack", dict)
 		return
 	
 	if input_vector.is_zero_approx():

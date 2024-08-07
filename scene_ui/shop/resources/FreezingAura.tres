@@ -8,9 +8,11 @@
 script = ExtResource("3_pjd1s")
 icon = ExtResource("1_bc7se")
 title = "Freezing Aura"
+id = "freezeing_aura"
 description = "Starts a freezing aura that damages and slows enemies within it"
 cost = 30000
 is_ritual = true
 is_buff = false
+is_item = null
 cooldown = 13.0
 scene = ExtResource("2_wxwpu")

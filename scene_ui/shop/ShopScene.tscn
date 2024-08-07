@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dh7axds3vfdv"]
+[gd_scene load_steps=26 format=3 uid="uid://dh7axds3vfdv"]
 
 [ext_resource type="Script" path="res://scene_ui/shop/shop_screen.gd" id="1_6a6j6"]
 [ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="2_eya23"]
 [ext_resource type="Resource" uid="uid://b0iypt2csb6x7" path="res://scene_ui/shop/resources/FreezingAura.tres" id="2_fdr6e"]
+[ext_resource type="Resource" uid="uid://6o4w7hcng57t" path="res://scene_ui/shop/resources/ArcaneAmplifier.tres" id="2_sdp6q"]
 [ext_resource type="Resource" uid="uid://cy5biyey7p3s0" path="res://scene_ui/shop/resources/PoisonGas.tres" id="2_sirl3"]
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="3_g1wql"]
 [ext_resource type="Resource" uid="uid://86h7mrghve55" path="res://scene_ui/shop/resources/SafeguardSphere.tres" id="4_8ei7j"]
@@ -200,7 +201,7 @@ _data = {
 [node name="ShopScene" type="CanvasLayer"]
 process_mode = 2
 script = ExtResource("1_6a6j6")
-itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("7_4mbvx"), ExtResource("6_ljou6"), ExtResource("2_fdr6e"), ExtResource("5_wiag5"), ExtResource("2_sirl3"), ExtResource("4_8ei7j")])
+itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("2_sdp6q"), ExtResource("7_4mbvx"), ExtResource("6_ljou6"), ExtResource("2_fdr6e"), ExtResource("5_wiag5"), ExtResource("2_sirl3"), ExtResource("4_8ei7j")])
 item_scene = ExtResource("5_nriyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -248,9 +249,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 421.5
+offset_left = -104.5
 offset_top = 20.0
-offset_right = 630.5
+offset_right = 104.5
 offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stldt")

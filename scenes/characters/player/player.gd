@@ -3,6 +3,8 @@ extends CharacterBase
 
 @onready var skill_progress_bars: PlayerSkillProgressBars = %SkillProgressBars
 @onready var collect_audio: AudioStreamPlayer2D = $CollectAudio
+@onready var attack_amplifier_player: AnimationPlayer = $AttackAmplifierPlayer
+@onready var slash: Node2D = %SlashAmplifier
 
 @export var ritual1: PackedScene
 @export var ritual1_cooldown: int = 13
@@ -31,6 +33,13 @@ func update_by_item_bought(item: ShopItemResource):
 		skill_progress_bars.add_ritual(item)
 	if item.is_buff:
 		add_buff(item)
+	if item.is_item:
+		$InventoryComponent.add_item(item)
+		
+func get_items() -> Dictionary:
+	return {
+		"arcane_amplifier": $InventoryComponent.arcane_amplifier
+	}
 
 func add_buff(item: ShopItemResource):
 	var status: Status = item.buff_status_resource.instantiate()
@@ -41,9 +50,6 @@ func _process(delta: float) -> void:
 	if GameManager.is_game_over:
 		queue_free()
 	
-	#ritual_1_bar.value = ritual_1_timer.time_left / ritual1_cooldown * 100
-	#ritual_2_bar.value = ritual_2_timer.time_left / ritual2_cooldown * 100
-	#ritual_3_bar.value = ritual_3_timer.time_left / ritual3_cooldown * 100
 	GameManager.player_position = position
 	GameManager.change_points_by(delta * 10)
 
@@ -60,27 +66,6 @@ func die() -> void:
 		get_parent().add_child(death_object)
 	
 	queue_free()
-
-func _on_ritual_1_timer_timeout():
-	startRitualOne()
-	
-func _on_ritual_2_timer_timeout():
-	startRitualTwo()
-	
-func _on_ritual_3_timer_timeout():
-	startRitualThree()
-	
-func startRitualOne() -> void:
-	var ritual = ritual1.instantiate()
-	add_child(ritual)
-	
-func startRitualTwo() -> void:
-	var ritual = ritual2.instantiate()
-	add_child(ritual)
-	
-func startRitualThree() -> void:
-	var ritual = ritual3.instantiate()
-	add_child(ritual)
 
 func _on_health_equal_zero():
 	die()

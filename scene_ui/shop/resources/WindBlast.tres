@@ -8,9 +8,11 @@
 script = ExtResource("1_i4yrj")
 icon = ExtResource("1_6hqi4")
 title = "Wind Blast"
+id = "wind_blast"
 description = "Unleashes a powerful burst of wind that knocks back enemies and deals damage."
 cost = 32000
 is_ritual = true
 is_buff = false
+is_item = null
 cooldown = 23.0
 scene = ExtResource("2_77sxe")

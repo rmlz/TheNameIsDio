@@ -10,7 +10,10 @@ func update(_delta: float) -> void:
 	# Obter o input vector
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.15)
 	if Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("StateAttack", {"type": 1})
+		var dict = {"type": 1}
+		dict.merge(character.get_items())
+		state_machine.transition_to(
+			"StateAttack", dict)
 		return
 	
 	if input_vector.is_zero_approx():
