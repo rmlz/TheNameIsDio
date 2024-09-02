@@ -63,5 +63,5 @@ func _set_points(value: float):
 func get_points() -> int:
 	return _points
 	
-func on_buy_shop_item(item: ShopItemResource):
+func on_buy_shop_item(item: ShopResourceBase):
 	on_new_item_bought.emit(item)

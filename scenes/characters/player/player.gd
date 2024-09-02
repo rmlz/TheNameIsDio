@@ -5,6 +5,7 @@ extends CharacterBase
 @onready var collect_audio: AudioStreamPlayer2D = $CollectAudio
 @onready var attack_amplifier_player: AnimationPlayer = $AttackAmplifierPlayer
 @onready var slash: Node2D = %SlashAmplifier
+@onready var inventory_component: InventoryComponent = $InventoryComponent
 
 @export var ritual1: PackedScene
 @export var ritual1_cooldown: int = 13
@@ -28,23 +29,11 @@ func _ready():
 	basic_setup()
 	_hit_cooldown = statistics.get_hit_cooldown_secs
 	
-func update_by_item_bought(item: ShopItemResource):
-	if item.is_ritual:
-		skill_progress_bars.add_ritual(item)
-	if item.is_buff:
-		add_buff(item)
-	if item.is_item:
-		$InventoryComponent.add_item(item)
+func update_by_item_bought(item: ShopResourceBase):
+	item.apply(self)
 		
 func get_items() -> Dictionary:
-	return {
-		"arcane_amplifier": $InventoryComponent.arcane_amplifier
-	}
-
-func add_buff(item: ShopItemResource):
-	var status: Status = item.buff_status_resource.instantiate()
-	status_component.add_status(status, self)
-	GameManager.change_points_by(-item.cost)
+	return inventory_component.items
 	
 func _process(delta: float) -> void:
 	if GameManager.is_game_over:

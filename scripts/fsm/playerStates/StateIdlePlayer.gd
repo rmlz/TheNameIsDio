@@ -20,4 +20,3 @@ func update(_delta: float) -> void:
 		return
 	
 	state_machine.transition_to("StateWalk")
-

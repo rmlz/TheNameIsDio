@@ -30,6 +30,3 @@ func on_collect(player: PlayerObject) -> void:
 	player.collect_audio.play()
 	GameManager.change_points_by(points)
 	queue_free()
-
-
-
