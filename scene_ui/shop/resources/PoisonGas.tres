@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="ShopRitualResource" load_steps=3 format=3 uid="uid://cy5biyey7p3s0"]
+[gd_resource type="Resource" script_class="ShopRitualResource" load_steps=4 format=3 uid="uid://cy5biyey7p3s0"]
 
-[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/buff_resource/shop_buff_resource.gd" id="1_ld85l"]
-[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/ritual_resource/shop_ritual_resource.gd" id="2_xcdyr"]
+[ext_resource type="Texture2D" uid="uid://7gdmdf5esunm" path="res://assets/icons/acid.png" id="1_b3chv"]
+[ext_resource type="PackedScene" uid="uid://bijitbu44runy" path="res://skills/ritual_acid.tscn" id="2_uvm07"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/ritual_resource/shop_ritual_resource.gd" id="3_jcc4y"]
 
 [resource]
-script = ExtResource("2_xcdyr")
-cooldown = 0.0
+script = ExtResource("3_jcc4y")
+cooldown = 17.0
+scene = ExtResource("2_uvm07")
+icon = ExtResource("1_b3chv")
 title = "Poison Gas"
 id = "poison_gas"
 description = "Launches a poison gas that affects every foe within it"
 cost = 35000
-is_buff = false
-is_item = false
-buff_status_resource = ExtResource("1_ld85l")

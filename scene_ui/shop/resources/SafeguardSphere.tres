@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="ShopRitualResource" load_steps=2 format=3 uid="uid://86h7mrghve55"]
+[gd_resource type="Resource" script_class="ShopRitualResource" load_steps=4 format=3 uid="uid://86h7mrghve55"]
 
-[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/ritual_resource/shop_ritual_resource.gd" id="1_44q8q"]
+[ext_resource type="Texture2D" uid="uid://b6ld15qggcoko" path="res://assets/icons/shield.png" id="1_gyp8g"]
+[ext_resource type="PackedScene" uid="uid://dab4uhdy2ljf1" path="res://skills/ritual_shield.tscn" id="2_4u27m"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/ritual_resource/shop_ritual_resource.gd" id="3_jea3t"]
 
 [resource]
-script = ExtResource("1_44q8q")
-cooldown = 0.0
+script = ExtResource("3_jea3t")
+cooldown = 29.0
+scene = ExtResource("2_4u27m")
+icon = ExtResource("1_gyp8g")
 title = "Safeguard Sphere"
 id = "safeguard_sphere"
-description = ""
-cost = 0
+description = "When casted, makes your defense impenetrable for an amount of time."
+cost = 36000

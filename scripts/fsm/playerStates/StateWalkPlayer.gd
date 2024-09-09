@@ -16,7 +16,7 @@ func update(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack"):
 		var dict = {"type": 1}
-		dict.merge(character.get_items())
+		dict.merge(character.inventory_component.items)
 		state_machine.transition_to(
 			"StateAttack", dict)
 		return

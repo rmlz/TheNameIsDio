@@ -95,6 +95,8 @@ text = "Attack-up2"
 
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
 position = Vector2(1057, 464)
+ritual1_cooldown = 13
+ritual3_cooldown = 23
 
 [node name="GoblinBarrelLvl3" parent="." instance=ExtResource("3_6jj1c")]
 position = Vector2(664, 324)
