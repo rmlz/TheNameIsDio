@@ -55,6 +55,28 @@ func die() -> void:
 		get_parent().add_child(death_object)
 	
 	queue_free()
+	
+func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
+	if amount == 0:
+		return
+	var is_tank = invicible
+	if hit_audio and not is_tank:
+		hit_audio.play(0)
+	if tank_hit_audio and is_tank:
+		tank_hit_audio.play(0)
+	if health:
+		health.damage(amount)
+	run_damage_color_feedback(is_tank)
+	if is_tank:
+		return
+	velocity = collision_vector * amount * 20
+
+	$StateMachine.transition_to("StateCoolDown", {
+		"cd_time": statistics.get_hit_cooldown_secs, 
+		"hit": true, 
+		"ignore_cd": ignore_cooldown
+		})
+	
 
 func _on_health_equal_zero():
 	die()

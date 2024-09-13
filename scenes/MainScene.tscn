@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scenes/characters/resources/spawn_odds/spawn_mob.gd" id="7_uv7ut"]
 [ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl3/goblin_torch_regular_lvl3.tscn" id="8_ny44i"]
 [ext_resource type="PackedScene" uid="uid://dh7axds3vfdv" path="res://scene_ui/shop/ShopScene.tscn" id="8_shpwu"]
-[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl2/sheep_small_lvl2.tscn" id="8_ug07u"]
+[ext_resource type="PackedScene" uid="uid://brx2k5c7kdntu" path="res://scenes/characters/enemies/lvl1/sheep_regular_lvl1.tscn" id="8_ug07u"]
 [ext_resource type="PackedScene" uid="uid://b1lc2wh286ub5" path="res://scenes/characters/enemies/lvl3/goblin_barrel_regular_lvl3.tscn" id="9_nyys7"]
 [ext_resource type="PackedScene" uid="uid://c8poql2yjhcog" path="res://scenes/characters/enemies/lvl2/goblin_barrel_regular_lvl2.tscn" id="9_r581b"]
 [ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl3/bow_arrow_small_lvl3.tscn" id="12_8a6s3"]

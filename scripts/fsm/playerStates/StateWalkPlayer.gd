@@ -21,5 +21,11 @@ func update(_delta: float) -> void:
 			"StateAttack", dict)
 		return
 	
+	if Input.is_action_just_pressed("dash"):
+		print("FINE")
+		state_machine.transition_to(
+			"StateDash"
+		)
+	
 	if input_vector.is_zero_approx():
 		state_machine.transition_to("StateIdle")
