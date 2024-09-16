@@ -40,6 +40,7 @@ func attack(target_position: Vector2) -> void:
 			target.receive_damage(character._hit_damage, direction_to_target)
 		target = null
 	elif character is PlayerObject:
+		var play_audio = true
 		for body in attack_area.get_overlapping_bodies():
 			if body.is_in_group("enemies"):
 				var enemy: EnemyBase = body
@@ -51,7 +52,11 @@ func attack(target_position: Vector2) -> void:
 					attack_direction = Vector2.RIGHT
 				var dot_product = direction_to_enemy.dot(attack_direction)
 				if dot_product >= 0.1:
-					enemy.receive_damage(character._hit_damage, direction_to_enemy)
+					if play_audio:
+						enemy.receive_damage_play_audio(character._hit_damage, direction_to_enemy)
+						play_audio = false
+					else:
+						enemy.receive_damage(character._hit_damage, direction_to_enemy)
 
 func _get_configuration_warnings():
 	if not attack_area:
