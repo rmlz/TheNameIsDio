@@ -21,7 +21,7 @@ var attack_cooldown: float = 0.65
 const attack_cooldown_fix = 0.65
 var input_vector: Vector2 = Vector2.ZERO
 var is_attack_mobile_pressed: bool = false
-var mobile_joypad: CanvasLayer
+var mobile_joypad: MobileJoypad
 
 func _ready():
 	status_component = $StatusComponent
@@ -56,7 +56,7 @@ func die() -> void:
 	
 	queue_free()
 	
-func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
+func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false, play_audio = false) -> void:
 	if amount == 0:
 		return
 	var is_tank = invicible

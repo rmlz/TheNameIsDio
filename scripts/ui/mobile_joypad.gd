@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name MobileJoypad extends CanvasLayer
 
 var touch_joy: TouchScreenButton
 var touch_joy_size: Vector2 = Vector2.ZERO 
@@ -28,8 +28,10 @@ func _ready():
 	touch_joy_center = positioned_touch_joy_center
 	touch_joy_radius = touch_joy_size.x - touch_joy_center.x
 	
+	touch_dash_button.hide()
 	if not GameManager.is_debug_enabled:
 		$Label.hide()
+	
 	
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
@@ -109,3 +111,6 @@ func calculate_move_vector(event_position) -> Vector2:
 func vector_linear_to_exponential(v: Vector2) -> Vector2:
 	var k: float = 0.5  # Ajuste este valor conforme necessário
 	return Vector2(exp(k * v.x), exp(k * v.y))
+	
+func show_touch_dash_button() -> void:
+	touch_dash_button.show()
