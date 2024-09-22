@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dh7axds3vfdv"]
+[gd_scene load_steps=28 format=3 uid="uid://dh7axds3vfdv"]
 
 [ext_resource type="Script" path="res://scene_ui/shop/shop_screen.gd" id="1_6a6j6"]
 [ext_resource type="Theme" uid="uid://bo2qtwpabvjqx" path="res://themes/blue_button_theme.tres" id="2_eya23"]
 [ext_resource type="Resource" uid="uid://b0iypt2csb6x7" path="res://scene_ui/shop/resources/FreezingAura.tres" id="2_fdr6e"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/shop_resource_base.gd" id="2_od03r"]
+[ext_resource type="Resource" uid="uid://6o4w7hcng57t" path="res://scene_ui/shop/resources/ArcaneAmplifier.tres" id="2_sdp6q"]
 [ext_resource type="Resource" uid="uid://cy5biyey7p3s0" path="res://scene_ui/shop/resources/PoisonGas.tres" id="2_sirl3"]
 [ext_resource type="Texture2D" uid="uid://bv5v3y30uq7uw" path="res://assets/TinySword/UI/Banners/Banner_Connection_Up.png" id="3_g1wql"]
 [ext_resource type="Resource" uid="uid://86h7mrghve55" path="res://scene_ui/shop/resources/SafeguardSphere.tres" id="4_8ei7j"]
@@ -14,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c5hksm4bro0ag" path="res://assets/TinySword/UI/Icons/Regular_01.png" id="7_56xrv"]
 [ext_resource type="Texture2D" uid="uid://jfdedlai65bk" path="res://assets/TinySword/UI/Icons/Pressed_01.png" id="8_sfu0d"]
 [ext_resource type="Texture2D" uid="uid://cs7cfqijckeph" path="res://assets/TinySword/UI/Icons/Disable_01.png" id="9_lga3e"]
+[ext_resource type="Resource" uid="uid://deedumlmdmswo" path="res://scene_ui/shop/resources/LungeBoost.tres" id="10_8330e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_stldt"]
 texture = ExtResource("3_g1wql")
@@ -23,10 +26,10 @@ texture_margin_right = 96.0
 texture_margin_bottom = 45.0
 region_rect = Rect2(32, 0, 128, 165)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwr0v"]
-texture = ExtResource("7_56xrv")
-expand_margin_left = 20.0
-expand_margin_bottom = 20.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mr44"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dppko"]
+texture = ExtResource("9_lga3e")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vcyd"]
 texture = ExtResource("7_56xrv")
@@ -38,10 +41,10 @@ texture = ExtResource("8_sfu0d")
 expand_margin_left = 20.0
 expand_margin_bottom = 20.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dppko"]
-texture = ExtResource("9_lga3e")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mr44"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwr0v"]
+texture = ExtResource("7_56xrv")
+expand_margin_left = 20.0
+expand_margin_bottom = 20.0
 
 [sub_resource type="Animation" id="Animation_cunug"]
 length = 0.001
@@ -200,7 +203,7 @@ _data = {
 [node name="ShopScene" type="CanvasLayer"]
 process_mode = 2
 script = ExtResource("1_6a6j6")
-itens = Array[Resource("res://scene_ui/shop/resources/shop_item_resource.gd")]([ExtResource("7_4mbvx"), ExtResource("6_ljou6"), ExtResource("2_fdr6e"), ExtResource("5_wiag5"), ExtResource("2_sirl3"), ExtResource("4_8ei7j")])
+itens = Array[ExtResource("2_od03r")]([ExtResource("2_sdp6q"), ExtResource("7_4mbvx"), ExtResource("6_ljou6"), ExtResource("2_fdr6e"), ExtResource("5_wiag5"), ExtResource("2_sirl3"), ExtResource("4_8ei7j"), ExtResource("10_8330e")])
 item_scene = ExtResource("5_nriyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -248,9 +251,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 421.5
+offset_left = -104.5
 offset_top = 20.0
-offset_right = 630.5
+offset_right = 104.5
 offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stldt")
@@ -292,11 +295,11 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_vwr0v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2mr44")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_dppko")
 theme_override_styles/hover = SubResource("StyleBoxTexture_5vcyd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tcbys")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_dppko")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_2mr44")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vwr0v")
 button_mask = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

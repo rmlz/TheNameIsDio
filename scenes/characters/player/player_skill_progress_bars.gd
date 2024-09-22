@@ -14,7 +14,7 @@ func _process(delta):
 			var timer: Timer = prog_bar.get_child(0)
 			item.value = timer.time_left / timer.wait_time * 100
 
-func add_ritual(item: ShopItemResource):
+func add_ritual(item: ShopResourceBase):
 	var bar: ProgressBar = _setup_bar()
 	var timer: Timer = _setup_ritual_timer(item.cooldown, item.scene)
 	

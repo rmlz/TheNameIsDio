@@ -1,26 +1,32 @@
-[gd_scene load_steps=31 format=3 uid="uid://cxge6rvc7mdfy"]
+[gd_scene load_steps=47 format=3 uid="uid://cxge6rvc7mdfy"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_j415d"]
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_xy6bu"]
-[ext_resource type="PackedScene" uid="uid://b4r8mmefx7got" path="res://skills/ritual.tscn" id="2_p7fth"]
-[ext_resource type="PackedScene" uid="uid://bijitbu44runy" path="res://skills/ritual_acid.tscn" id="3_gy4j6"]
+[ext_resource type="PackedScene" uid="uid://csnj0cp2fi4gk" path="res://scenes/characters/components/DashGhost/DashGhost.tscn" id="2_uiy7y"]
 [ext_resource type="Resource" uid="uid://bwgruodf2df2v" path="res://scenes/characters/player_statistics.tres" id="4_0270n"]
-[ext_resource type="PackedScene" uid="uid://dab4uhdy2ljf1" path="res://skills/ritual_shield.tscn" id="4_abyb3"]
 [ext_resource type="Script" path="res://scripts/fsm/StateMachine.gd" id="5_31ggd"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateIdlePlayer.gd" id="6_kw1rk"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="6_oxflf"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateWalkPlayer.gd" id="7_tw0vt"]
 [ext_resource type="Script" path="res://scripts/fsm/playerStates/StateAttackPlayer.gd" id="8_hasv2"]
 [ext_resource type="PackedScene" uid="uid://cn3tk328sld4o" path="res://scenes/characters/player/SkillProgressBars.tscn" id="9_h0n2f"]
+[ext_resource type="Texture2D" uid="uid://cw7mb8kok28tl" path="res://assets/Particle Pack/twirl_03.png" id="9_jif7u"]
 [ext_resource type="Script" path="res://scenes/characters/components/Status/status_component/status_component.gd" id="9_ubphb"]
 [ext_resource type="PackedScene" uid="uid://cob31lrycsua0" path="res://scenes/characters/components/Attacks/MeleeAttackComponent.tscn" id="10_mxbui"]
 [ext_resource type="AudioStream" uid="uid://b0vb2dyckuxf8" path="res://assets/sfx/weapons/FGHTClth_Anime Swing 4-cut.wav" id="12_ehnf4"]
 [ext_resource type="AudioStream" uid="uid://4je5ehr4pent" path="res://assets/sfx/weapons/Retro Descending Long 04.wav" id="13_8rpkh"]
 [ext_resource type="AudioStream" uid="uid://ceqh4enivjfcm" path="res://assets/sfx/collectable/Retro PickUp Coin 07.wav" id="14_e01qs"]
 [ext_resource type="AudioStream" uid="uid://cjp7fue3x15a4" path="res://assets/sfx/weapons/Retro Impact Metal 05.wav" id="15_7i5v3"]
+[ext_resource type="PackedScene" uid="uid://dbhtqqw3cdwjv" path="res://scenes/characters/components/inventory/InventoryComponent.tscn" id="15_46d8c"]
+[ext_resource type="Script" path="res://scripts/fsm/playerStates/StateDash.gd" id="16_j2hac"]
+[ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="17_yhfmw"]
+[ext_resource type="Texture2D" uid="uid://c6majdlndw6fm" path="res://assets/Particle Pack/smoke_01.png" id="21_lxhk7"]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_b74nj"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_mbmyb"]
 points = PackedVector2Array(100, -80, 100, 40, -100, 40, -100, -80)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_54ihm"]
+blend_mode = 1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uryk"]
 radius = 15.0
@@ -123,7 +129,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u30vu"]
 resource_name = "attack-side"
-length = 0.6
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -177,6 +183,151 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(5, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/StateDash")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.366667, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}, {
+"args": [],
+"method": &"do_attack"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.554087, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}, {
+"args": [],
+"method": &"instance_dash_ghost"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DashParticles/DashTrailParticles")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_animate_tank_color"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_dash_burst"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_j1k5d"]
@@ -238,13 +389,129 @@ _data = {
 "attack-up2": SubResource("Animation_ruryw")
 }
 
+[sub_resource type="Animation" id="Animation_s62dn"]
+resource_name = "Amplify"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/SlashAmplifier/Effects:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, -35), Vector2(600, -35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sizeable/SlashAmplifier/Effects:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.564706), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5adhp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sizeable/SlashAmplifier/Effects:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-172, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sizeable/SlashAmplifier/Effects:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ueleq"]
+_data = {
+"Amplify": SubResource("Animation_s62dn"),
+"RESET": SubResource("Animation_5adhp")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ok0c3"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_ggf5a"]
+_data = [Vector2(0.292763, 1), 0.0, 0.0, 0, 0, Vector2(0.990132, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yc3ar"]
+curve = SubResource("Curve_ggf5a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8s46p"]
+particle_flag_disable_z = true
+angle_min = -45.0
+angle_max = 45.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 45.0
+radial_velocity_min = -100.0
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, -100, 0)
+scale_min = 0.05
+scale_max = 0.2
+alpha_curve = SubResource("CurveTexture_yc3ar")
+
+[sub_resource type="Curve" id="Curve_4x2r7"]
+_data = [Vector2(0.292763, 1), 0.0, 0.0, 0, 0, Vector2(0.990132, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vxv6v"]
+curve = SubResource("Curve_4x2r7")
+
+[sub_resource type="Curve" id="Curve_s4cm1"]
+max_value = 1.5
+_data = [Vector2(0, 0.759894), 0.0, 0.0, 0, 0, Vector2(1, 1.33278), 1.85225, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_of4a6"]
+curve = SubResource("Curve_s4cm1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ku3m"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+angle_min = -45.0
+angle_max = 45.0
+spread = 30.0
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 30.0
+gravity = Vector3(0, -80, 0)
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+scale_min = 0.4
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_of4a6")
+alpha_curve = SubResource("CurveTexture_vxv6v")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_j415d")
-ritual1 = ExtResource("2_p7fth")
-ritual2 = ExtResource("3_gy4j6")
-ritual2_cooldown = 35
-ritual3 = ExtResource("4_abyb3")
+dash_ghost_scene = ExtResource("2_uiy7y")
 statistics = ExtResource("4_0270n")
 
 [node name="Sizeable" type="Node2D" parent="."]
@@ -258,9 +525,20 @@ vframes = 8
 frame = 1
 
 [node name="MeleeAttackComponent" parent="Sizeable" instance=ExtResource("10_mxbui")]
-attack_shape = SubResource("ConvexPolygonShape2D_b74nj")
+attack_shape = SubResource("ConvexPolygonShape2D_mbmyb")
 
 [node name="LaunchStartPoint" type="Marker2D" parent="Sizeable"]
+
+[node name="SlashAmplifier" type="Node2D" parent="Sizeable"]
+unique_name_in_owner = true
+position = Vector2(86, 19)
+
+[node name="Effects" type="Sprite2D" parent="Sizeable/SlashAmplifier"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_54ihm")
+position = Vector2(-172, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_jif7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
@@ -272,6 +550,11 @@ libraries = {
 }
 autoplay = "Idle"
 
+[node name="AttackAmplifierPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ueleq")
+}
+
 [node name="HealthComponent" parent="." instance=ExtResource("6_oxflf")]
 scale = Vector2(0.7, 0.7)
 show_bar = true
@@ -282,6 +565,7 @@ offset_top = -121.0
 offset_right = 41.0
 offset_bottom = -81.0
 script = ExtResource("9_ubphb")
+metadata/_edit_use_anchors_ = true
 
 [node name="SkillProgressBars" parent="." instance=ExtResource("9_h0n2f")]
 unique_name_in_owner = true
@@ -292,6 +576,7 @@ offset_top = -100.0
 offset_right = 50.0
 offset_bottom = -77.0
 text = "Teste"
+metadata/_edit_use_anchors_ = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_31ggd")
@@ -305,6 +590,38 @@ script = ExtResource("7_tw0vt")
 
 [node name="StateAttack" type="Node" parent="StateMachine"]
 script = ExtResource("8_hasv2")
+
+[node name="StateDash" type="Node" parent="StateMachine"]
+script = ExtResource("16_j2hac")
+
+[node name="StateCoolDown" type="Node" parent="StateMachine"]
+script = ExtResource("17_yhfmw")
+
+[node name="InventoryComponent" parent="." instance=ExtResource("15_46d8c")]
+
+[node name="DashParticles" type="Node2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="DashTrailParticles" type="GPUParticles2D" parent="DashParticles"]
+material = SubResource("CanvasItemMaterial_ok0c3")
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_8s46p")
+texture = ExtResource("21_lxhk7")
+lifetime = 1.2
+one_shot = true
+explosiveness = 0.6
+randomness = 0.7
+
+[node name="DashBurstParticles" type="GPUParticles2D" parent="DashParticles"]
+material = SubResource("CanvasItemMaterial_ok0c3")
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_4ku3m")
+texture = ExtResource("21_lxhk7")
+lifetime = 1.2
+one_shot = true
+explosiveness = 1.0
+randomness = 0.1
 
 [node name="AttackAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_ehnf4")

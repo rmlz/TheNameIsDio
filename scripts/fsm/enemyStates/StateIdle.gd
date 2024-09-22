@@ -1,5 +1,4 @@
-class_name StateIdle
-extends State
+class_name StateIdle extends State
 
 @export_range(0, 9999, 10) var aggro_distance: int = 300
 @export_range(0, 9999, 10) var keep_distance: int = 0
@@ -20,4 +19,3 @@ func update(_delta: float) -> void:
 	
 	if player_enemy_distance <= aggro_distance:
 		state_machine.transition_to("StateFollow")
-

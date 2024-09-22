@@ -25,4 +25,3 @@ func update(delta: float) -> void:
 func add_time(time: int) -> void:
 	current_cd_time += time
 	
-

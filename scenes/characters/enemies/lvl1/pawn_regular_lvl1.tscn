@@ -193,9 +193,12 @@ script = ExtResource("14_upi32")
 
 [node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_tqf1h")
+volume_db = -7.0
+attenuation = 2.21914
 
 [node name="TankAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_r8kvx")
+volume_db = -7.0
 pitch_scale = 1.36
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]

@@ -1,0 +1,30 @@
+{
+  "hidden_columns": {
+    "res://resources/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://scene_ui/shop/resources/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://scenes/characters/resources/character_statistics/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    }
+  },
+  "recent_paths": [
+    "res://resources/",
+    "res://scenes/characters/resources/character_statistics/",
+    "res://scene_ui/shop/resources/",
+    "res://scene_ui/shop/resources/scripts/"
+  ],
+  "table_functions": {
+    "filter": [
+      "return true"
+    ],
+    "process": [
+      "return value"
+    ]
+  }
+}

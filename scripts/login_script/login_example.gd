@@ -12,7 +12,6 @@ func on_login_failed(code, message):
 	print("Code: " + str(code))
 	print("Message:" + message)
 	print("Make sure you have configured the login credentials at login.gd")
-	get_tree().quit()
 
 func on_login_succeed():
 	print("Login succeeded!!!")

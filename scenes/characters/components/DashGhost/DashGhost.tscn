@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://csnj0cp2fi4gk"]
+
+[ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_ivuob"]
+[ext_resource type="Script" path="res://scenes/characters/components/DashGhost/dash_ghost.gd" id="2_bi3tf"]
+
+[node name="DashGhost" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.435294)
+position = Vector2(593, 370)
+texture = ExtResource("1_ivuob")
+hframes = 6
+vframes = 8
+frame = 17
+script = ExtResource("2_bi3tf")

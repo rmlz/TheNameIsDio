@@ -15,8 +15,18 @@ func update(_delta: float) -> void:
 	character.move_and_slide()
 	
 	if Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("StateAttack", {"type": 1})
+		var dict = {"type": 1}
+		dict.merge(character.inventory_component.items)
+		state_machine.transition_to(
+			"StateAttack", dict)
 		return
+		
+	if Input.is_action_just_pressed("dash"):
+		var player_items = (character as PlayerObject).get_items()
+		if (player_items.has("lunge_boost") and player_items["lunge_boost"]):
+			state_machine.transition_to(
+				"StateDash", player_items
+			)
 	
 	if input_vector.is_zero_approx():
 		state_machine.transition_to("StateIdle")

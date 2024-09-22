@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name MobileJoypad extends CanvasLayer
 
 var touch_joy: TouchScreenButton
 var touch_joy_size: Vector2 = Vector2.ZERO 
@@ -6,6 +6,7 @@ var touch_joy_center: Vector2
 var touch_joy_radius: float = 0.0
 
 var touch_hit_button: TouchScreenButton
+var touch_dash_button:TouchScreenButton
 
 var joystick_active: bool = false
 var input_vector: Vector2 = Vector2.ZERO
@@ -16,6 +17,7 @@ var down: Dictionary = {"touch_joy": {"index": null}, "touch_hit": {"index": nul
 func _ready():
 	touch_hit_button = $TouchHitButton
 	touch_joy =$TouchJoy
+	touch_dash_button = $TouchDashButton
 	touch_joy_size = Vector2(
 			touch_joy.texture_normal.get_width(),
 			touch_joy.texture_normal.get_height()) * touch_joy.scale
@@ -26,8 +28,10 @@ func _ready():
 	touch_joy_center = positioned_touch_joy_center
 	touch_joy_radius = touch_joy_size.x - touch_joy_center.x
 	
+	touch_dash_button.hide()
 	if not GameManager.is_debug_enabled:
 		$Label.hide()
+	
 	
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
@@ -60,10 +64,19 @@ func _input(event):
 			down["touch_hit"] = {"index": event.index}
 			Input.action_press("attack")
 			print("HIT!")
+		if not touch_dash_button.is_pressed():
+			down["touch_dash"] = {"index": null}
+		elif touch_dash_button.is_pressed():
+			down["touch_dash"] = {"index": event.index}
+			Input.action_press("dash")
+			print("DASH!")
+		
 	
 	if event is InputEventScreenTouch:
 		if not touch_hit_button.is_pressed():
 			Input.action_release("attack")
+		if not touch_dash_button.is_pressed():
+			Input.action_release("dash")
 		if not touch_joy.is_pressed():
 			input_vector = Vector2.ZERO
 			move_vector = Vector2.ZERO
@@ -98,3 +111,6 @@ func calculate_move_vector(event_position) -> Vector2:
 func vector_linear_to_exponential(v: Vector2) -> Vector2:
 	var k: float = 0.5  # Ajuste este valor conforme necessário
 	return Vector2(exp(k * v.x), exp(k * v.y))
+	
+func show_touch_dash_button() -> void:
+	touch_dash_button.show()
