@@ -2,10 +2,10 @@ extends Panel
 class_name ShopItem
 
 signal _on_item_buy_button_clicked
-var item_resource: ShopItemResource
+var item_resource: ShopResourceBase
 var idx: int = 0
 
-func setup(item: ShopItemResource, index: int):
+func setup(item: ShopResourceBase, index: int):
 	idx = index
 	item_resource = item
 

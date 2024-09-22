@@ -196,6 +196,8 @@ script = ExtResource("15_qiuk7")
 
 [node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_urr7k")
+volume_db = -4.0
+attenuation = 2.14355
 
 [node name="TankAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_k0nx8")

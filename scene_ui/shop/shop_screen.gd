@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name ShopScreen
 
-@export var itens: Array[ShopItemResource] = []
+@export var itens: Array[ShopResourceBase] = []
 @export var item_scene: PackedScene
 
 signal on_item_button_buy_clicked
@@ -31,7 +31,7 @@ func _instantiate_itens() -> void:
 		scene._on_item_buy_button_clicked.connect(_on_button_buy_clicked)
 		%ItemGrid.add_child(scene)
 		
-func _on_button_buy_clicked(item: ShopItemResource):
+func _on_button_buy_clicked(item: ShopResourceBase):
 	on_item_button_buy_clicked.emit(item)
 	_update()
 

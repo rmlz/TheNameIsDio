@@ -233,6 +233,8 @@ offset_bottom = -15.0
 
 [node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_ixnrc")
+volume_db = -4.0
+attenuation = 2.21914
 
 [node name="TankAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_nluu0")

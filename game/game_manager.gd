@@ -11,7 +11,7 @@ var _points: float = 0 : set = _set_points
 var is_game_over: bool = false
 var is_playing: bool = false
 var is_touch_joypad_enabled = false
-var is_debug_enabled = false
+var is_debug_enabled = true
 var _time_elapsed: float = 0.0
 var max_game_time: int = 20 #minutes
 var _time_left: float = 0.0
@@ -63,5 +63,5 @@ func _set_points(value: float):
 func get_points() -> int:
 	return _points
 	
-func on_buy_shop_item(item: ShopItemResource):
+func on_buy_shop_item(item: ShopResourceBase):
 	on_new_item_bought.emit(item)

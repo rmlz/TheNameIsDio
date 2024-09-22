@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="ShopItemResource" load_steps=4 format=3 uid="uid://bbeva6oem3dmt"]
+[gd_resource type="Resource" script_class="ShopBuffResource" load_steps=4 format=3 uid="uid://bbeva6oem3dmt"]
 
-[ext_resource type="PackedScene" uid="uid://cx4q1usjh8x1g" path="res://scenes/characters/components/Status/status_true_strength/StatusTrueStrength.tscn" id="1_o1yjw"]
-[ext_resource type="Texture2D" uid="uid://dc4csiswutnpw" path="res://assets/icons/strength.png" id="2_hekbe"]
-[ext_resource type="Script" path="res://scene_ui/shop/resources/shop_item_resource.gd" id="3_1gq2x"]
+[ext_resource type="PackedScene" uid="uid://cx4q1usjh8x1g" path="res://scenes/characters/components/Status/status_true_strength/StatusTrueStrength.tscn" id="1_ofkmc"]
+[ext_resource type="Texture2D" uid="uid://dc4csiswutnpw" path="res://assets/icons/strength.png" id="2_p4agl"]
+[ext_resource type="Script" path="res://scene_ui/shop/resources/scripts/buff_resource/shop_buff_resource.gd" id="3_puf13"]
 
 [resource]
-script = ExtResource("3_1gq2x")
-icon = ExtResource("2_hekbe")
+script = ExtResource("3_puf13")
+buff_status_resource = ExtResource("1_ofkmc")
+icon = ExtResource("2_p4agl")
 title = "True Strength"
+id = "true_str"
 description = "Turns sword attacks more effective"
 cost = 18000
-is_ritual = false
-is_buff = true
-buff_status_resource = ExtResource("1_o1yjw")

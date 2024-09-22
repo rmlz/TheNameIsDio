@@ -48,5 +48,11 @@ func exit() -> void:
 func rotate_sprite(input_vector: Vector2) -> void:
 	if input_vector.x > 0:
 		sprite.flip_h = false
+		if character is PlayerObject and character.slash:
+			character.slash.position.x = abs(character.slash.position.x) 
+			character.slash.scale.x = abs(character.slash.scale.x)
 	elif input_vector.x < 0:
 		sprite.flip_h = true
+		if character is PlayerObject and character.slash:
+			character.slash.position.x = abs(character.slash.position.x) * -1
+			character.slash.scale.x = abs(character.slash.scale.x) * -1
