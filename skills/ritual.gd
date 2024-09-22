@@ -8,10 +8,14 @@ extends Node2D
 var status_scene: Status
 
 func deal_damage() -> void:
+	var play_audio = true
 	for body in damage_area.get_overlapping_bodies():
 		if body.is_in_group("enemies"):
 			var enemy: EnemyBase = body
-			enemy.receive_damage(damage, (enemy.position - GameManager.player_position).normalized())
+			if play_audio:
+				enemy.receive_damage_play_audio(damage, (enemy.position - GameManager.player_position).normalized())
+			else:
+				enemy.receive_damage(damage, (enemy.position - GameManager.player_position).normalized())
 			apply_status(enemy)
 	
 func apply_status(enemy: EnemyBase) -> void:

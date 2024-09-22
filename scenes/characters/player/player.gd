@@ -6,22 +6,16 @@ extends CharacterBase
 @onready var attack_amplifier_player: AnimationPlayer = $AttackAmplifierPlayer
 @onready var slash: Node2D = %SlashAmplifier
 @onready var inventory_component: InventoryComponent = $InventoryComponent
+@onready var state_machine: StateMachine = $StateMachine
 
-@export var ritual1: PackedScene
-@export var ritual1_cooldown: int = 13
-
-@export var ritual2: PackedScene
-@export var ritual2_cooldown: int = 19
-
-@export var ritual3: PackedScene
-@export var ritual3_cooldown: int = 23
+@export var dash_ghost_scene: PackedScene
 
 var _hit_cooldown: float = 0.0
 var attack_cooldown: float = 0.65
 const attack_cooldown_fix = 0.65
 var input_vector: Vector2 = Vector2.ZERO
 var is_attack_mobile_pressed: bool = false
-var mobile_joypad: CanvasLayer
+var mobile_joypad: MobileJoypad
 
 func _ready():
 	status_component = $StatusComponent
@@ -55,6 +49,43 @@ func die() -> void:
 		get_parent().add_child(death_object)
 	
 	queue_free()
+	
+func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false, play_audio = false) -> void:
+	if amount == 0:
+		return
+	var is_tank = invicible
+	if hit_audio and not is_tank:
+		hit_audio.play(0)
+	if tank_hit_audio and is_tank:
+		tank_hit_audio.play(0)
+	if health:
+		health.damage(amount)
+	run_damage_color_feedback(is_tank)
+	if is_tank:
+		return
+	velocity = collision_vector * amount * 20
+
+	state_machine.transition_to("StateCoolDown", {
+		"cd_time": statistics.get_hit_cooldown_secs, 
+		"hit": true, 
+		"ignore_cd": ignore_cooldown
+		})
+		
+func instance_dash_ghost() -> void:
+	var ghost: Sprite2D = dash_ghost_scene.instantiate()
+	ghost.global_position = global_position
+	ghost.texture = %Sprite2D.texture
+	ghost.vframes = %Sprite2D.vframes
+	ghost.hframes = %Sprite2D.hframes
+	ghost.frame = %Sprite2D.frame
+	ghost.flip_h = %Sprite2D.flip_h
+	
+	add_sibling(ghost)
+
+func emit_dash_burst() -> void:
+	$DashParticles/DashBurstParticles.rotation = (velocity.normalized() * -1).angle()
+	$DashParticles/DashBurstParticles.restart()
+	
 
 func _on_health_equal_zero():
 	die()
