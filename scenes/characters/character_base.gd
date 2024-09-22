@@ -106,15 +106,29 @@ func receive_damage_ignore_tanking(amount: int, collision_vector: Vector2, hit_c
 func run_damage_color_feedback(is_tank: bool) -> void:
 	var tween = create_tween()
 	if is_tank:
-		modulate = Color.AQUAMARINE
-		modulate.v = 5
+		_animate_tank_color()
 	else :
-		modulate = Color.DARK_RED
+		_animate_damage_color()
+	
+func _animate_tank_color():
+	var tween = create_tween()
+	modulate = Color.AQUAMARINE
+	modulate.v = 5
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(
 		self, "modulate", Color.WHITE, 0.3
 	)
+
+func _animate_damage_color():
+	var tween = create_tween()
+	modulate = Color.DARK_RED
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(
+		self, "modulate", Color.WHITE, 0.3
+	)
+	
 
 func proccess_attack(target_position: Vector2, type: int) -> void:
 	if not ranged_attack_component and not melee_attack_component:
