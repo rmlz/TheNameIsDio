@@ -23,7 +23,8 @@ func _animate_light():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
-		on_collect(body)
+		if (body as PlayerObject).state_machine.current_state != "StateDash":
+			on_collect(body)
 
 func on_collect(player: PlayerObject) -> void:
 	player.health.heal(health_regen)
