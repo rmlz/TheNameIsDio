@@ -203,7 +203,7 @@ _data = {
 [node name="ShopScene" type="CanvasLayer"]
 process_mode = 2
 script = ExtResource("1_6a6j6")
-itens = Array[ExtResource("2_od03r")]([ExtResource("2_sdp6q"), ExtResource("7_4mbvx"), ExtResource("6_ljou6"), ExtResource("2_fdr6e"), ExtResource("5_wiag5"), ExtResource("2_sirl3"), ExtResource("4_8ei7j"), ExtResource("10_8330e")])
+itens = Array[ExtResource("2_od03r")]([ExtResource("10_8330e"), ExtResource("2_sdp6q"), ExtResource("7_4mbvx"), ExtResource("6_ljou6"), ExtResource("2_fdr6e"), ExtResource("5_wiag5"), ExtResource("2_sirl3"), ExtResource("4_8ei7j")])
 item_scene = ExtResource("5_nriyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

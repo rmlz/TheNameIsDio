@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://xg1ipo2gat5j"]
+[gd_scene load_steps=31 format=3 uid="uid://xg1ipo2gat5j"]
 
 [ext_resource type="PackedScene" uid="uid://dxkktynitxh83" path="res://scene_ui/game_ui.tscn" id="1_1u21x"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="1_a81x0"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://b1lc2wh286ub5" path="res://scenes/characters/enemies/lvl3/goblin_barrel_regular_lvl3.tscn" id="9_nyys7"]
 [ext_resource type="PackedScene" uid="uid://c8poql2yjhcog" path="res://scenes/characters/enemies/lvl2/goblin_barrel_regular_lvl2.tscn" id="9_r581b"]
 [ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl3/bow_arrow_small_lvl3.tscn" id="12_8a6s3"]
+[ext_resource type="PackedScene" uid="uid://qtrc83w5ncww" path="res://scenes/characters/components/Audios/global_hit_audio.tscn" id="17_c0hhw"]
+[ext_resource type="AudioStream" uid="uid://b6ippfh1ockrp" path="res://assets/music/thenameisdio_tema.wav" id="18_lesh7"]
 
 [sub_resource type="Resource" id="Resource_ysjgg"]
 script = ExtResource("7_uv7ut")
@@ -178,4 +180,13 @@ libraries = {
 }
 autoplay = "start_play"
 
+[node name="GlobalAudio" parent="." instance=ExtResource("17_c0hhw")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("18_lesh7")
+autoplay = true
+max_distance = 1e+17
+
+[connection signal="on_attack_enemy_group" from="Player" to="GlobalAudio" method="_on_player_on_attack_enemy_group"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_fade_in_finished"]

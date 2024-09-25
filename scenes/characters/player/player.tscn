@@ -640,6 +640,7 @@ stream = ExtResource("14_e01qs")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
+[connection signal="enemy_group_hitten" from="Sizeable/MeleeAttackComponent" to="." method="_on_melee_attack_component_enemy_group_hitten"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="on_ritual_timer_timeout" from="SkillProgressBars" to="." method="_on_skill_progress_bars_on_ritual_timer_timeout"]

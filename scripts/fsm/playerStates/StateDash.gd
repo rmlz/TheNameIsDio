@@ -16,7 +16,6 @@ func enter(_msg:= {}) -> void:
 func update(_delta: float) -> void:
 	time_dashing -= _delta
 	rotate_sprite(input_vector)
-	var player = character as PlayerObject
 	character.velocity = input_vector * character._speed * 200
 	character.move_and_slide()
 	

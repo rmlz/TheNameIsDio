@@ -14,11 +14,11 @@ func _ready():
 		
 func trigger_game_over():
 	if game_ui:
-		var game_over_ui = game_over_ui.instantiate()
-		add_child(game_over_ui)
+		var game_over_ui_scene = game_over_ui.instantiate()
+		add_child(game_over_ui_scene)
 		game_ui.queue_free()
 		game_ui = null
 		
-func _process(delta):
+func _process(_delta):
 	if GameManager.is_game_over:
 		trigger_game_over()
