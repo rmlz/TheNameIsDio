@@ -11,4 +11,4 @@ icon = ExtResource("2_p4agl")
 title = "True Strength"
 id = "true_str"
 description = "Turns sword attacks more effective"
-cost = 18000
+cost = 10000

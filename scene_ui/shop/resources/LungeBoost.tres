@@ -9,4 +9,4 @@ icon = ExtResource("1_pddo7")
 title = "Lunge Boost"
 id = "lunge_boost"
 description = "Increases the character's forward momentum and slashing speed Keyboard [M] XBOX [X]"
-cost = 29000
+cost = 15000

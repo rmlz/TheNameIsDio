@@ -7,4 +7,3 @@ class_name ShopRitualResource
 
 func apply(character: CharacterBase) -> void:
 	character.skill_progress_bars.add_ritual(self)
-	character.on_

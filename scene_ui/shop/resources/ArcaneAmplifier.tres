@@ -9,4 +9,4 @@ icon = ExtResource("1_8mo2v")
 title = "Arcane Amplifier"
 id = "arcane_amplifier"
 description = "A mystical artifact that imbues any sword with an extended reach"
-cost = 15000
+cost = 8000
