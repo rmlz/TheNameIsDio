@@ -6,7 +6,6 @@ extends CanvasLayer
 
 func _ready():
 	await Firebase.Auth.login_succeeded
-	start_button.grab_focus()
 	
 
 func _on_start_button_pressed():
@@ -29,3 +28,8 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 func _on_ranking_button_pressed():
 	animation.current_animation = "fade_out_to_ranking"
 	animation.play()
+
+
+func _on_tree_entered() -> void:
+	await ready
+	start_button.grab_focus()

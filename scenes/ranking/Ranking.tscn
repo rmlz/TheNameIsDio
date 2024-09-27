@@ -13,8 +13,8 @@
 [sub_resource type="FontVariation" id="FontVariation_pcuc0"]
 spacing_bottom = 20
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68jcx"]
-texture = ExtResource("2_kom5d")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ci58d"]
+texture = ExtResource("5_tnrjq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wt2qx"]
 texture = ExtResource("4_1ih1o")
@@ -22,8 +22,8 @@ texture = ExtResource("4_1ih1o")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xy21h"]
 texture = ExtResource("3_mikki")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ci58d"]
-texture = ExtResource("5_tnrjq")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68jcx"]
+texture = ExtResource("2_kom5d")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4mpe1"]
 load_path = "res://.godot/imported/Banner_Horizontal.png-04a539e11965f9d29291b7972d1716f5.ctex"
@@ -192,7 +192,6 @@ ranking_row = ExtResource("7_rgf8n")
 availableVersions = PackedStringArray("v0.0.6", "v0.0.5")
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(1, 1, 1, 0)
 tile_set = ExtResource("1_htx0j")
 format = 2
 layer_0/name = "ground"
@@ -208,7 +207,6 @@ layer_4/name = "Decorative"
 layer_4/tile_data = PackedInt32Array(196610, 6, 0, 131073, 5, 0, 196609, 10, 0, 131074, 15, 65536, 196608, 15, 65536, 327681, 15, 65536, 0, 15, 65536, 196614, 15, 65536, 65547, 15, 65536, 131081, 15, 65536, 196624, 15, 65536, 15, 15, 65536, 327697, 15, 65536, 262159, 15, 65536, 262157, 15, 65536, 131075, 16, 2, 131076, 65552, 2, 65540, 65552, 1, 4, 65552, 0, 3, 16, 0, 65539, 16, 1, 131077, 5, 0, 65541, 7, 0, 327685, 10, 0, 262150, 10, 0, 327683, 15, 131072, 131084, 15, 131072, 65550, 15, 262144, 458757, 15, 196608)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,6 +215,7 @@ offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
+follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
@@ -242,18 +241,18 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.254503, 0.342283, 0.370296, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.619608, 0.529412, 0.462745, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.254503, 0.342283, 0.370296, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_pcuc0")
 theme_override_font_sizes/font_size = 26
-theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wt2qx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xy21h")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
 disabled = true
 button_mask = 7
 text = "Previous"
@@ -301,18 +300,18 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.254503, 0.342283, 0.370296, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.619608, 0.529412, 0.462745, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.254503, 0.342283, 0.370296, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_pcuc0")
 theme_override_font_sizes/font_size = 26
-theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wt2qx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xy21h")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_ci58d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_68jcx")
 button_mask = 7
 text = "Next"
 
@@ -386,7 +385,6 @@ vertical_alignment = 1
 
 [node name="LoadingBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -406,27 +404,48 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_q7ub8")
 step = 1.0
 
 [node name="Container" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
-offset_right = 40.0
+offset_right = 282.0
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
+focus_mode = 2
 
 [node name="Return" type="Button" parent="Container"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 21.0
-offset_top = -36.0
-offset_right = 125.0
-offset_bottom = 18.0
+offset_top = -80.0
+offset_right = 143.0
+offset_bottom = -18.0
+grow_vertical = 0
 theme = ExtResource("9_yr7tx")
 button_mask = 7
 text = "Return"
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = -68.0
+offset_right = 475.0
+offset_bottom = -37.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.359, 0.359, 0.359, 0.476)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 22
+text = "Press Start or Enter to Return"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

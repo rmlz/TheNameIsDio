@@ -19,11 +19,11 @@ axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 192, 192)
 
 [node name="ShopItem" type="Panel"]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 offset_right = 300.0
 offset_bottom = 300.0
 size_flags_horizontal = 3
+focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_h7is2")
 script = ExtResource("2_j5f6x")
 
@@ -109,4 +109,5 @@ theme_override_constants/shadow_offset_y = 1
 text = "Purchased"
 horizontal_alignment = 1
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

@@ -20,5 +20,8 @@ func trigger_game_over():
 		game_ui = null
 		
 func _process(_delta):
+	if Input.is_action_just_pressed("pause"): 
+		if not $GameUI/PanelButtons/HBoxContainer/ButtonBuy.disabled:
+			await $GameUI._on_button_buy_pressed()
 	if GameManager.is_game_over:
 		trigger_game_over()
