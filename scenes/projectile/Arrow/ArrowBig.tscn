@@ -432,7 +432,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_3ohdy")
 speed = 650.0
 bump_ground_reduce_speed = 1.0
-damage = 30
+damage = 25
 friend_fire = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

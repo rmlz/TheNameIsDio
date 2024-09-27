@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("2_nkc4o")
 max_health = 8.0
-speed = 2.1
-get_hit_cooldown_secs = 1.2
+speed = 1.8
+get_hit_cooldown_secs = 0.0
 hit_damage = 1
 size = 3
 death_prefab = ExtResource("1_pdkqm")
