@@ -3,9 +3,30 @@ extends AnimatedSprite2D
 
 @export var health_regen = 10
 @export var points = 1000
+@export var time_secs = 30
 
 func _ready():
 	_animate_light()
+	get_tree().create_timer(time_secs / 2).timeout.connect(
+		func():
+			var tween = get_tree().create_tween()
+			tween.set_ease(Tween.EASE_IN)
+			tween.set_trans(Tween.TRANS_QUINT)
+			tween.tween_property(
+				self, "modulate", Color.RED, time_secs/2
+			)
+			tween.finished.connect(
+				func():
+					var tween_2 = get_tree().create_tween()
+					tween_2.set_ease(Tween.EASE_IN)
+					tween_2.set_trans(Tween.TRANS_QUINT)
+					tween_2.tween_property(
+					self, "modulate", Color.TRANSPARENT, 0.5
+			)
+					await tween_2.finished
+					queue_free()
+			)
+	)
 	
 func _animate_light():
 	# TODO levar o timer abaixo para um único timer no GameManager

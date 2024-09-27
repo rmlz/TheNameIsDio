@@ -6,6 +6,7 @@ func apply(character: CharacterBase) -> void:
 		"arcane_amplifier": _add_arcane_amplifier(character)
 		"lunge_boost": _add_lunge_boost(character)
 		_: print("Apply item method not implemented for ID: " + self.id)
+	GameManager.change_points_by(-self.cost)
 			
 func _add_arcane_amplifier(character: CharacterBase):
 	character.inventory_component.add_item(self)
