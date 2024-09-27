@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4whdiwpjb7p3"]
+[gd_scene load_steps=8 format=3 uid="uid://b4whdiwpjb7p3"]
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://b1lc2wh286ub5" path="res://scenes/characters/enemies/lvl3/goblin_barrel_regular_lvl3.tscn" id="3_6jj1c"]
 [ext_resource type="PackedScene" uid="uid://886ndd2bi0fq" path="res://scene_ui/mobile_joypad.tscn" id="4_ho7j8"]
+[ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl3/bow_arrow_small_lvl3.tscn" id="4_nck3g"]
+[ext_resource type="PackedScene" uid="uid://blg2yk6pnlgxj" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="5_pqi6m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -97,19 +98,38 @@ text = "Attack-up2"
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
 position = Vector2(1057, 464)
 
-[node name="GoblinBarrelLvl3" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(664, 324)
-
-[node name="GoblinBarrelLvl4" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(306, 58)
-
-[node name="GoblinBarrelLvl5" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(26, 390)
-
-[node name="GoblinBarrelLvl6" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(-138, 206)
-
-[node name="GoblinBarrelLvl7" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(1372, 644)
-
 [node name="MobileJoypad" parent="." instance=ExtResource("4_ho7j8")]
+visible = false
+
+[node name="BowAndArrowSmallLvl3" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(136, 88)
+
+[node name="BowAndArrowSmallLvl4" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(298, 120)
+
+[node name="BowAndArrowSmallLvl5" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(330, 314)
+
+[node name="BowAndArrowSmallLvl6" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(162, 404)
+
+[node name="BowAndArrowSmallLvl7" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(246, 14)
+
+[node name="BowAndArrowSmallLvl8" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(48, 38)
+
+[node name="BowAndArrowSmallLvl9" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(64, 232)
+
+[node name="BowAndArrowSmallLvl10" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(-4, 96)
+
+[node name="BowAndArrowSmallLvl11" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(48, 268)
+
+[node name="BowAndArrowSmallLvl12" parent="." instance=ExtResource("4_nck3g")]
+position = Vector2(-2, 406)
+
+[node name="BowAndArrowSmallLvl13" parent="." instance=ExtResource("5_pqi6m")]
+position = Vector2(-116, 184)
