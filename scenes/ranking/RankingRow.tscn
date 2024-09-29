@@ -18,9 +18,12 @@ font_size = 36
 font_color = Color(0, 0, 0, 1)
 
 [node name="RankingRow" type="Panel"]
+modulate = Color(1, 1, 1, 0.9)
 custom_minimum_size = Vector2(0, 80)
+scale = Vector2(0.8, 0.8)
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.13
+focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hy6pn")
 script = ExtResource("2_smjxf")
 
@@ -83,3 +86,6 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_h4evl")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

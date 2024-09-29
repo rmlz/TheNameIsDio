@@ -207,8 +207,10 @@ itens = Array[ExtResource("2_od03r")]([ExtResource("2_sdp6q"), ExtResource("6_lj
 item_scene = ExtResource("5_nriyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = 800.0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 1448.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 50
@@ -234,6 +236,8 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VScrollBar" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 2
 
 [node name="ItemGrid" type="GridContainer" parent="MarginContainer/Panel/MarginContainer/VScrollBar"]
 unique_name_in_owner = true
@@ -252,9 +256,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -104.5
-offset_top = 20.0
+offset_top = 900.0
 offset_right = 104.5
-offset_bottom = 120.0
+offset_bottom = 1000.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_stldt")
 
@@ -295,6 +299,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2mr44")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_dppko")
 theme_override_styles/hover = SubResource("StyleBoxTexture_5vcyd")

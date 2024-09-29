@@ -242,6 +242,7 @@ libraries = {
 }
 autoplay = "fade_in"
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="ButtonPanel/Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonPanel/Control/RankingButton" to="." method="_on_ranking_button_pressed"]
 [connection signal="toggled" from="ButtonPanel/Control/CheckButton" to="." method="_on_check_button_toggled"]

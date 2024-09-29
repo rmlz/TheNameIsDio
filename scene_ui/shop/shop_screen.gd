@@ -3,6 +3,7 @@ class_name ShopScreen
 
 @export var itens: Array[ShopResourceBase] = []
 @export var item_scene: PackedScene
+var window_opened = false
 
 signal on_item_button_buy_clicked
 signal on_button_close_clicked
@@ -15,10 +16,18 @@ func _ready():
 func open_window() -> void:
 	_update()
 	%AnimationPlayer.play("open_shop_window")
+	window_opened = true
 
 func animate_items_open():
-	for item: ShopItem in %ItemGrid.get_children():
+	var itens = %ItemGrid.get_children()
+	var focus_grabbed = false
+	for i: int in itens.size():
+		var item: ShopItem = itens[i]
+		if !item.buy_button.disabled and not focus_grabbed:
+			item.buy_button.grab_focus()
+			focus_grabbed = true
 		item.animate_open()
+	
 		
 func animate_items_close():
 	for item: ShopItem in %ItemGrid.get_children():
@@ -45,4 +54,9 @@ func _on_close_button_pressed():
 	await %AnimationPlayer.animation_finished
 	for item: ShopItem in %ItemGrid.get_children():
 		item.hide()
+	window_opened = false
 	on_button_close_clicked.emit()
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause") and window_opened: 
+		await _on_close_button_pressed()

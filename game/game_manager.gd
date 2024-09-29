@@ -6,7 +6,7 @@ signal on_change_spawn_number
 signal on_new_item_bought
 
 var player_position: Vector2
-var _points: float = 0 : set = _set_points
+var _points: float = 99999999999 : set = _set_points
 	
 var is_game_over: bool = false
 var is_playing: bool = false

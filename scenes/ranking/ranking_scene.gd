@@ -97,3 +97,7 @@ func _on_animation_player_animation_finished(anim_name: String):
 		get_tree().change_scene_to_file("res://scene_ui/game_start.tscn")
 	elif anim_name == "fade_in":
 		start_screen()
+		
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause") and not loading_bar.visible:
+		_on_return_pressed()
