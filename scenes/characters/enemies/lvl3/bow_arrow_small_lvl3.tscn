@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cse3yrvxsdkh7"]
+[gd_scene load_steps=24 format=3 uid="uid://cse3yrvxsdkh7"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_uo8lj"]
 [ext_resource type="Resource" uid="uid://dqbx2vhm3xqp" path="res://scenes/characters/resources/character_statistics/bow_and_arrow_small_stats.tres" id="2_85y3c"]
@@ -16,8 +16,6 @@
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateCoolDown.gd" id="14_tpc15"]
 [ext_resource type="Script" path="res://scripts/fsm/enemyStates/StateKeepDistance.gd" id="15_665f6"]
 [ext_resource type="PackedScene" uid="uid://fykkxugvhgq6" path="res://scenes/characters/components/Status/status_component/StatusComponent.tscn" id="16_qhasx"]
-[ext_resource type="AudioStream" uid="uid://cw7uswoci1ku7" path="res://assets/sfx/weapons/FGHTImpt_Anime Melee 8-cut.wav" id="17_tkprw"]
-[ext_resource type="AudioStream" uid="uid://cjp7fue3x15a4" path="res://assets/sfx/weapons/Retro Impact Metal 05.wav" id="18_75wun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xp4pv"]
 radius = 300.0
@@ -189,16 +187,6 @@ offset_bottom = -15.0
 metadata/_edit_use_anchors_ = true
 
 [node name="StatusComponent" parent="." instance=ExtResource("16_qhasx")]
-
-[node name="HitAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_tkprw")
-volume_db = -7.0
-attenuation = 2.21
-
-[node name="TankAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("18_75wun")
-volume_db = -7.0
-pitch_scale = 1.36
 
 [connection signal="health_equal_zero" from="HealthComponent" to="." method="_on_health_equal_zero"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/StateAttack" method="_on_attack_animation_finished"]

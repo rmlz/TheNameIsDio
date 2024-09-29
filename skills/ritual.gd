@@ -5,18 +5,20 @@ extends Node2D
 @export var status: PackedScene
 @onready var damage_area = $Area2D
 
+signal on_enemy_group_hitten
+
 var status_scene: Status
 
 func deal_damage() -> void:
 	var play_audio = true
-	for body in damage_area.get_overlapping_bodies():
-		if body.is_in_group("enemies"):
-			var enemy: EnemyBase = body
-			if play_audio:
-				enemy.receive_damage_play_audio(damage, (enemy.position - GameManager.player_position).normalized())
-			else:
-				enemy.receive_damage(damage, (enemy.position - GameManager.player_position).normalized())
-			apply_status(enemy)
+	var hitten_enemies = damage_area.get_overlapping_bodies().filter(
+		func(body):
+			return body.is_in_group("enemies")
+	)
+	for enemy: EnemyBase in hitten_enemies:
+		enemy.receive_damage(damage, (enemy.position - GameManager.player_position).normalized())
+		apply_status(enemy)
+	on_enemy_group_hitten.emit(hitten_enemies)
 	
 func apply_status(enemy: EnemyBase) -> void:
 	if status:

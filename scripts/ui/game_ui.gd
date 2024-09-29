@@ -19,8 +19,8 @@ func _on_points_changed(new_points: int):
 	
 func _on_time_changed(new_time_left: float):
 	var sec = fmod(new_time_left, 60.0)
-	var min = int(new_time_left / 60)
-	$PanelTime/Time.text = "Time: %02d:%02d" % [min, sec]
+	var mnt = int(new_time_left / 60)
+	$PanelTime/Time.text = "Time: %02d:%02d" % [mnt, sec]
 
 func _on_button_buy_pressed():
 	if not get_tree().paused:

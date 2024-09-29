@@ -6,8 +6,6 @@ extends CharacterBody2D
 @onready var health: HealthComponent = $HealthComponent
 @onready var animation_player = $AnimationPlayer
 @onready var debug_state: Label = $DEBUG_STATE
-@onready var hit_audio = $HitAudio
-@onready var tank_hit_audio = $TankAudio
 
 var ranged_attack_component: BaseRangedAttackComponent
 var melee_attack_component: BaseMeleeAttackComponent
@@ -63,20 +61,11 @@ func change_size(vector: Vector2):
 	for node: Node2D in $Sizeable.get_children():
 		node.apply_scale(vector)
 	$CollisionShape2D.apply_scale(vector)
-	
-func receive_damage_play_audio(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
-	receive_damage(amount,collision_vector, ignore_cooldown, true)
 
-
-func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false, play_audio = false) -> void:
+func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = false) -> void:
 	if amount == 0:
 		return
 	var is_tank = statistics.get_hit_cooldown_secs == 0 or invicible
-	if play_audio:
-		if hit_audio and not is_tank:
-			hit_audio.play(0)
-		if tank_hit_audio and is_tank:
-			tank_hit_audio.play(0)
 	if health:
 		health.damage(amount)
 	run_damage_color_feedback(is_tank)
@@ -92,7 +81,7 @@ func receive_damage(amount: int, collision_vector: Vector2, ignore_cooldown = fa
 func receive_damage_ignore_tanking(amount: int, collision_vector: Vector2, hit_cooldown: float):
 	if amount == 0:
 		return
-	hit_audio.play(0)
+	
 	if health:
 		health.damage(amount)
 	run_damage_color_feedback(false)
