@@ -10,6 +10,7 @@ func _ready():
 	get_tree().create_timer(time_secs / 2).timeout.connect(
 		func():
 			var tween = get_tree().create_tween()
+			tween.set_parallel(true)
 			tween.set_ease(Tween.EASE_IN)
 			tween.set_trans(Tween.TRANS_QUINT)
 			tween.tween_property(
@@ -38,7 +39,6 @@ func _animate_light():
 	tween.tween_property(
 		self, "modulate", Color.WHITE, 0.3
 	)
-
 	_animate_light()
 	
 

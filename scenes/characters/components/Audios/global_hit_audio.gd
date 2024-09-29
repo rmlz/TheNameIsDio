@@ -1,6 +1,8 @@
 class_name GlobalHitAudio extends Node2D
 
 func play_hit_audio(enemies: Array, player_pos: Vector2) -> void:
+	if enemies.is_empty():
+		return
 	var distance = 999999999999
 	var is_tank = false
 	var pos = Vector2.ZERO
