@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0i44wx1y72bx"]
+[gd_scene load_steps=10 format=3 uid="uid://c4eai6gxvugql"]
 
-[ext_resource type="Script" path="res://scenes/projectile/Arrow/projectile_arrow.gd" id="1_8ljsd"]
-[ext_resource type="Texture2D" uid="uid://dtq1avw8gfkfx" path="res://assets/TinySword/Factions/Knights/Troops/Archer/Arrow/Arrow.png" id="2_rx3k0"]
+[ext_resource type="Script" path="res://scenes/projectile/Arrow/projectile_arrow.gd" id="1_3ohdy"]
+[ext_resource type="Texture2D" uid="uid://dtq1avw8gfkfx" path="res://assets/TinySword/Factions/Knights/Troops/Archer/Arrow/Arrow.png" id="2_rln3f"]
 
 [sub_resource type="Animation" id="Animation_42ev0"]
 length = 0.001
@@ -426,17 +426,19 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwkex"]
 radius = 32.0156
 
-[node name="Arrow" type="CharacterBody2D"]
+[node name="ArrowBig" type="CharacterBody2D"]
 y_sort_enabled = true
-script = ExtResource("1_8ljsd")
+scale = Vector2(2, 2)
+script = ExtResource("1_3ohdy")
 speed = 650.0
 bump_ground_reduce_speed = 1.0
-damage = 15
+damage = 25
+friend_fire = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
 rotation = -0.261799
-texture = ExtResource("2_rx3k0")
+texture = ExtResource("2_rln3f")
 flip_h = true
 vframes = 2
 

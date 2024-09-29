@@ -32,7 +32,7 @@ func attack(target_position: Vector2) -> void:
 	var projectile_instance: Node
 	for i in range(number_of_projectiles):
 		projectile_instance = projectile_scene.instantiate() as ProjectileBase
-		projectile_instance.setup(character.launch_point.global_position, target_position, 750)
+		projectile_instance.setup(character.launch_point.global_position, generate_noisy_position(target_position), 750)
 		owner.get_parent().add_child(projectile_instance)
 
 func _get_configuration_warnings():
@@ -42,3 +42,9 @@ func _get_configuration_warnings():
 	if not projectile_scene:
 		result.append("Projectile scene cannot be null")
 	return result
+	
+func generate_noisy_position(target_position: Vector2, noise_level: float = 150.0)-> Vector2:
+	var noise_x = randf_range(-noise_level, noise_level)
+	var noise_y = randf_range(-noise_level, noise_level)
+	
+	return target_position + Vector2(noise_x, noise_y)

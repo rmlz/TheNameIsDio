@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4whdiwpjb7p3"]
+[gd_scene load_steps=8 format=3 uid="uid://b4whdiwpjb7p3"]
 
 [ext_resource type="Texture2D" uid="uid://bn8dmeair72sr" path="res://assets/TinySword/Factions/Knights/Troops/Warrior/Red/Warrior_Red.png" id="1_8qt1i"]
 [ext_resource type="PackedScene" uid="uid://cxge6rvc7mdfy" path="res://scenes/characters/player/player.tscn" id="2_jjqh3"]
-[ext_resource type="PackedScene" uid="uid://b1lc2wh286ub5" path="res://scenes/characters/enemies/lvl3/goblin_barrel_regular_lvl3.tscn" id="3_6jj1c"]
 [ext_resource type="PackedScene" uid="uid://886ndd2bi0fq" path="res://scene_ui/mobile_joypad.tscn" id="4_ho7j8"]
+[ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="4_xkcha"]
+[ext_resource type="PackedScene" uid="uid://blg2yk6pnlgxj" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="5_pqi6m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n73wv"]
 line_spacing = 150.0
@@ -97,19 +98,12 @@ text = "Attack-up2"
 [node name="Player" parent="." instance=ExtResource("2_jjqh3")]
 position = Vector2(1057, 464)
 
-[node name="GoblinBarrelLvl3" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(664, 324)
-
-[node name="GoblinBarrelLvl4" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(306, 58)
-
-[node name="GoblinBarrelLvl5" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(26, 390)
-
-[node name="GoblinBarrelLvl6" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(-138, 206)
-
-[node name="GoblinBarrelLvl7" parent="." instance=ExtResource("3_6jj1c")]
-position = Vector2(1372, 644)
-
 [node name="MobileJoypad" parent="." instance=ExtResource("4_ho7j8")]
+visible = false
+
+[node name="PawnBigLvl4" parent="." instance=ExtResource("4_xkcha")]
+position = Vector2(286, 250)
+
+[node name="BowAndArrowBigLvl4" parent="." instance=ExtResource("5_pqi6m")]
+position = Vector2(972, 448)
+deal_damage_time_cooldown = 0.8
