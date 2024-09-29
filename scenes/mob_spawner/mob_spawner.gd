@@ -65,11 +65,11 @@ func spawn_monsters() -> bool:
 	
 	if is_start:
 		return _spawn_start_monsters(get_next_creature(lvl1_creatures))
-	if time < 1020:
+	if GameManager.get_time_elapsed_percent() <= 0.85:
 		creature_scenes.append(get_next_creature(lvl1_creatures))
-		if time > 300:
+		if GameManager.get_time_elapsed_percent() > 0.25:
 			creature_scenes.append(get_next_creature(lvl2_creatures))
-		if time > 600:
+		if GameManager.get_time_elapsed_percent() > 0.5:
 			creature_scenes.append(get_next_creature(lvl3_creatures))
 	else:
 		creature_scenes.append(get_next_creature(lvl4_creatures))
