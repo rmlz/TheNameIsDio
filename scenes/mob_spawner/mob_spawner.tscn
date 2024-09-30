@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bqoqokisw8ngt"]
+[gd_scene load_steps=24 format=3 uid="uid://bqoqokisw8ngt"]
 
 [ext_resource type="Script" path="res://scenes/mob_spawner/mob_spawner.gd" id="1_gl0ov"]
 [ext_resource type="PackedScene" uid="uid://ddygnwfwnj7u0" path="res://scenes/characters/enemies/lvl2/goblin_tnt_regular_lvl2.tscn" id="3_4e1wc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bseak21tmcn4n" path="res://scenes/characters/enemies/lvl3/goblin_tnt_big_lvl3.tscn" id="8_b62xo"]
 [ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="8_sxfbk"]
 [ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl3/goblin_torch_regular_lvl3.tscn" id="9_iwh3x"]
+[ext_resource type="PackedScene" uid="uid://2dfv2vc4e55i" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="10_ey13y"]
 
 [sub_resource type="Resource" id="Resource_ataxg"]
 script = ExtResource("3_grslj")
@@ -48,6 +49,16 @@ mob_odds = 3
 [sub_resource type="Resource" id="Resource_a4rjg"]
 script = ExtResource("3_grslj")
 mob_scene = ExtResource("8_sxfbk")
+mob_odds = 9
+
+[sub_resource type="Resource" id="Resource_6tkvh"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("10_ey13y")
+mob_odds = 1
+
+[sub_resource type="Resource" id="Resource_vqedl"]
+script = ExtResource("3_grslj")
+mob_scene = ExtResource("7_12nf5")
 mob_odds = 1
 
 [sub_resource type="Curve2D" id="Curve2D_kjmaf"]
@@ -73,7 +84,7 @@ script = ExtResource("1_gl0ov")
 lvl1_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_ataxg"), SubResource("Resource_wka2b")])
 lvl2_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_ysjgg"), SubResource("Resource_ge4r3"), SubResource("Resource_jglxl")])
 lvl3_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_dkcc4"), SubResource("Resource_160rn")])
-lvl4_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_a4rjg")])
+lvl4_creatures = Array[ExtResource("3_grslj")]([SubResource("Resource_a4rjg"), SubResource("Resource_6tkvh"), SubResource("Resource_vqedl")])
 initial_spawn_rate = 25
 spawn_rate_per_minute = 5.0
 break_intensity = 0.25
@@ -103,7 +114,7 @@ curve = SubResource("Curve2D_vemru")
 
 [node name="PathFollowLvl3" type="PathFollow2D" parent="PathLvl3"]
 position = Vector2(-481.762, -364.897)
-rotation = 0.0260863
+rotation = 0.0260865
 
 [node name="PathStart" type="Path2D" parent="."]
 position = Vector2(-258.316, -110.959)
@@ -112,4 +123,4 @@ curve = SubResource("Curve2D_vemru")
 
 [node name="PathFollowStart" type="PathFollow2D" parent="PathStart"]
 position = Vector2(-481.762, -364.897)
-rotation = 0.0260863
+rotation = 0.0260865

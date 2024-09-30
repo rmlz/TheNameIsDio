@@ -100,9 +100,15 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.333333, 0.7, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [true],
+"method": &"_set_over_z_index"
+}, {
+"args": [false],
+"method": &"_set_over_z_index"
+}, {
 "args": [],
 "method": &"stop_velocity"
 }, {
@@ -181,9 +187,15 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.333333, 0.666667, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [true],
+"method": &"_set_over_z_index"
+}, {
+"args": [false],
+"method": &"_set_over_z_index"
+}, {
 "args": [],
 "method": &"stop_velocity"
 }, {
@@ -262,9 +274,15 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.333333, 0.666667, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [true],
+"method": &"_set_over_z_index"
+}, {
+"args": [false],
+"method": &"_set_over_z_index"
+}, {
 "args": [],
 "method": &"stop_velocity"
 }, {
@@ -343,9 +361,15 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.333333, 0.666667, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [true],
+"method": &"_set_over_z_index"
+}, {
+"args": [false],
+"method": &"_set_over_z_index"
+}, {
 "args": [],
 "method": &"stop_velocity"
 }, {

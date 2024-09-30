@@ -3,6 +3,7 @@ class_name ShopItem
 
 signal _on_item_buy_button_clicked
 var item_resource: ShopResourceBase
+@onready var buy_button: Button = %BuyButton
 var idx: int = 0
 
 func setup(item: ShopResourceBase, index: int):
@@ -39,6 +40,10 @@ func _on_buy_button_pressed():
 		update()
 
 func update():
-	%BuyButton.disabled = GameManager.get_points() < item_resource.cost or item_resource.is_purchased
+	buy_button.disabled = GameManager.get_points() < item_resource.cost or item_resource.is_purchased
 	%PurchasedLabel.visible = item_resource.is_purchased
 	
+
+
+func _on_focus_entered() -> void:
+	buy_button.grab_focus() # Replace with function body.

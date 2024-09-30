@@ -8,5 +8,5 @@ script = ExtResource("2_0xpnd")
 icon = ExtResource("1_pddo7")
 title = "Lunge Boost"
 id = "lunge_boost"
-description = "PRESS [M] - Increases the character's forward momentum and slashing speed, making for a devastating combination"
-cost = 1
+description = "Increases the character's forward momentum and slashing speed Keyboard [M] XBOX [X]"
+cost = 15000

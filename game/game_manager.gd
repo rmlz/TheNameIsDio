@@ -11,7 +11,7 @@ var _points: float = 0 : set = _set_points
 var is_game_over: bool = false
 var is_playing: bool = false
 var is_touch_joypad_enabled = false
-var is_debug_enabled = true
+var is_debug_enabled = false
 var _time_elapsed: float = 0.0
 var max_game_time: int = 20 #minutes
 var _time_left: float = 0.0
@@ -52,6 +52,9 @@ func _update_timer(delta: float) -> void:
 
 func get_time_left() -> int:
 	return _time_left
+	
+func get_time_elapsed_percent() -> float:
+	return _time_elapsed / (max_game_time * 60)
 	
 func change_points_by(value: float):
 	_set_points(_points + value)

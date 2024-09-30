@@ -7,8 +7,12 @@ extends CharacterBase
 @onready var slash: Node2D = %SlashAmplifier
 @onready var inventory_component: InventoryComponent = $InventoryComponent
 @onready var state_machine: StateMachine = $StateMachine
+@onready var hit_audio = $HitAudio
+@onready var tank_hit_audio = $TankAudio
 
 @export var dash_ghost_scene: PackedScene
+
+signal on_attack_enemy_group
 
 var _hit_cooldown: float = 0.0
 var attack_cooldown: float = 0.65
@@ -93,3 +97,6 @@ func _on_health_equal_zero():
 
 func _on_skill_progress_bars_on_ritual_timer_timeout(ritual_scene: PackedScene):
 	add_child(ritual_scene.instantiate())
+
+func _on_melee_attack_component_enemy_group_hitten(enemies: Array) -> void:
+	on_attack_enemy_group.emit(enemies, self.position)

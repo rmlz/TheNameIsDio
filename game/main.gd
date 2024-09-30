@@ -14,11 +14,14 @@ func _ready():
 		
 func trigger_game_over():
 	if game_ui:
-		var game_over_ui = game_over_ui.instantiate()
-		add_child(game_over_ui)
+		var game_over_ui_scene = game_over_ui.instantiate()
+		add_child(game_over_ui_scene)
 		game_ui.queue_free()
 		game_ui = null
 		
-func _process(delta):
+func _process(_delta):
+	if Input.is_action_just_pressed("pause"): 
+		if not $GameUI/PanelButtons/HBoxContainer/ButtonBuy.disabled:
+			await $GameUI._on_button_buy_pressed()
 	if GameManager.is_game_over:
 		trigger_game_over()

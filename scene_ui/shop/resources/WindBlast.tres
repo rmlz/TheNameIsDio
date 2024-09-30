@@ -12,4 +12,4 @@ icon = ExtResource("1_uuvfh")
 title = "Wind Blast"
 id = "wind_blast"
 description = "Unleashes a powerful burst of wind that knocks back enemies and deals damage."
-cost = 32000
+cost = 18000
