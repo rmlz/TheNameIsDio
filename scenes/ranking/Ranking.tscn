@@ -189,7 +189,7 @@ _data = {
 [node name="RankingScene" type="CanvasLayer"]
 script = ExtResource("1_phh4a")
 ranking_row = ExtResource("7_rgf8n")
-availableVersions = PackedStringArray("v0.0.6", "v0.0.5")
+availableVersions = PackedStringArray("v0.0.7", "v0.0.6", "v0.0.5")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_htx0j")

@@ -21,7 +21,7 @@ resources_spreadsheet_view/context_menu_on_leftclick=false
 [application]
 
 config/name="The Name is Dio"
-config/version="v0.0.6"
+config/version="v0.0.7"
 run/main_scene="res://scene_ui/game_start.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
