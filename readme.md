@@ -103,7 +103,6 @@ You also may create your own game respecting the Mozilla licence set up for this
   - [x] Adds map music "The name is Dio theme" by Andre Neves
 
 ### What is next?
-  - [ ] Add music
   - [ ] Add new map features
 
 ### Previous versions
