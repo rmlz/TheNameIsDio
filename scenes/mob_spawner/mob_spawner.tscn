@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bseak21tmcn4n" path="res://scenes/characters/enemies/lvl3/goblin_tnt_big_lvl3.tscn" id="8_b62xo"]
 [ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="8_sxfbk"]
 [ext_resource type="PackedScene" uid="uid://blkiwodt8jlje" path="res://scenes/characters/enemies/lvl3/goblin_torch_regular_lvl3.tscn" id="9_iwh3x"]
-[ext_resource type="PackedScene" uid="uid://blg2yk6pnlgxj" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="10_ey13y"]
+[ext_resource type="PackedScene" uid="uid://2dfv2vc4e55i" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="10_ey13y"]
 
 [sub_resource type="Resource" id="Resource_ataxg"]
 script = ExtResource("3_grslj")

@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c8poql2yjhcog" path="res://scenes/characters/enemies/lvl2/goblin_barrel_regular_lvl2.tscn" id="9_r581b"]
 [ext_resource type="PackedScene" uid="uid://cse3yrvxsdkh7" path="res://scenes/characters/enemies/lvl3/bow_arrow_small_lvl3.tscn" id="12_8a6s3"]
 [ext_resource type="PackedScene" uid="uid://bt5polvpgtxsm" path="res://scenes/characters/enemies/lvl4/pawn_big_lvl4.tscn" id="14_oisei"]
-[ext_resource type="PackedScene" uid="uid://blg2yk6pnlgxj" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="15_4rbce"]
+[ext_resource type="PackedScene" uid="uid://2dfv2vc4e55i" path="res://scenes/characters/enemies/lvl4/bow_arrow_big_lvl4.tscn" id="15_4rbce"]
 [ext_resource type="PackedScene" uid="uid://qtrc83w5ncww" path="res://scenes/characters/components/Audios/global_hit_audio.tscn" id="17_c0hhw"]
 [ext_resource type="AudioStream" uid="uid://b6ippfh1ockrp" path="res://assets/music/thenameisdio_tema.wav" id="18_lesh7"]
 

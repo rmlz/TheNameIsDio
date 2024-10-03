@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://blg2yk6pnlgxj"]
+[gd_scene load_steps=24 format=3 uid="uid://2dfv2vc4e55i"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/enemy_base.gd" id="1_72m86"]
 [ext_resource type="Resource" uid="uid://bmoc567w111nu" path="res://scenes/characters/resources/character_statistics/bow_and_arrow_regular_stats.tres" id="2_peoc0"]
 [ext_resource type="Texture2D" uid="uid://b0qokjh26yp87" path="res://assets/TinySword/Factions/Knights/Troops/Archer/Yellow/Archer_Yellow.png" id="3_ey81n"]
 [ext_resource type="PackedScene" uid="uid://fe8k7ueri7kk" path="res://scenes/characters/components/Attacks/RangedAttackComponent.tscn" id="4_18q4i"]
-[ext_resource type="PackedScene" uid="uid://c4eai6gxvugql" path="res://scenes/projectile/Arrow/ArrowBig.tscn" id="5_3o1ki"]
+[ext_resource type="PackedScene" path="res://scenes/projectile/Arrow/ArrowBig.tscn" id="5_3o1ki"]
 [ext_resource type="PackedScene" uid="uid://tun6ba5hj472" path="res://scenes/characters/components/Health/health_component.tscn" id="6_rd5sg"]
 [ext_resource type="Script" path="res://scenes/characters/components/DropItems/drop_items_component.gd" id="7_t6aee"]
 [ext_resource type="PackedScene" uid="uid://by34ey08wa31g" path="res://misc/collectable/gold.tscn" id="8_71rjr"]

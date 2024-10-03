@@ -93,6 +93,20 @@ You also may create your own game respecting the Mozilla licence set up for this
 <!-- ROADMAP -->
 ## Roadmap
 ### What is new?
+- Version 0.0.7
+  - [x] DIO-23 Adds sword reach amplifier buff
+  - [x] DIO-24 Adds new dash skill
+  - [x] DIO-25 Implements new audio logics to improve sound effects
+  - [x] DIO-26 Improves UI by accepting keyboard and controller commands
+  - [x] DIO-27 Adds new enemy: Big Archer
+  - [x] DIO-28 Adds timer to collect collectables in the map before it vanishes
+  - [x] Adds map music "The name is Dio theme" by Andre Neves
+
+### What is next?
+  - [ ] Add new map features
+
+### Previous versions
+
 - VersioN 0.0.6
   - [x] DIO-17 Creates buying system for player's skills
   - [x] DIO-18 Adds pause button
@@ -100,12 +114,6 @@ You also may create your own game respecting the Mozilla licence set up for this
   - [x] DIO-20 Adds two new buff skills
   - [x] DIO-21 Improves shield skiils from 1 to 3 seconds duration
   - [X] DIO-22 Creates new Enemy: Goblin Barrel
-
-### What is next?
-  - [ ] Add music
-  - [ ] Add new map features
-
-### Previous versions
 
 - VersioN 0.0.5
   - [x] DIO-12 Create first ANDROID version of the game
